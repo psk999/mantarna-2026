@@ -235,11 +235,12 @@ export default function Home() {
 </section>
 
       <footer className="border-t border-slate-200 bg-white/80 px-6 py-8 md:px-10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 Mantrana Healthcare Technology Pvt. Ltd.</p>
-          <p>Human Wisdom, Machine Intelligence</p>
-        </div>
-      </footer>
+  <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+    <p>© 2026 Mantrana Healthcare Technology Pvt. Ltd.</p>
+    <p>Human Wisdom, Machine Intelligence</p>
+  </div>
+</footer>
+
     </main>
   );
 }
