@@ -31,15 +31,7 @@ export default function Home() {
             </a>
           </nav>
 
-          <a
-            href="https://forms.gle/EG3dn4emFdzqTNJM8"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-teal-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-800"
-          >
-            Apply Now
-          </a>
-        </div>
+                </div>
       </header>
 
       <section className="mx-auto grid min-h-[88vh] max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-10">
