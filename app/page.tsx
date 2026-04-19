@@ -201,20 +201,38 @@ export default function Home() {
       </section>
 
       <section
-        id="contact"
-        className="border-t border-slate-200 bg-white/70 px-6 py-20 md:px-10"
-      >
-        <div className="mx-auto max-w-5xl text-center">
-          <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
-            Contact
-          </h2>
+  id="contact"
+  className="border-t border-slate-200 bg-white/70 px-6 py-20 md:px-10"
+>
+  <div className="mx-auto max-w-5xl text-center">
+    <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
+      Contact
+    </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-            For collaboration, internship coordination, and institutional
-            engagement, please connect through the official Mantrana channels.
-          </p>
-        </div>
-      </section>
+    <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+      For collaboration, internship coordination, and institutional
+      engagement, please connect through the official Mantrana channels.
+    </p>
+
+    <div className="mt-10 flex flex-col items-center gap-4 text-slate-700">
+      <a
+        href="mailto:contact@mantranahealthcare.com"
+        className="text-lg font-medium transition hover:text-teal-700"
+      >
+        contact@mantranahealthcare.com
+      </a>
+
+      <a
+        href="https://mantarna-2026.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-lg font-medium transition hover:text-teal-700"
+      >
+        Visit Website
+      </a>
+    </div>
+  </div>
+</section>
 
       <footer className="border-t border-slate-200 bg-white/80 px-6 py-8 md:px-10">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
