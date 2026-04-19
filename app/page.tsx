@@ -129,7 +129,7 @@ export default function Home() {
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
             Mantrana brings together human expertise and machine intelligence to
             support collaborative work in healthcare technology, implementation
-            Research (IR),and innovation.
+            Research (IR) and innovation.
           </p>
         </div>
       </section>
