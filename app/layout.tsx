@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: "Mantrana Healthcare",
   description:
     "A collaborative healthcare transformation initiative connecting institutions, research, innovation, and digital technology for meaningful healthcare impact.",
+  openGraph: {
+    title: "Mantrana Healthcare",
+    description:
+      "A collaborative healthcare transformation initiative connecting institutions, research, innovation, and digital technology for meaningful healthcare impact.",
+    url: "https://mantarna-2026.vercel.app",
+    siteName: "Mantrana Healthcare",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mantrana Healthcare",
+    description:
+      "A collaborative healthcare transformation initiative connecting institutions, research, innovation, and digital technology for meaningful healthcare impact.",
+  },
 };
 
 export default function RootLayout({
