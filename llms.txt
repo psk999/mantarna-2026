@@ -1,0 +1,40 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+# {{ site.seo.title }}
+
+> {{ site.legal_name }}: {{ site.tagline }}. {{ site.description | strip_newlines | strip }}
+
+Mantrana is a collaborative healthcare transformation company, established in {{ site.seo.founded }}, bringing together {{ site.seo.partners | array_to_sentence_string }}. It applies machine learning and artificial intelligence to healthcare technology, implementation research and innovation.
+
+## Pages
+
+- [Home]({{ '/' | absolute_url }}): overview, vision, internships and contact
+- [About]({{ '/about/' | absolute_url }}): story, approach, innovation cycle and FAQ
+- [Platform]({{ '/platform/' | absolute_url }}): {{ site.data.platform.sub | strip_newlines | strip }}
+- [Research]({{ '/research/' | absolute_url }}): applications in development and hospital AI projects with SSSIHMS
+- [Founders]({{ '/founders/' | absolute_url }}): profiles of the founders
+
+## Founders
+{% for f in site.data.founders %}
+- {{ f.name }} ({{ f.role }}): {{ f.summary | strip_newlines | strip }} Contact: {{ f.email }}
+{%- endfor %}
+
+## Research in development
+{% for a in site.data.research.applications.items %}
+- {{ a.title }}: {{ a.text }}
+{%- endfor %}
+
+## Frequently asked questions
+{% for q in site.data.about.faq %}
+### {{ q.q }}
+{{ q.a | strip_newlines | strip }}
+{% endfor %}
+## Contact
+
+{% for s in site.social %}- {{ s.name }}: {{ s.url }}
+{% endfor -%}
+{% for f in site.data.founders %}- {{ f.name }}: {{ f.email }}
+{% endfor -%}

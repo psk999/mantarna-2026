@@ -1,0 +1,116 @@
+{%- comment -%}
+  Search (SEO), answer-engine (AEO) and generative-engine (GEO) metadata for every page.
+  Settings: _config.yml (url, seo:, noindex). Per page: title, description, schema_type, and faq: true
+  for pages that show the FAQ (its questions come from _data/about.yml).
+{%- endcomment -%}
+{%- assign seo = site.seo -%}
+{%- assign org_name = seo.title -%}
+{%- if page.title -%}
+  {%- assign page_title = page.title | append: ' · ' | append: org_name -%}
+{%- else -%}
+  {%- assign page_title = org_name | append: ' · ' | append: site.tagline -%}
+{%- endif -%}
+{%- assign page_desc = page.description | default: site.description | strip_newlines | strip -%}
+{%- assign page_url = page.url | replace: 'index.html', '' | absolute_url -%}
+{%- assign image_url = page.image | default: seo.image | absolute_url -%}
+{%- assign home_url = '/' | absolute_url -%}
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ page_desc | escape }}">
+<link rel="canonical" href="{{ page_url }}">
+{% if site.noindex or page.noindex %}<meta name="robots" content="noindex, nofollow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">{% endif %}
+<meta name="author" content="{{ site.legal_name }}">
+<meta name="application-name" content="{{ site.short_name }}">
+<meta name="apple-mobile-web-app-title" content="{{ site.short_name }}">
+
+<!-- Share previews (WhatsApp, LinkedIn, Facebook, Slack, X) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ org_name }}">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="{{ page_url }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_desc | escape }}">
+<meta property="og:image" content="{{ image_url }}">
+<meta property="og:image:secure_url" content="{{ image_url }}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ seo.image_alt | escape }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title }}">
+<meta name="twitter:description" content="{{ page_desc | escape }}">
+<meta name="twitter:image" content="{{ image_url }}">
+<meta name="twitter:image:alt" content="{{ seo.image_alt | escape }}">
+
+<!-- Structured data: who the company is, its founders, and where this page sits -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": {{ home_url | append: '#organization' | jsonify }},
+      "name": {{ org_name | jsonify }},
+      "legalName": {{ site.legal_name | jsonify }},
+      "alternateName": {{ site.short_name | jsonify }},
+      "url": {{ home_url | jsonify }},
+      "logo": { "@type": "ImageObject", "url": {{ seo.logo | absolute_url | jsonify }}, "width": 400, "height": 400 },
+      "image": {{ image_url | jsonify }},
+      "slogan": {{ site.tagline | jsonify }},
+      "description": {{ site.description | strip_newlines | strip | jsonify }},
+      "foundingDate": {{ seo.founded | jsonify }},
+      "knowsAbout": {{ seo.topics | jsonify }},
+      "sameAs": {{ site.social | map: 'url' | jsonify }},
+      "founder": [{% for f in site.data.founders %}{ "@id": {{ home_url | append: 'founders/#' | append: f.slug | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      "contactPoint": [{% for f in site.data.founders %}{ "@type": "ContactPoint", "contactType": "collaboration and internships", "name": {{ f.name | jsonify }}, "email": {{ f.email | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}]
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ home_url | append: '#website' | jsonify }},
+      "url": {{ home_url | jsonify }},
+      "name": {{ org_name | jsonify }},
+      "alternateName": {{ site.short_name | jsonify }},
+      "description": {{ site.description | strip_newlines | strip | jsonify }},
+      "inLanguage": {{ site.lang | jsonify }},
+      "publisher": { "@id": {{ home_url | append: '#organization' | jsonify }} }
+    },
+    {
+      "@type": {{ page.schema_type | default: 'WebPage' | jsonify }},
+      "@id": {{ page_url | append: '#webpage' | jsonify }},
+      "url": {{ page_url | jsonify }},
+      "name": {{ page_title | jsonify }},
+      "description": {{ page_desc | jsonify }},
+      "inLanguage": {{ site.lang | jsonify }},
+      "isPartOf": { "@id": {{ home_url | append: '#website' | jsonify }} },
+      "about": { "@id": {{ home_url | append: '#organization' | jsonify }} },
+      "primaryImageOfPage": { "@type": "ImageObject", "url": {{ image_url | jsonify }}, "width": 1200, "height": 630 },
+      "dateModified": {{ site.time | date_to_xmlschema | jsonify }}{% if page.title %},
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ home_url | jsonify }} },
+          { "@type": "ListItem", "position": 2, "name": {{ page.title | jsonify }}, "item": {{ page_url | jsonify }} }
+        ]
+      }{% endif %}
+    }{% for f in site.data.founders %},
+    {
+      "@type": "Person",
+      "@id": {{ home_url | append: 'founders/#' | append: f.slug | jsonify }},
+      "name": {{ f.name | jsonify }},
+      "jobTitle": {{ f.role | jsonify }},
+      "description": {{ f.summary | strip_newlines | strip | jsonify }},
+      "image": {{ f.photo | absolute_url | jsonify }},
+      "email": {{ f.email | prepend: 'mailto:' | jsonify }},
+      "url": {{ home_url | append: 'founders/#' | append: f.slug | jsonify }},
+      "knowsAbout": {{ f.areas | jsonify }},
+      "worksFor": { "@id": {{ home_url | append: '#organization' | jsonify }} }
+    }{% endfor %}{% if page.faq %},
+    {
+      "@type": "FAQPage",
+      "@id": {{ page_url | append: '#faq' | jsonify }},
+      "mainEntity": [{% for q in site.data.about.faq %}
+        { "@type": "Question", "name": {{ q.q | jsonify }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q.a | strip_newlines | strip | jsonify }} } }{% unless forloop.last %},{% endunless %}{% endfor %}
+      ]
+    }{% endif %}
+  ]
+}
+</script>

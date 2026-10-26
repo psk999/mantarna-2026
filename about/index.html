@@ -1,6 +1,8 @@
 ---
 title: About
-description: The story, approach, research and technology platform of Mantrana Healthcare Technology.
+description: "Mantrana Healthcare Technology brings SSSIHL, SSSIHMS, SSSRIF and IIC together to apply AI and machine learning to healthcare: our story, approach and FAQ."
+schema_type: AboutPage
+faq: true
 permalink: /about/
 ---
 {% assign a = site.data.about %}
@@ -14,6 +16,7 @@ permalink: /about/
     <nav class="mt-10 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11.5px] uppercase tracking-[0.14em]" aria-label="On this page">
       <a class="text-faint no-underline hover:text-clay" href="#story">Our story</a>
       <a class="text-faint no-underline hover:text-clay" href="#approach">Approach</a>
+      <a class="text-faint no-underline hover:text-clay" href="#faq">FAQ</a>
       <a class="text-faint no-underline hover:text-clay" href="{{ '/research/' | relative_url }}">Research</a>
       <a class="text-faint no-underline hover:text-clay" href="{{ '/platform/' | relative_url }}">Platform</a>
     </nav>
@@ -106,6 +109,27 @@ permalink: /about/
       </div>
       <span class="btn btn-primary md:justify-self-end">Explore research {% include icon.html name="arrow-right" %}</span>
     </a>
+  </div>
+</section>
+
+<!-- FAQ: the same questions are published as FAQPage structured data (_includes/seo.html) -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="faq">
+  <div class="{{ wrap }} grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
+    <div>
+      <p class="label text-clay">FAQ</p>
+      <h2 class="mt-4 text-[clamp(28px,3.2vw,40px)] leading-tight">Questions about Mantrana</h2>
+    </div>
+    <div class="border-t border-line">
+      {%- for q in a.faq %}
+      <details class="group border-b border-line"{% if forloop.first %} open{% endif %}>
+        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
+          <h3 class="text-[clamp(20px,2vw,24px)] leading-snug">{{ q.q }}</h3>
+          <span class="mt-1 grid size-8 shrink-0 place-items-center rounded-full border border-line-strong text-sm text-muted transition-transform group-open:rotate-90">{% include icon.html name="arrow-right" %}</span>
+        </summary>
+        <p class="max-w-[68ch] pb-7 text-[17px] leading-relaxed text-muted">{{ q.a }}</p>
+      </details>
+      {%- endfor %}
+    </div>
   </div>
 </section>
 
