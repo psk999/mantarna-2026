@@ -51,10 +51,10 @@ layout: default
     <div class="mt-12 grid gap-4 md:grid-cols-2">
       {%- for f in site.data.founders %}
       <a class="group grid grid-cols-[96px_minmax(0,1fr)] gap-5 rounded-2xl border border-line bg-surface p-5 no-underline transition hover:border-line-strong sm:grid-cols-[140px_minmax(0,1fr)] sm:gap-7 sm:p-7" href="{{ '/founders/' | relative_url }}#{{ f.slug }}">
-        <img class="aspect-square w-full rounded-xl bg-surface-2 object-cover" src="{{ f.photo | relative_url }}" alt="Portrait of {{ f.name }}" width="480" height="480" loading="lazy">
+        <img class="aspect-[4/5] w-full rounded-xl bg-surface-2 object-cover object-top" src="{{ f.photo | relative_url }}" alt="Portrait of {{ f.name }}" width="480" height="600" loading="lazy">
         <div class="flex flex-col">
           <p class="label text-clay">{{ f.role }}</p>
-          <h3 class="mt-2 text-[clamp(22px,2.2vw,28px)] leading-tight">{{ f.name }}</h3>
+          <h3 class="mt-2 text-[clamp(22px,2.2vw,28px)] leading-tight text-balance">{{ f.name }}</h3>
           <p class="mt-3 text-muted">{{ f.summary }}</p>
           <span class="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-medium text-ink">Read profile <span class="transition group-hover:translate-x-0.5">{% include icon.html name="arrow-right" %}</span></span>
         </div>
