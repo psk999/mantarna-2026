@@ -11,7 +11,7 @@
     document.querySelectorAll('#navPanel a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && bar.classList.contains('open')) { setMenu(false); mbtn.focus(); } });
     document.addEventListener('click', function (e) { if (bar.classList.contains('open') && !bar.contains(e.target)) setMenu(false); });
-    window.matchMedia('(min-width: 861px)').addEventListener('change', function (m) { if (m.matches) setMenu(false); });
+    window.matchMedia('(min-width: 1280px)').addEventListener('change', function (m) { if (m.matches) setMenu(false); });
   }
 
   /* theme toggle: follows the device until the viewer chooses */

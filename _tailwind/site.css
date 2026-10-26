@@ -9,6 +9,7 @@
 @source "../founders";
 @source "../about";
 @source "../platform";
+@source "../research";
 
 /* Palette as CSS variables so light and dark switch in one place (data-theme, else the device). */
 :root {
@@ -75,6 +76,15 @@
   /* Lucide icon wrapper from _includes/icon.html */
   .ic { @apply inline-flex size-[1em] shrink-0; }
   .ic svg { @apply size-full; }
+}
+
+/* logo: dark-blue knot on light, lighter knot on dark (data-theme, else the device) */
+.logo-on-dark { display: none; }
+:root[data-theme="dark"] .logo-on-light { display: none; }
+:root[data-theme="dark"] .logo-on-dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logo-on-light { display: none; }
+  :root:not([data-theme="light"]) .logo-on-dark { display: block; }
 }
 
 /* mobile menu state, toggled by assets/js/site.js */

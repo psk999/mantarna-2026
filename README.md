@@ -11,7 +11,10 @@ Built with Jekyll 4.4 and Tailwind CSS v4, served from Cloudflare Workers static
 | Hero line, partners, Vision/Collaboration/Opportunity, About, Internships, Contact text | `_data/home.yml` |
 | Header and footer links | `_data/nav.yml` |
 | Company name, tagline, Apply form link | `_config.yml` |
-| Founder profiles and contact emails | `_data/founders.yml` |
+| Founder profiles, contact emails, the satellites-to-slides story | `_data/founders.yml` |
+| About page (story, approach, innovation cycle) | `_data/about.yml` |
+| Platform page and diagram | `_data/platform.yml` |
+| Research page (applications in development, hospital AI projects) | `_data/research.yml` |
 | Page structure | `index.html`, `_layouts/default.html` |
 | Colours, fonts, shared classes | `_tailwind/site.css` |
 | Images | `assets/img/` |

@@ -19,7 +19,16 @@ permalink: /platform/
 
 <!-- the diagram runs wider than the text column on large screens -->
 <section class="pb-20 lg:pb-28">
-  <div class="mx-auto max-w-[1520px] px-4 sm:px-6 lg:px-10">{% include platform-diagram.html %}</div>
+  <div class="mx-auto max-w-[1520px] px-4 sm:px-6 lg:px-10">
+    <div class="mb-4 flex flex-col gap-4 rounded-3xl border border-line bg-surface p-5 sm:flex-row sm:items-center sm:gap-6 sm:p-6 lg:px-10">
+      <span class="shrink-0">{% include logo-mark.html class="size-14 object-contain" %}</span>
+      <div>
+        <p class="label text-clay">{{ d.powered.label }}</p>
+        <p class="mt-1.5 max-w-[60ch] font-serif text-[clamp(19px,1.9vw,24px)] leading-snug text-ink">{{ d.powered.text }}</p>
+      </div>
+    </div>
+    {% include platform-diagram.html %}
+  </div>
 </section>
 
 <section class="border-t border-line py-20 lg:py-28">
@@ -48,7 +57,7 @@ permalink: /platform/
       <p class="max-w-[36ch] font-serif text-[clamp(26px,3vw,38px)] leading-[1.3] tracking-tight text-ink">{{ site.data.home.contact }}</p>
       {% include contact-list.html %}
       <p class="mt-9 flex flex-wrap gap-3">
-        <a class="btn btn-primary" href="{{ '/about/#focus' | relative_url }}">Where AI can help hospitals {% include icon.html name="arrow-right" %}</a>
+        <a class="btn btn-primary" href="{{ '/research/#projects' | relative_url }}">Hospital AI projects {% include icon.html name="arrow-right" %}</a>
         <a class="btn" href="{{ '/about/' | relative_url }}">About Mantrana {% include icon.html name="arrow-right" %}</a>
       </p>
     </div>

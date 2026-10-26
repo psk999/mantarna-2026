@@ -6,6 +6,12 @@ sub: >-
   APIs for AI. One platform connects hospital data, through open healthcare standards, to every stage
   of a patient's care and the apps and platforms that use it.
 
+# Banner above the diagram
+powered:
+  label: Powered by Mantrana
+  text: >-
+    Mantrana enables these capabilities, so that research teams can use them as a public good.
+
 # "How it fits together", read along the diagram
 walkthrough:
   - title: Connect hospital data

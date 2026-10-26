@@ -49,39 +49,3 @@ flywheel:
       where: Back to research
       icon: refresh-cw
       text: The clinical setting surfaces new, complex problems and rich datasets that drive the next wave of inquiry.
-
-research:
-  heading: Research in development
-  projects:
-    - title: Cardiogenic brain abscess
-      text: An analytical framework to identify predictive factors, and a protocol for early identification of brain abscess in patients with Tetralogy of Fallot (TOF).
-    - title: PTMC outcomes in mitral stenosis
-      text: A framework to predict outcomes and analyse risk factors for patients with mitral stenosis undergoing Percutaneous Transvenous Mitral Commissurotomy (PTMC).
-    - title: Recurrent lumbar disc herniation
-      text: An explainable machine learning framework for predicting recurrent lumbar disc herniation.
-      team: Dr. R Raghunatha Sarma, Mr. M Subramanian, Dr. Sumit Thakar, Dr. Prayag Kini
-
-focus:
-  heading: Where AI can help hospitals today
-  intro: >-
-    Working alongside clinicians, the team is exploring practical uses of AI in day-to-day hospital
-    operations.
-  areas:
-    - title: Radiology workflow
-      icon: stethoscope
-      text: Triaging reports with urgent findings, alerting clinicians to critical results, ordering image series in PACS, and tracking radiology KPIs.
-    - title: Scheduling and rosters
-      icon: layers
-      text: Scheduling CT and MRI studies and building staff duty rosters around every constraint and leave detail.
-    - title: Clinical documentation
-      icon: file-search
-      text: Turning doctor-patient conversations into outpatient notes, and voice-driven entry for notes, orders and appointments.
-    - title: Patient communication
-      icon: mail
-      text: Routing patient emails to the right department, and letting patients check by phone whether a report is ready.
-    - title: Patient flow
-      icon: network
-      text: Reducing waiting times, improving outpatient queues, and planning space and rooms so no area is crowded.
-    - title: Ask the data
-      icon: sparkles
-      text: Asking questions in plain language and getting answers from hospital data, without writing queries.

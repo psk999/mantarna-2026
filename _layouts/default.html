@@ -17,8 +17,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
-<link rel="apple-touch-icon" href="{{ '/assets/img/mantrana-logo.png' | relative_url }}">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}?v=2" sizes="any">
+<link rel="icon" href="{{ '/assets/img/favicon-dark.png' | relative_url }}?v=2" type="image/png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 <script>
   /* apply the saved theme before paint to avoid a flash */
@@ -28,26 +29,28 @@
 <body>
 <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-btn focus:px-4 focus:py-2 focus:text-btn-ink" href="#main">Skip to content</a>
 <header class="topbar sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
-  <div class="mx-auto flex min-h-18 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-10">
+  <div class="mx-auto flex min-h-18 max-w-7xl items-center gap-6 px-4 sm:px-6 xl:px-10">
     <a class="flex min-w-0 items-center gap-3 no-underline" href="{{ '/' | relative_url }}">
-      <img class="size-11 rounded-lg bg-white object-cover" src="{{ '/assets/img/mantrana-logo.png' | relative_url }}" alt="Mantrana Healthtech logo" width="44" height="44">
-      <span class="flex min-w-0 flex-col leading-tight">
-        <b class="text-[13.5px] font-semibold text-ink sm:text-[15px]">{{ site.legal_name }}</b>
-        <small class="label hidden text-[10.5px] sm:block">{{ site.tagline }}</small>
+      {% include logo-mark.html class="size-10 object-contain" %}
+      <!-- full name and tagline on wide screens; just the short name on iPad and phones -->
+      <span class="hidden min-w-0 flex-col leading-tight xl:flex">
+        <b class="text-[15px] font-semibold text-ink">{{ site.legal_name }}</b>
+        <small class="label text-[10.5px]">{{ site.tagline }}</small>
       </span>
+      <b class="text-[17px] font-semibold tracking-[0.12em] text-ink uppercase xl:hidden">{{ site.short_name }}</b>
     </a>
-    <div class="nav-panel absolute inset-x-0 top-full hidden flex-col gap-3 border-b border-line bg-paper px-4 pt-3 pb-5 md:static md:ml-auto md:flex md:flex-row md:items-center md:gap-5 md:border-0 md:bg-transparent md:p-0" id="navPanel">
-      <nav class="flex flex-col gap-1 md:flex-row" aria-label="Main">
+    <div class="nav-panel absolute inset-x-0 top-full hidden flex-col gap-3 border-b border-line bg-paper px-4 pt-3 pb-5 xl:static xl:ml-auto xl:flex xl:flex-row xl:items-center xl:gap-5 xl:border-0 xl:bg-transparent xl:p-0" id="navPanel">
+      <nav class="flex flex-col gap-1 xl:flex-row" aria-label="Main">
         {%- for item in site.data.nav %}
-        <a class="rounded-lg px-3 py-3 text-[14.5px] text-muted no-underline hover:bg-surface-2 hover:text-ink aria-[current=page]:text-ink aria-[current=page]:font-medium md:py-2" href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        <a class="rounded-lg px-3 py-3 text-[14.5px] text-muted no-underline hover:bg-surface-2 hover:text-ink aria-[current=page]:text-ink aria-[current=page]:font-medium xl:py-2" href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
         {%- endfor %}
       </nav>
-      <div class="theme flex self-start rounded-full border border-line-strong p-[3px] md:self-auto" role="group" aria-label="Colour theme">
+      <div class="theme flex self-start rounded-full border border-line-strong p-[3px] xl:self-auto" role="group" aria-label="Colour theme">
         <button class="grid h-7 w-8 cursor-pointer place-items-center rounded-full text-faint aria-pressed:bg-surface-2 aria-pressed:text-ink" type="button" data-set="light" aria-pressed="false" title="Light theme">{% include icon.html name="sun" class="text-[15px]" %}<span class="sr-only">Light</span></button>
         <button class="grid h-7 w-8 cursor-pointer place-items-center rounded-full text-faint aria-pressed:bg-surface-2 aria-pressed:text-ink" type="button" data-set="dark" aria-pressed="false" title="Dark theme">{% include icon.html name="moon" class="text-[15px]" %}<span class="sr-only">Dark</span></button>
       </div>
     </div>
-    <button class="menu-btn ml-auto grid size-10 cursor-pointer place-items-center rounded-lg text-[22px] text-ink md:hidden" type="button" aria-controls="navPanel" aria-expanded="false" aria-label="Open menu">{% include icon.html name="menu" class="ic-open" %}{% include icon.html name="x" class="ic-close" %}</button>
+    <button class="menu-btn ml-auto grid size-10 cursor-pointer place-items-center rounded-lg text-[22px] text-ink xl:hidden" type="button" aria-controls="navPanel" aria-expanded="false" aria-label="Open menu">{% include icon.html name="menu" class="ic-open" %}{% include icon.html name="x" class="ic-close" %}</button>
   </div>
 </header>
 
@@ -58,7 +61,7 @@
 <footer class="bg-night pt-14 pb-10 text-sm text-[#b0aea5]">
   <div class="mx-auto grid max-w-7xl gap-x-10 gap-y-7 px-4 sm:px-6 md:grid-cols-[1fr_auto] lg:px-10">
     <div class="flex items-center gap-3.5">
-      <img class="size-10 rounded-lg bg-white object-cover" src="{{ '/assets/img/mantrana-logo.png' | relative_url }}" alt="" width="40" height="40">
+      <img class="size-10 object-contain" src="{{ '/assets/img/mantrana-mark-light.png' | relative_url }}" alt="" width="40" height="40">
       <p class="font-serif text-[22px] leading-snug text-[#faf9f5]">{{ site.tagline }}</p>
     </div>
     <nav class="flex flex-wrap gap-x-6 gap-y-2 md:justify-end" aria-label="Footer">
