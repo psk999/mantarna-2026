@@ -14,10 +14,9 @@
 <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
 <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
-{% if page.url == '/' %}<!-- start fetching the hero waves early -->
-<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/ogl@1.0.11/+esm">
-<link rel="modulepreload" href="{{ '/assets/js/pattern-waves.js' | relative_url }}">
-<link rel="modulepreload" href="{{ '/assets/js/hero-waves.js' | relative_url }}">{% endif %}
+{% if page.url == '/' %}<!-- start fetching the hero background early -->
+<link rel="modulepreload" href="{{ '/assets/js/hero-background.js' | relative_url }}">
+<link rel="modulepreload" href="{{ '/assets/js/magnet-lines.js' | relative_url }}">{% endif %}
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <script>
   /* apply the saved theme before paint to avoid a flash */
@@ -48,9 +47,18 @@
         <a class="rounded-lg px-3 py-3 text-[14.5px] text-muted no-underline hover:bg-surface-2 hover:text-ink aria-[current=page]:text-ink aria-[current=page]:font-medium xl:py-2" href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
         {%- endfor %}
       </nav>
-      <div class="theme flex self-start rounded-full border border-line-strong p-[3px] xl:self-auto" role="group" aria-label="Colour theme">
-        <button class="grid h-7 w-8 cursor-pointer place-items-center rounded-full text-faint aria-pressed:bg-surface-2 aria-pressed:text-ink" type="button" data-set="light" aria-pressed="false" title="Light theme">{% include icon.html name="sun" class="text-[15px]" %}<span class="sr-only">Light</span></button>
-        <button class="grid h-7 w-8 cursor-pointer place-items-center rounded-full text-faint aria-pressed:bg-surface-2 aria-pressed:text-ink" type="button" data-set="dark" aria-pressed="false" title="Dark theme">{% include icon.html name="moon" class="text-[15px]" %}<span class="sr-only">Dark</span></button>
+      <div class="flex items-center gap-2 self-start xl:self-auto">
+        {%- if page.url == '/' %}
+        <!-- hero background style (home page only), assets/js/hero-background.js -->
+        <div class="flex rounded-full border border-line-strong p-[3px]" role="group" aria-label="Hero background">
+          <button class="grid h-7 w-8 cursor-pointer place-items-center rounded-full text-faint aria-pressed:bg-surface-2 aria-pressed:text-ink" type="button" data-bg-set="lines" aria-pressed="true" title="Lines background">{% include icon.html name="magnet" class="text-[15px]" %}<span class="sr-only">Lines background</span></button>
+          <button class="grid h-7 w-8 cursor-pointer place-items-center rounded-full text-faint aria-pressed:bg-surface-2 aria-pressed:text-ink" type="button" data-bg-set="waves" aria-pressed="false" title="Waves background">{% include icon.html name="waves" class="text-[15px]" %}<span class="sr-only">Waves background</span></button>
+        </div>
+        {%- endif %}
+        <div class="theme flex rounded-full border border-line-strong p-[3px]" role="group" aria-label="Colour theme">
+          <button class="grid h-7 w-8 cursor-pointer place-items-center rounded-full text-faint aria-pressed:bg-surface-2 aria-pressed:text-ink" type="button" data-set="light" aria-pressed="false" title="Light theme">{% include icon.html name="sun" class="text-[15px]" %}<span class="sr-only">Light</span></button>
+          <button class="grid h-7 w-8 cursor-pointer place-items-center rounded-full text-faint aria-pressed:bg-surface-2 aria-pressed:text-ink" type="button" data-set="dark" aria-pressed="false" title="Dark theme">{% include icon.html name="moon" class="text-[15px]" %}<span class="sr-only">Dark</span></button>
+        </div>
       </div>
     </div>
     <button class="menu-btn ml-auto grid size-10 cursor-pointer place-items-center rounded-lg text-[22px] text-ink xl:hidden" type="button" aria-controls="navPanel" aria-expanded="false" aria-label="Open menu">{% include icon.html name="menu" class="ic-open" %}{% include icon.html name="x" class="ic-close" %}</button>

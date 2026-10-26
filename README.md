@@ -41,6 +41,14 @@ mode on their own, so no `dark:` variants are needed. Fonts: `font-serif` (Sourc
 headings, `font-sans` (Inter) for text, `font-mono` (JetBrains Mono) for labels. Shared classes:
 `label`, `btn`, `btn-primary`.
 
+## Hero background and animations
+
+- **Hero background** (home page): two WebGL styles ported from React Bits, picked with the buttons left of
+  the theme toggle and remembered per visitor: **Lines** (`assets/js/magnet-lines.js`, default) and
+  **Waves** (`assets/js/pattern-waves.js`, loads `ogl` only when chosen). Settings: `assets/js/hero-background.js`.
+- **Animations:** GSAP 3.13 with ScrollTrigger and SplitText (`assets/js/motion.js`). Mark elements with
+  `data-intro`, `data-reveal`, `data-stagger="0.08"` or `data-count`. Reduced-motion visitors see no animation.
+
 ## Icons
 
 [Lucide](https://lucide.dev/icons) icons are inline SVG includes (no JavaScript):

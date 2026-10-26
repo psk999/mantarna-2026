@@ -5,9 +5,9 @@ layout: default
 {% assign wrap = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-10" %}
 
 <!-- Hero: one large statement, a short paragraph and the three pillars, as on anthropic.com,
-     over an animated PatternWaves background (assets/js/hero-waves.js) -->
+     over an animated background, MagnetLines or PatternWaves (assets/js/hero-background.js) -->
 <section class="relative isolate overflow-hidden pt-16 pb-20 sm:pt-24 lg:pt-32 lg:pb-28" data-hero>
-  <div class="pointer-events-none absolute inset-0 -z-10 [mask-image:linear-gradient(90deg,rgba(0,0,0,0.22)_0%,rgba(0,0,0,0.5)_35%,#000_70%)]" data-pattern-waves aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-0 -z-10 [mask-image:linear-gradient(90deg,rgba(0,0,0,0.22)_0%,rgba(0,0,0,0.5)_35%,#000_70%)]" data-hero-bg aria-hidden="true"></div>
   <div class="{{ wrap }}">
     <div data-intro>
       <p class="label">{{ site.legal_name }}</p>
@@ -112,4 +112,4 @@ layout: default
   </div>
 </section>
 
-<script type="module" src="{{ '/assets/js/hero-waves.js' | relative_url }}"></script>
+<script type="module" src="{{ '/assets/js/hero-background.js' | relative_url }}"></script>
