@@ -6,7 +6,7 @@
 {%- assign d = site.data.platform -%}
 {%- capture flow_down -%}<span class="grid size-8 place-items-center rounded-full border border-line-strong bg-paper text-sm text-faint">{% include icon.html name="arrow-down" %}</span>{%- endcapture -%}
 
-<figure class="m-0 rounded-3xl bg-surface-2 p-3 sm:p-6 xl:p-10" aria-label="Diagram of the Mantrana technology platform">
+<figure data-reveal class="m-0 rounded-3xl bg-surface-2 p-3 sm:p-6 xl:p-10" aria-label="Diagram of the Mantrana technology platform">
 
   <!-- Row 1: sources -> core <-> apps / consumers -->
   <div class="grid gap-4 xl:grid-cols-[150px_36px_minmax(0,1fr)_36px_172px] xl:gap-3">
@@ -59,7 +59,7 @@
             </div>
 
             <!-- layer x stage table -->
-            <div class="grid grid-cols-[104px_repeat(3,minmax(0,1fr))] gap-1.5">
+            <div class="grid grid-cols-[104px_repeat(3,minmax(0,1fr))] gap-1.5" data-stagger="0.025">
               <p class="label self-end pb-2 pl-1">Layer</p>
               {%- for s in d.stages %}
               <div class="rounded-t-xl border-b-2 border-ink px-3 pb-2">

@@ -9,14 +9,14 @@ permalink: /research/
 {% assign project_count = 0 %}{% for g in r.projects.groups %}{% assign project_count = project_count | plus: g.items.size %}{% endfor %}
 
 <section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
-  <div class="{{ wrap }}">
+  <div class="{{ wrap }}" data-intro>
     <p class="label text-clay">Research</p>
     <h1 class="mt-6 text-[clamp(44px,7.4vw,96px)] leading-[1.02]">Research</h1>
     <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ r.intro }}</p>
     <dl class="mt-12 grid max-w-2xl grid-cols-3 border-t border-line">
-      <div class="border-r border-line py-5 pr-4"><dt class="label">In development</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink">{{ r.applications.items.size }}</dd></div>
-      <div class="border-r border-line px-4 py-5"><dt class="label">In discussion</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink">{{ project_count }}</dd></div>
-      <div class="py-5 pl-4"><dt class="label">Themes</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink">{{ r.projects.groups.size }}</dd></div>
+      <div class="border-r border-line py-5 pr-4"><dt class="label">In development</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ r.applications.items.size }}</dd></div>
+      <div class="border-r border-line px-4 py-5"><dt class="label">In discussion</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ project_count }}</dd></div>
+      <div class="py-5 pl-4"><dt class="label">Themes</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ r.projects.groups.size }}</dd></div>
     </dl>
   </div>
 </section>
@@ -26,7 +26,7 @@ permalink: /research/
   <div class="{{ wrap }}">
     <p class="label text-clay">In development</p>
     <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">{{ r.applications.heading }}</h2>
-    <div class="mt-12 grid gap-4 lg:grid-cols-3">
+    <div class="mt-12 grid gap-4 lg:grid-cols-3" data-stagger="0.12">
       {%- for a in r.applications.items %}
       <article class="flex flex-col rounded-2xl border border-line bg-surface p-7">
         <p class="label">Application · 0{{ forloop.index }}</p>
@@ -60,7 +60,7 @@ permalink: /research/
           <h3 class="mt-4 text-[26px] leading-tight">{{ g.title }}</h3>
           <p class="label mt-2">{{ g.items.size }} project{% if g.items.size > 1 %}s{% endif %}</p>
         </div>
-        <ol class="divide-y divide-line">
+        <ol class="divide-y divide-line" data-stagger="0.07">
           {%- for item in g.items %}{% assign n = n | plus: 1 %}
           <li class="grid grid-cols-[44px_minmax(0,1fr)] gap-4 py-5 first:pt-0 last:pb-0">
             <span class="font-mono text-[13px] text-faint">{% if n < 10 %}0{% endif %}{{ n }}</span>

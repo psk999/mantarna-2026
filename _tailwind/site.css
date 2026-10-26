@@ -91,3 +91,16 @@
 .topbar.open .nav-panel { display: flex; }
 .topbar.open .ic-open { display: none; }
 .topbar:not(.open) .ic-close { display: none; }
+
+/* GSAP animations (assets/js/motion.js): until GSAP reveals them, these start hidden. Only applies with
+   the "motion" class, which the layout sets when the visitor allows motion and removes if GSAP fails. */
+.motion [data-intro] > *,
+.motion [data-reveal],
+.motion [data-stagger] > *,
+.motion main > section ~ section :is(h2, h2 + p, .label):not([data-stagger] *):not(figure *):not([data-reveal] *) {
+  visibility: hidden;
+}
+@media print {
+  .motion [data-intro] > *, .motion [data-reveal], .motion [data-stagger] > *,
+  .motion main > section ~ section :is(h2, h2 + p, .label) { visibility: visible !important; }
+}

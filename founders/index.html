@@ -7,7 +7,7 @@ permalink: /founders/
 {% assign wrap = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-10" %}
 
 <section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
-  <div class="{{ wrap }}">
+  <div class="{{ wrap }}" data-intro>
     <p class="label text-clay">Founders</p>
     <h1 class="mt-6 text-[clamp(40px,6vw,80px)] leading-[1.05]">The team behind Mantrana</h1>
     <p class="mt-8 max-w-[58ch] text-lg leading-relaxed text-muted sm:text-xl">Decades of research in computer science, machine learning and healthcare analytics, brought together to support collaborative healthcare transformation.</p>
@@ -22,7 +22,7 @@ permalink: /founders/
 {%- for f in site.data.founders %}
 <!-- Full profile: portrait stays in view while the bio scrolls -->
 <section class="scroll-mt-20 border-t border-line py-16 lg:py-24" id="{{ f.slug }}">
-  <div class="{{ wrap }} grid gap-10 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)] md:gap-16">
+  <div class="{{ wrap }} grid gap-10 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)] md:gap-16" data-stagger="0.15">
     <div class="md:sticky md:top-28 md:self-start">
       <img class="aspect-[4/5] w-full max-w-80 rounded-2xl bg-surface-2 object-cover object-top md:max-w-none" src="{{ f.photo | relative_url }}" alt="Portrait of {{ f.name }}" width="480" height="600"{% unless forloop.first %} loading="lazy"{% endunless %}>
       <p class="label mt-6 text-clay">{{ f.role }}</p>

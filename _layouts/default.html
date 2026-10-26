@@ -14,9 +14,19 @@
 <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
 <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+{% if page.url == '/' %}<!-- start fetching the hero waves early -->
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/ogl@1.0.11/+esm">
+<link rel="modulepreload" href="{{ '/assets/js/pattern-waves.js' | relative_url }}">
+<link rel="modulepreload" href="{{ '/assets/js/hero-waves.js' | relative_url }}">{% endif %}
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <script>
   /* apply the saved theme before paint to avoid a flash */
   try { var t = localStorage.getItem('mantrana-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  /* GSAP animations: only when the visitor allows motion; show everything if GSAP has not started in 3 s */
+  if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    document.documentElement.classList.add('motion');
+    setTimeout(function () { if (!window.__motionReady) document.documentElement.classList.remove('motion'); }, 3000);
+  }
 </script>
 </head>
 <body>
@@ -75,5 +85,9 @@
 </footer>
 
 <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>
+<script src="{{ '/assets/js/motion.js' | relative_url }}" defer></script>
 </body>
 </html>
