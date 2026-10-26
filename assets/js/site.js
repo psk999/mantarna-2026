@@ -17,7 +17,11 @@
   /* theme toggle: follows the device until the viewer chooses */
   var root = document.documentElement, btns = document.querySelectorAll('.theme button');
   function current() { return root.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
-  function sync() { var c = current(); btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === c)); }); }
+  function sync() {
+    var c = current();
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === c)); });
+    if (window.syncFavicon) window.syncFavicon();
+  }
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', sync);
   btns.forEach(function (b) {
     b.addEventListener('click', function () {
