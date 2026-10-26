@@ -3,7 +3,7 @@
   // Static Jekyll output (_site/) served as Workers static assets; no Worker script.
   // Build first (bundle exec jekyll build) and run deploy/leak-scan.sh; Wrangler uploads _site/.
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
-  "name": "mantrana-healthcare",
+  "name": "mantranahealthcare",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./_site",

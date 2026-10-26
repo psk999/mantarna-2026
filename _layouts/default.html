@@ -39,7 +39,7 @@
     <div class="nav-panel absolute inset-x-0 top-full hidden flex-col gap-3 border-b border-line bg-paper px-4 pt-3 pb-5 md:static md:ml-auto md:flex md:flex-row md:items-center md:gap-5 md:border-0 md:bg-transparent md:p-0" id="navPanel">
       <nav class="flex flex-col gap-1 md:flex-row" aria-label="Main">
         {%- for item in site.data.nav %}
-        <a class="rounded-lg px-3 py-3 text-[14.5px] text-muted no-underline hover:bg-surface-2 hover:text-ink md:py-2" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        <a class="rounded-lg px-3 py-3 text-[14.5px] text-muted no-underline hover:bg-surface-2 hover:text-ink aria-[current=page]:text-ink aria-[current=page]:font-medium md:py-2" href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
         {%- endfor %}
       </nav>
       <div class="theme flex self-start rounded-full border border-line-strong p-[3px] md:self-auto" role="group" aria-label="Colour theme">
