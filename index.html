@@ -54,7 +54,7 @@ layout: default
         <img class="aspect-[4/5] w-full rounded-xl bg-surface-2 object-cover object-top" src="{{ f.photo | relative_url }}" alt="Portrait of {{ f.name }}" width="480" height="600" loading="lazy">
         <div class="flex flex-col">
           <p class="label text-clay">{{ f.role }}</p>
-          <h3 class="mt-2 text-[clamp(22px,2.2vw,28px)] leading-tight">{{ f.name }}</h3>
+          <h3 class="mt-2 text-[clamp(22px,2.2vw,28px)] leading-tight text-balance">{{ f.name }}</h3>
           <p class="mt-3 text-muted">{{ f.summary }}</p>
           <span class="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-medium text-ink">Read profile <span class="transition group-hover:translate-x-0.5">{% include icon.html name="arrow-right" %}</span></span>
         </div>
