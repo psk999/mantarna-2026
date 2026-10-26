@@ -63,6 +63,9 @@
       {%- endfor %}
     </nav>
     <p class="flex flex-wrap gap-x-6 gap-y-2 md:col-span-2">
+      {%- for s in site.social %}
+      <a class="inline-flex items-center gap-2 no-underline hover:text-[#faf9f5]" href="{{ s.url }}" target="_blank" rel="noopener noreferrer me">{% include icon.html name=s.icon %} {{ s.name }}</a>
+      {%- endfor %}
       {%- for f in site.data.founders %}
       <a class="inline-flex items-center gap-2 no-underline hover:text-[#faf9f5]" href="mailto:{{ f.email }}">{% include icon.html name="mail" %} {{ f.email }}</a>
       {%- endfor %}

@@ -34,5 +34,7 @@ Mantrana is a collaborative healthcare transformation company, established in {{
 {% endfor %}
 ## Contact
 
+{% for s in site.social %}- {{ s.name }}: {{ s.url }}
+{% endfor -%}
 {% for f in site.data.founders %}- {{ f.name }}: {{ f.email }}
 {% endfor -%}
