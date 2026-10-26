@@ -49,3 +49,41 @@ flywheel:
       where: Back to research
       icon: refresh-cw
       text: The clinical setting surfaces new, complex problems and rich datasets that drive the next wave of inquiry.
+
+# Frequently asked questions: shown on the About page and published as FAQPage structured data
+# for search and answer engines. Keep answers factual and consistent with the rest of the site.
+faq:
+  - q: What is Mantrana Healthcare Technology?
+    a: >-
+      Mantrana Healthcare Technology Pvt. Ltd. is a collaborative healthcare transformation company,
+      established in 2025, that brings together SSSIHL, SSSIHMS, SSSRIF and IIC. Guided by the idea
+      "Human Wisdom, Machine Intelligence", it applies machine learning and artificial intelligence to
+      healthcare technology, implementation research and innovation.
+  - q: Who founded Mantrana?
+    a: >-
+      Mantrana was founded by Dr. Raghunatha Sarma R (Founder), a teacher and researcher in computer
+      vision, machine learning and healthcare analytics with over three decades of experience, and
+      Dr. P. Sunil Kumar (Co-founder), who brings over two decades of research in computer science,
+      knowledge graphs and social security data mining.
+  - q: What does the Mantrana technology platform do?
+    a: >-
+      The platform provides APIs for AI. It connects hospital data such as HIS, pathology, radiology,
+      wearables, pharmacy and claims through open standards (HL7 FHIR, DICOM, IHE and SMART on FHIR)
+      and organises it across enrolment, treatment and claims, for care apps, research platforms and
+      diagnostics platforms. Mantrana enables these capabilities so research teams can use them as a
+      public good.
+  - q: What research is Mantrana working on?
+    a: >-
+      Three clinical applications are in development: early identification of cardiogenic brain abscess
+      in Tetralogy of Fallot, outcome prediction for PTMC in mitral stenosis, and an explainable machine
+      learning model for recurrent lumbar disc herniation. Sixteen hospital AI projects are in discussion
+      with SSSIHMS, across radiology, scheduling, clinical documentation, patient communication and
+      patient flow.
+  - q: How can students get involved with Mantrana?
+    a: >-
+      Students can apply for internships in web development, AI and data science, and healthcare
+      technology through the Mantrana internship Google Form linked on the home page.
+  - q: How do I contact Mantrana?
+    a: >-
+      For collaboration, internship coordination and institutional engagement, email Dr. Raghunatha
+      Sarma R at rraghunathasarma@sssihl.edu.in or Dr. P. Sunil Kumar at psunilkumar@sssihl.edu.in.

@@ -7,12 +7,25 @@ description: >-
   innovation, and digital technology for meaningful healthcare impact.
 apply_url: https://forms.gle/EG3dn4emFdzqTNJM8
 baseurl: ""
-url: ""
+# The live address: used for canonical links, share previews, the sitemap and structured data.
+# Change it when the site moves to its own domain (e.g. https://mantranahealthcare.com).
+url: "https://mantranahealthcare.sssihl-cads.workers.dev"
+lang: en-IN
 markdown: kramdown
 permalink: pretty
 
-# Preview: ask search engines not to index any page. Set to false at public launch
-# (and change robots.txt to allow crawling).
+# Search, answer-engine and AI-crawler settings (_includes/seo.html, robots.txt, sitemap.xml, llms.txt).
+seo:
+  title: Mantrana Healthcare Technology
+  image: /assets/img/og-mantrana.jpg        # 1200x630 share card
+  image_alt: "Mantrana Healthcare Technology: Human Wisdom, Machine Intelligence"
+  logo: /assets/img/mantrana-logo-square.png
+  founded: "2025"
+  topics: [Healthcare technology, Artificial intelligence in healthcare, Machine learning, Healthcare interoperability, HL7 FHIR, Digital pathology, Medical image analysis, Clinical decision support, Implementation research]
+  partners: [Sri Sathya Sai Institute of Higher Learning (SSSIHL), Sri Sathya Sai Institute of Higher Medical Sciences (SSSIHMS), SSSRIF, IIC]
+
+# Preview: when true, every page asks search engines not to index it and robots.txt blocks crawlers.
+# Set to false at public launch; robots.txt then allows search and AI crawlers and lists the sitemap.
 noindex: true
 
 defaults:

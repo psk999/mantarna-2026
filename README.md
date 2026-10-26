@@ -71,7 +71,18 @@ Worker config: `wrangler.jsonc`.
 `deploy/leak-scan.sh` blocks a deploy if the built site contains documents (PDF, PPTX, DOCX) or
 wording from the internal company deck (confidential markings, commercial plans).
 
+## Search, sharing and AI assistants
+
+- **Share previews** (WhatsApp, LinkedIn, X, Slack): `assets/img/og-mantrana.jpg`, a 1200×630 card with the
+  logo, company name and tagline. Titles and descriptions come from each page's front matter.
+- **Search (SEO):** canonical links, `sitemap.xml`, `robots.txt`, and schema.org structured data
+  (Organization, WebSite, page, breadcrumbs, founders as Person) from `_includes/seo.html`.
+- **Answer engines (AEO):** the About page FAQ (`faq:` in `_data/about.yml`) is also published as FAQPage data.
+- **AI assistants (GEO):** `llms.txt` summarises the site for language models; `robots.txt` allows the AI
+  crawlers once indexing is on.
+- Settings live under `seo:` and `url:` in `_config.yml`.
+
 ## Before public launch
 
-The site is in preview and asks search engines not to index it. At launch set `noindex: false` in
-`_config.yml`, allow crawling in `robots.txt`, and set `url:` to the live domain.
+The site is in preview and asks search engines not to index it. At launch, set `url:` to the live domain
+and `noindex: false` in `_config.yml`; `robots.txt` then allows search and AI crawlers and lists the sitemap.
