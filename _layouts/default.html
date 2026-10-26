@@ -65,8 +65,12 @@
       {%- for item in site.data.nav %}
       <a class="no-underline hover:text-[#faf9f5]" href="{{ item.url | relative_url }}">{{ item.title }}</a>
       {%- endfor %}
-      <a class="no-underline hover:text-[#faf9f5]" href="mailto:{{ site.email }}">{{ site.email }}</a>
     </nav>
+    <p class="flex flex-wrap gap-x-6 gap-y-2 md:col-span-2">
+      {%- for f in site.data.founders %}
+      <a class="inline-flex items-center gap-2 no-underline hover:text-[#faf9f5]" href="mailto:{{ f.email }}">{% include icon.html name="mail" %} {{ f.email }}</a>
+      {%- endfor %}
+    </p>
     <p class="border-t border-[#30302e] pt-6 md:col-span-2">© {{ site.time | date: "%Y" }} {{ site.legal_name }}</p>
   </div>
 </footer>

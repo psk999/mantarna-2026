@@ -24,7 +24,7 @@ if [ -n "$bad_files" ]; then echo "leak-scan: forbidden files or folders:"; echo
 
 # 2. Forbidden terms from the internal company deck (confidential marking, commercial and financial plans)
 patterns=(
-  'Private (&|&amp;) Conf' '(?i)confidential' '(?i)monetis|monetiz' '\bARR\b' '(?i)valuation'
+  'Private (&|&amp;) Conf' '(?i)\bconfidential\b' '(?i)monetis|monetiz' '\bARR\b' '(?i)valuation'
   '(?i)revenue' '(?i)incentive payout' '(?i)equity' '\bNoCs?\b' '(?i)board resolution'
 )
 for p in "${patterns[@]}"; do

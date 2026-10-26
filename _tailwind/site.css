@@ -7,6 +7,8 @@
 @source "../index.html";
 @source "../404.html";
 @source "../founders";
+@source "../about";
+@source "../platform";
 
 /* Palette as CSS variables so light and dark switch in one place (data-theme, else the device). */
 :root {

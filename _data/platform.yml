@@ -1,0 +1,87 @@
+# The Mantrana Technology Platform diagram (_includes/platform-diagram.html), redrawn from the
+# company presentation ("Mantrana Technology Platform: APIs for AI").
+
+heading: The Mantrana technology platform
+sub: >-
+  APIs for AI. One platform connects hospital data, through open healthcare standards, to every stage
+  of a patient's care and the apps and platforms that use it.
+
+# "How it fits together", read along the diagram
+walkthrough:
+  - title: Connect hospital data
+    icon: database
+    text: Records flow in from hospital information systems, pathology and radiology labs, wearables, pharmacy and claims, over HL7 FHIR and DICOM.
+  - title: Speak open standards
+    icon: network
+    text: An interoperability layer built on IHE, DICOM, SMART on FHIR and HL7 FHIR links on-premise HIS, PACS/RIS, lab and local IT systems.
+  - title: Follow the care journey
+    icon: layers
+    text: Six layers, from data and services to language, protection and data mining, organise information across enrolment, treatment and claims.
+  - title: Serve apps and research
+    icon: sparkles
+    text: APIs feed care provider and care consumer apps two ways, and share data with research and diagnostics platforms.
+
+sources:
+  title: EHR data sources
+  items: [HIS, Pathology lab, Radiology lab, Wearables, Pharmacy, Claims]
+
+stakeholders: [NHA, SHA, EHCP, DHU, PO]
+
+stages:
+  - { name: Enrolment stage, params: 14 }
+  - { name: Treatment stage, params: 25 }
+  - { name: Claim / utilisation stage, params: 18 }
+
+# One row per layer; cells follow the stage order above.
+layers:
+  - name: Data
+    cells:
+      - Eligibility criteria and demographic details
+      - Clinical records, hospitalisation data
+      - Claims, utilisation, payment history
+  - name: Service
+    cells:
+      - Verification, registration, e-Card
+      - Pre-authorisation, admission, treatment
+      - Claim processing, settlement
+  - name: Modes
+    cells:
+      - Trust / insurance / mixed
+      - Trust / insurance / mixed
+      - Trust / insurance / mixed
+  - name: Linguistic
+    cells:
+      - Multilingual support
+      - Regional communication
+      - Multilingual claims
+  - name: Protection
+    cells:
+      - Authentication data of the beneficiaries
+      - Data security, compliance, confidentiality
+      - Privacy, financial security, accountability
+  - name: Data mining
+    ai: true
+    cells:
+      - Awareness pattern discovery, behavioural pattern mining, beneficiary segmentation based on services
+      - Sentiment analysis, opinion mining, anomaly detection in service delivery
+      - Fraud detection during claims processing, utilisation and payment trend analysis
+
+interop:
+  title: Interoperability and integration services
+  standards: [IHE, DICOM, SMART on FHIR, HL7 FHIR]
+
+link:
+  title: Link
+  items: [Python script, Interface engine, Interface engine + data store, DICOM connector]
+
+onprem:
+  title: On-premise
+  items: [HIS, PACS / RIS, Lab, Local IT systems]
+
+apps:
+  title: Third-party apps
+  items: [Care provider app, Care consumer app]
+
+consumers:
+  title: External data consumers
+  items: [Research platforms, Diagnostics platforms]

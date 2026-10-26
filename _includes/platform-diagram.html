@@ -1,0 +1,147 @@
+{%- comment -%}
+  Mantrana Technology Platform diagram, redrawn in the site style from the company presentation.
+  Words: _data/platform.yml. Desktop: sources | core loop | apps & consumers, with the integration
+  layers underneath. Phones: everything stacks and the layer table scrolls sideways on its own.
+{%- endcomment -%}
+{%- assign d = site.data.platform -%}
+{%- capture flow_down -%}<span class="grid size-8 place-items-center rounded-full border border-line-strong bg-paper text-sm text-faint">{% include icon.html name="arrow-down" %}</span>{%- endcapture -%}
+
+<figure class="m-0 rounded-3xl bg-surface-2 p-3 sm:p-6 xl:p-10" aria-label="Diagram of the Mantrana technology platform">
+
+  <!-- Row 1: sources -> core <-> apps / consumers -->
+  <div class="grid gap-4 xl:grid-cols-[150px_36px_minmax(0,1fr)_36px_172px] xl:gap-3">
+
+    <!-- EHR data sources -->
+    <div class="flex flex-col justify-center rounded-2xl border border-line bg-surface p-4">
+      <p class="label flex items-center gap-2">{% include icon.html name="database" class="text-[15px] text-clay" %} {{ d.sources.title }}</p>
+      <ul class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-1">
+        {%- for i in d.sources.items %}<li class="rounded-lg bg-surface-2 px-3 py-2.5 text-[13.5px] font-medium text-ink">{{ i }}</li>{%- endfor %}
+      </ul>
+    </div>
+
+    <!-- sources feed in over HL7 FHIR -->
+    <div class="flex items-center justify-center gap-2 xl:flex-col">
+      <span class="font-mono text-[10px] tracking-[0.12em] text-clay uppercase xl:[writing-mode:vertical-rl] xl:rotate-180">HL7 FHIR</span>
+      <span class="grid size-8 place-items-center rounded-full border border-line-strong bg-paper text-sm text-faint"><span class="xl:hidden">{% include icon.html name="arrow-down" %}</span><span class="hidden xl:inline-flex">{% include icon.html name="arrow-right" %}</span></span>
+    </div>
+
+    <!-- Core: the stakeholder loop around the layer x stage table -->
+    <div class="min-w-0 rounded-2xl border border-line bg-surface">
+      <p class="flex items-center gap-2 border-b border-line px-4 py-2.5 font-mono text-[10.5px] tracking-[0.1em] text-faint uppercase md:hidden">Swipe to see all three stages {% include icon.html name="arrow-right" %}</p>
+      <div class="overflow-x-auto">
+        <div class="min-w-[720px] px-12 pt-12 pb-14">
+          <div class="relative rounded-[26px] border-[1.5px] border-ink/70 px-14 pt-14 pb-10">
+
+            <!-- top: stakeholder layer -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-line-strong bg-surface px-4 py-2.5 text-center shadow-[0_1px_0_var(--line)]">
+              <p class="label text-ink">Stakeholder layer</p>
+              <ul class="mt-2 flex gap-1.5">
+                {%- for s in d.stakeholders %}<li class="rounded-full bg-ink px-2.5 py-1 font-mono text-[11px] font-medium text-paper">{{ s }}</li>{%- endfor %}
+              </ul>
+            </div>
+            <!-- left: beneficiary, right: insurers -->
+            <div class="absolute top-1/2 left-0 grid -translate-x-1/2 -translate-y-1/2 justify-items-center gap-1 bg-surface py-2">
+              <span class="grid size-10 place-items-center rounded-full border border-line-strong bg-surface text-lg text-ink">{% include icon.html name="user" %}</span>
+              <span class="font-mono text-[10px] tracking-[0.12em] text-muted uppercase">Beneficiary</span>
+            </div>
+            <div class="absolute top-1/2 right-0 grid translate-x-1/2 -translate-y-1/2 justify-items-center gap-1 bg-surface py-2">
+              <span class="grid size-10 place-items-center rounded-full border border-line-strong bg-surface text-lg text-ink">{% include icon.html name="shield-check" %}</span>
+              <span class="font-mono text-[10px] tracking-[0.12em] text-muted uppercase">Insurers</span>
+            </div>
+            <!-- flow arrows on the loop: both sides feed the stakeholder layer and the assessment -->
+            <span class="absolute top-0 left-[18%] -translate-y-1/2 bg-surface px-1 text-sm text-ink">{% include icon.html name="arrow-right" %}</span>
+            <span class="absolute top-0 right-[18%] -translate-y-1/2 bg-surface px-1 text-sm text-ink">{% include icon.html name="arrow-left" %}</span>
+            <span class="absolute bottom-0 left-[22%] translate-y-1/2 bg-surface px-1 text-sm text-ink">{% include icon.html name="arrow-right" %}</span>
+            <span class="absolute right-[22%] bottom-0 translate-y-1/2 bg-surface px-1 text-sm text-ink">{% include icon.html name="arrow-left" %}</span>
+            <!-- bottom: assessment by healthcare providers -->
+            <div class="absolute bottom-0 left-1/2 grid -translate-x-1/2 translate-y-1/2 justify-items-center gap-1.5">
+              <span class="inline-flex items-center gap-2 rounded-full bg-clay px-4 py-1.5 text-[13.5px] font-semibold text-white">{% include icon.html name="search" %} Assessment</span>
+            </div>
+
+            <!-- layer x stage table -->
+            <div class="grid grid-cols-[104px_repeat(3,minmax(0,1fr))] gap-1.5">
+              <p class="label self-end pb-2 pl-1">Layer</p>
+              {%- for s in d.stages %}
+              <div class="rounded-t-xl border-b-2 border-ink px-3 pb-2">
+                <p class="font-serif text-[16px] leading-tight text-ink">{{ s.name }}</p>
+                <p class="mt-0.5 font-mono text-[10.5px] tracking-[0.08em] text-faint">{{ s.params }} parameters</p>
+              </div>
+              {%- endfor %}
+
+              {%- for l in d.layers %}
+              {%- if l.ai %}
+              <p class="mt-1 inline-flex items-center gap-1.5 self-stretch rounded-xl bg-clay px-3 py-2 text-[13px] font-semibold text-white">{% include icon.html name="sparkles" %} {{ l.name }}</p>
+              {%- for c in l.cells %}<p class="mt-1 rounded-xl border border-clay/30 bg-clay-soft px-3 py-2 text-[12.5px] leading-snug text-ink">{{ c }}</p>{%- endfor %}
+              {%- else %}
+              <p class="flex items-center self-stretch rounded-xl bg-surface-2 px-3 py-2 text-[13px] font-semibold text-ink">{{ l.name }}</p>
+              {%- for c in l.cells %}<p class="rounded-xl border border-line bg-paper px-3 py-2 text-[12.5px] leading-snug text-body">{{ c }}</p>{%- endfor %}
+              {%- endif %}
+              {%- endfor %}
+            </div>
+          </div>
+          <p class="mt-7 flex items-center justify-center gap-2 text-[13px] text-muted">{% include icon.html name="stethoscope" class="text-clay" %} Healthcare providers</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- links to apps and consumers -->
+    <div class="hidden flex-col justify-around xl:flex">
+      <span class="grid justify-items-center gap-1 text-sm text-faint"><span class="grid size-8 place-items-center rounded-full border border-line-strong bg-paper">{% include icon.html name="arrow-right" %}</span><span class="grid size-8 place-items-center rounded-full border border-line-strong bg-paper">{% include icon.html name="arrow-left" %}</span></span>
+      <span class="grid justify-items-center gap-2"><span class="font-mono text-[10px] tracking-[0.12em] text-clay uppercase [writing-mode:vertical-rl] rotate-180">HL7 FHIR</span><span class="grid size-8 place-items-center rounded-full border border-line-strong bg-paper text-sm text-faint">{% include icon.html name="arrow-right" %}</span></span>
+    </div>
+    <div class="flex justify-center xl:hidden">{{ flow_down }}</div>
+
+    <!-- third-party apps and external data consumers -->
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-1 xl:content-around">
+      <div class="rounded-2xl border border-line bg-surface p-4">
+        <p class="label flex items-center gap-2">{% include icon.html name="layers" class="text-[15px] text-clay" %} {{ d.apps.title }}</p>
+        <p class="mt-1 font-mono text-[10px] tracking-[0.08em] text-faint">Two-way</p>
+        <ul class="mt-3 grid gap-2">{%- for i in d.apps.items %}<li class="rounded-lg bg-surface-2 px-3 py-2.5 text-[13.5px] font-medium text-ink">{{ i }}</li>{%- endfor %}</ul>
+      </div>
+      <div class="rounded-2xl border border-line bg-surface p-4">
+        <p class="label flex items-center gap-2">{% include icon.html name="network" class="text-[15px] text-clay" %} {{ d.consumers.title }}</p>
+        <p class="mt-1 font-mono text-[10px] tracking-[0.08em] text-faint">Over HL7 FHIR</p>
+        <ul class="mt-3 grid gap-2">{%- for i in d.consumers.items %}<li class="rounded-lg bg-surface-2 px-3 py-2.5 text-[13.5px] font-medium text-ink">{{ i }}</li>{%- endfor %}</ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: core <-> interoperability <-> link <-> on-premise, under the core column -->
+  <div class="mt-3 grid xl:grid-cols-[150px_36px_minmax(0,1fr)_36px_172px] xl:gap-3">
+    <div class="grid gap-3 xl:col-start-3">
+      <div class="flex justify-center"><span class="grid size-8 place-items-center rounded-full border border-line-strong bg-paper text-sm text-faint">{% include icon.html name="arrow-down" %}</span></div>
+
+      <div class="rounded-2xl bg-night px-5 py-6 text-center sm:px-8">
+        <p class="font-serif text-[clamp(20px,2.2vw,26px)] text-[#faf9f5]">{{ d.interop.title }}</p>
+        <ul class="mt-4 flex flex-wrap justify-center gap-2">
+          {%- for s in d.interop.standards %}<li class="rounded-md border border-[#4d4c48] px-3 py-1.5 font-mono text-[12.5px] text-[#faf9f5]">{{ s }}</li>{%- endfor %}
+        </ul>
+      </div>
+
+      <div class="flex justify-center gap-[22%]">
+        <span class="grid justify-items-center gap-1"><span class="font-mono text-[10px] tracking-[0.12em] text-clay uppercase">HL7 FHIR</span><span class="grid size-8 place-items-center rounded-full border border-line-strong bg-paper text-sm text-faint">{% include icon.html name="arrow-down" %}</span></span>
+        <span class="grid justify-items-center gap-1"><span class="font-mono text-[10px] tracking-[0.12em] text-clay uppercase">DICOM</span><span class="grid size-8 place-items-center rounded-full border border-line-strong bg-paper text-sm text-faint">{% include icon.html name="arrow-down" %}</span></span>
+      </div>
+
+      <div class="rounded-2xl border border-line bg-surface p-4 sm:p-5">
+        <div class="grid gap-3 sm:grid-cols-[72px_minmax(0,1fr)] sm:items-center">
+          <p class="label text-ink">{{ d.link.title }}</p>
+          <ul class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {%- for i in d.link.items %}<li class="flex items-center justify-center rounded-lg bg-ink px-2 py-2.5 text-center text-[12.5px] leading-tight font-medium text-paper">{{ i }}</li>{%- endfor %}
+          </ul>
+        </div>
+        <div class="my-3 hidden grid-cols-[72px_repeat(4,minmax(0,1fr))] gap-2 text-xs text-faint sm:grid">
+          <span></span>{%- for i in d.onprem.items %}<span class="flex justify-center">{% include icon.html name="arrow-down" %}</span>{%- endfor %}
+        </div>
+        <div class="mt-3 grid gap-3 border-t border-dashed border-line-strong pt-3 sm:mt-0 sm:grid-cols-[72px_minmax(0,1fr)] sm:items-center sm:border-0 sm:pt-0">
+          <p class="label">{{ d.onprem.title }}</p>
+          <ul class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {%- for i in d.onprem.items %}<li class="rounded-lg border border-line bg-surface-2 px-2 py-2.5 text-center text-[12.5px] font-medium text-ink">{{ i }}</li>{%- endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <figcaption class="mt-6 text-center text-[13px] text-faint">Mantrana technology platform: APIs for AI</figcaption>
+</figure>

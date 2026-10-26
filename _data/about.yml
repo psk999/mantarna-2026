@@ -1,0 +1,87 @@
+# Words for the About page (/about/), drawn from the company presentation (slides 3 and 6-13).
+# Keep commercial plans, status reports and anything marked internal off the site; deploy/leak-scan.sh checks.
+
+intro: >-
+  Mantrana Healthcare Technology is a collaborative healthcare transformation company, bringing together
+  SSSIHL, SSSIHMS, SSSRIF and IIC so that computational science reaches everyday clinical care.
+
+story:
+  heading: A legacy of computing and care
+  milestones:
+    - year: "1991"
+      text: The first Sri Sathya Sai Institute of Higher Medical Sciences (SSSIHMS) hospital is inaugurated at Puttaparthi.
+    - year: "1995"
+      text: The Department of Mathematics and Computer Science (DMACS) is established at Sri Sathya Sai Institute of Higher Learning (SSSIHL).
+    - year: ML · AI
+      text: DMACS has focused on machine learning and artificial intelligence as key areas of applied research.
+    - year: "2025"
+      text: In the Centenary Year of Bhagawan's Birth, Mantrana Healthcare Technology takes that legacy forward.
+  closing: >-
+    The closeness of these two beginnings laid the foundation for a long-standing vision: to bridge
+    computational sciences with healthcare.
+
+approach:
+  heading: Digital transformation in healthcare is the need of the hour
+  items:
+    - title: Knowledge from action
+      text: Turning past experience into usable knowledge.
+    - title: Knowledge for action
+      text: Planning and organising for the future.
+    - title: Knowledge in action
+      text: Adapting in the present, turning knowledge into skill.
+
+flywheel:
+  heading: Hyper-collaboration, a cycle that turns research into reality
+  steps:
+    - title: Deep academic inquiry
+      where: SSSIHL
+      icon: graduation-cap
+      text: PhD-level research builds foundational knowledge and highly skilled talent.
+    - title: Applied technology and data science
+      where: Mantrana
+      icon: chart-line
+      text: That knowledge becomes practical tools, dashboards and predictive models.
+    - title: Clinical implementation and impact
+      where: SSSIHMS
+      icon: heart-pulse
+      text: The tools are deployed against real hospital challenges, improving patient outcomes and operational efficiency.
+    - title: New challenges and data streams
+      where: Back to research
+      icon: refresh-cw
+      text: The clinical setting surfaces new, complex problems and rich datasets that drive the next wave of inquiry.
+
+research:
+  heading: Research in development
+  projects:
+    - title: Cardiogenic brain abscess
+      text: An analytical framework to identify predictive factors, and a protocol for early identification of brain abscess in patients with Tetralogy of Fallot (TOF).
+    - title: PTMC outcomes in mitral stenosis
+      text: A framework to predict outcomes and analyse risk factors for patients with mitral stenosis undergoing Percutaneous Transvenous Mitral Commissurotomy (PTMC).
+    - title: Recurrent lumbar disc herniation
+      text: An explainable machine learning framework for predicting recurrent lumbar disc herniation.
+      team: Dr. R Raghunatha Sarma, Mr. M Subramanian, Dr. Sumit Thakar, Dr. Prayag Kini
+
+focus:
+  heading: Where AI can help hospitals today
+  intro: >-
+    Working alongside clinicians, the team is exploring practical uses of AI in day-to-day hospital
+    operations.
+  areas:
+    - title: Radiology workflow
+      icon: stethoscope
+      text: Triaging reports with urgent findings, alerting clinicians to critical results, ordering image series in PACS, and tracking radiology KPIs.
+    - title: Scheduling and rosters
+      icon: layers
+      text: Scheduling CT and MRI studies and building staff duty rosters around every constraint and leave detail.
+    - title: Clinical documentation
+      icon: file-search
+      text: Turning doctor-patient conversations into outpatient notes, and voice-driven entry for notes, orders and appointments.
+    - title: Patient communication
+      icon: mail
+      text: Routing patient emails to the right department, and letting patients check by phone whether a report is ready.
+    - title: Patient flow
+      icon: network
+      text: Reducing waiting times, improving outpatient queues, and planning space and rooms so no area is crowded.
+    - title: Ask the data
+      icon: sparkles
+      text: Asking questions in plain language and getting answers from hospital data, without writing queries.

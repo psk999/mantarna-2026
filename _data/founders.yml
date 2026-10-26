@@ -2,6 +2,7 @@
 
 - name: Dr. Raghunatha Sarma R
   slug: raghunatha-sarma
+  email: rraghunathasarma@sssihl.edu.in
   role: Founder
   photo: /assets/img/raghunatha-sarma.jpg
   summary: >-
@@ -17,13 +18,26 @@
       cardiogenic brain abscess in Tetralogy of Fallot, recurrent lumbar disc herniation, and rheumatic
       heart disease with mitral stenosis.
     - >-
-      He translated his doctoral research on satellite image stitching, done in collaboration with ISRO,
-      into stitching high-resolution pathology slide images. He currently leads research in social
+      He currently leads research in social
       security and welfare data mining of large healthcare schemes such as Ayushman Bharat, AI in sports,
       whole slide imaging for classifying disease from pathology slides, and thermal image analysis.
   areas: [Computer vision, Medical imaging, Interpretable ML, Digital pathology]
+  feature:
+    label: From satellites to slides
+    heading: Applying space technology to clinical pathology
+    paragraphs:
+      - >-
+        Dr. Raghunatha Sarma, the founder, translated his doctoral research, an algorithm for stitching
+        satellite images developed in collaboration with ISRO, into a healthcare innovation.
+      - >-
+        He and his team adapted the same principles to stitch high-resolution pathology slide images,
+        aligning fields of view and fields of interest with precision.
+      - >-
+        The technology now scales to large pathology image datasets and is optimised for processing with
+        large language models and GPU-based systems: research turned into a production-ready platform.
 - name: Dr. P. Sunil Kumar
   slug: sunil-kumar
+  email: psunilkumar@sssihl.edu.in
   role: Co-founder
   photo: /assets/img/sunil-kumar.jpg
   summary: >-

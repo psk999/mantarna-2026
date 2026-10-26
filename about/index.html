@@ -1,0 +1,147 @@
+---
+title: About
+description: The story, approach, research and technology platform of Mantrana Healthcare Technology.
+permalink: /about/
+---
+{% assign a = site.data.about %}
+{% assign wrap = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-10" %}
+
+<section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">About Mantrana</p>
+    <h1 class="mt-6 max-w-[18ch] text-[clamp(40px,6vw,80px)] leading-[1.05]">{{ site.tagline }}</h1>
+    <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ a.intro }}</p>
+    <nav class="mt-10 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11.5px] uppercase tracking-[0.14em]" aria-label="On this page">
+      <a class="text-faint no-underline hover:text-clay" href="#story">Our story</a>
+      <a class="text-faint no-underline hover:text-clay" href="#approach">Approach</a>
+      <a class="text-faint no-underline hover:text-clay" href="#research">Research</a>
+      <a class="text-faint no-underline hover:text-clay" href="{{ '/platform/' | relative_url }}">Platform</a>
+      <a class="text-faint no-underline hover:text-clay" href="#focus">Focus areas</a>
+    </nav>
+  </div>
+</section>
+
+<!-- Our story: milestones as a ruled timeline -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="story">
+  <div class="{{ wrap }} grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
+    <div>
+      <p class="label text-clay">Our story</p>
+      <h2 class="mt-4 text-[clamp(28px,3.2vw,40px)] leading-tight">{{ a.story.heading }}</h2>
+    </div>
+    <div>
+      <ol class="border-t border-line">
+        {%- for m in a.story.milestones %}
+        <li class="grid gap-2 border-b border-line py-6 sm:grid-cols-[120px_minmax(0,1fr)] sm:gap-8">
+          <span class="font-serif text-[28px] leading-none text-clay">{{ m.year }}</span>
+          <p class="max-w-[60ch] text-[17px] text-body">{{ m.text }}</p>
+        </li>
+        {%- endfor %}
+      </ol>
+      <p class="mt-8 max-w-[36ch] font-serif text-[clamp(22px,2.4vw,30px)] leading-[1.35] tracking-tight text-ink">{{ a.story.closing }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Approach and the innovation cycle -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="approach">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">Our approach</p>
+    <h2 class="mt-4 max-w-[24ch] text-[clamp(30px,3.6vw,44px)] leading-tight">{{ a.approach.heading }}</h2>
+    <ol class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
+      {%- for i in a.approach.items %}
+      <li class="border-t border-ink pt-5">
+        <span class="font-mono text-xs text-faint">0{{ forloop.index }}</span>
+        <h3 class="mt-4 text-[26px] leading-tight">{{ i.title }}</h3>
+        <p class="mt-3 max-w-[36ch] text-muted">{{ i.text }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+
+    <div class="mt-20 rounded-3xl bg-surface-2 p-6 sm:p-10 lg:p-14">
+      <h3 class="max-w-[28ch] text-[clamp(24px,2.8vw,34px)] leading-tight">{{ a.flywheel.heading }}</h3>
+      <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {%- for s in a.flywheel.steps %}
+        <li class="relative flex flex-col rounded-2xl bg-surface p-6">
+          <span class="grid size-11 place-items-center rounded-xl bg-clay-soft text-xl text-clay">{% include icon.html name=s.icon %}</span>
+          <p class="label mt-6">{{ forloop.index }} · {{ s.where }}</p>
+          <h4 class="mt-2 font-serif text-[22px] leading-tight text-ink">{{ s.title }}</h4>
+          <p class="mt-3 text-[15px] text-muted">{{ s.text }}</p>
+          {%- unless forloop.last %}
+          <span class="absolute top-1/2 -right-3.5 z-10 hidden size-7 -translate-y-1/2 place-items-center rounded-full border border-line-strong bg-paper text-sm text-faint lg:grid">{% include icon.html name="arrow-right" %}</span>
+          {%- endunless %}
+        </li>
+        {%- endfor %}
+      </ol>
+      <p class="mt-6 inline-flex items-center gap-2 text-[15px] text-muted">{% include icon.html name="refresh-cw" class="text-clay" %} Each turn of the cycle starts the next.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Research: article-style cards -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="research">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">Research</p>
+    <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">{{ a.research.heading }}</h2>
+    <div class="mt-12 grid gap-4 lg:grid-cols-3">
+      {%- for r in a.research.projects %}
+      <article class="flex flex-col rounded-2xl border border-line bg-surface p-7">
+        <p class="label">Application · 0{{ forloop.index }}</p>
+        <h3 class="mt-8 text-[26px] leading-tight">{{ r.title }}</h3>
+        <p class="mt-3 text-muted">{{ r.text }}</p>
+        {%- if r.team %}<p class="mt-auto pt-6 text-[13px] text-faint">{{ r.team }}</p>{% endif %}
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Platform preview: the full diagram lives on /platform/ -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="platform">
+  <div class="{{ wrap }}">
+    <a class="group grid gap-8 rounded-3xl bg-night p-8 no-underline sm:p-12 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end" href="{{ '/platform/' | relative_url }}">
+      <div>
+        <p class="font-mono text-[11.5px] font-medium tracking-[0.14em] text-[#d97757] uppercase">Platform</p>
+        <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight text-[#faf9f5]">{{ site.data.platform.heading }}</h2>
+        <p class="mt-5 max-w-[56ch] text-lg text-[#b0aea5]">{{ site.data.platform.sub }}</p>
+      </div>
+      <div class="md:justify-self-end">
+        <ul class="flex flex-wrap gap-2 md:justify-end">
+          {%- for s in site.data.platform.interop.standards %}<li class="rounded-md border border-[#4d4c48] px-3 py-1.5 font-mono text-[12.5px] text-[#faf9f5]">{{ s }}</li>{%- endfor %}
+        </ul>
+        <span class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#faf9f5] px-5 text-[15px] font-medium text-[#141413] transition-colors group-hover:bg-[#d97757] group-hover:text-white">Explore the platform {% include icon.html name="arrow-right" %}</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Focus areas -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="focus">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">Focus areas</p>
+    <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">{{ a.focus.heading }}</h2>
+    <p class="mt-5 max-w-[60ch] text-lg text-muted">{{ a.focus.intro }}</p>
+    <ul class="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+      {%- for f in a.focus.areas %}
+      <li class="border-t border-line pt-6">
+        <span class="text-2xl text-clay">{% include icon.html name=f.icon %}</span>
+        <h3 class="mt-4 text-[22px] leading-tight">{{ f.title }}</h3>
+        <p class="mt-2 text-muted">{{ f.text }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="border-t border-line py-20 lg:py-28">
+  <div class="{{ wrap }} grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
+    <p class="label text-clay md:pt-3">Work with us</p>
+    <div>
+      <p class="max-w-[36ch] font-serif text-[clamp(26px,3vw,38px)] leading-[1.3] tracking-tight text-ink">{{ site.data.home.contact }}</p>
+      {% include contact-list.html %}
+      <p class="mt-9 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="{{ '/#internships' | relative_url }}">Internships {% include icon.html name="arrow-right" %}</a>
+        <a class="btn" href="{{ '/founders/' | relative_url }}">Meet the founders {% include icon.html name="arrow-right" %}</a>
+      </p>
+    </div>
+  </div>
+</section>
