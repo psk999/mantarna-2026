@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /robots.txt
+---
+# Preview: keep the site out of search engines until it is launched publicly.
+User-agent: *
+Disallow: /

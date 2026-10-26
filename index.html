@@ -1,0 +1,110 @@
+---
+layout: default
+---
+{% assign h = site.data.home %}
+{% assign wrap = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-10" %}
+
+<!-- Hero: one large statement and a short paragraph, as on anthropic.com -->
+<section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
+  <div class="{{ wrap }}">
+    <p class="label">{{ site.legal_name }}</p>
+    <h1 class="mt-6 text-[clamp(44px,7.4vw,96px)] leading-[1.02]">{{ site.tagline | replace: ', ', ',<br class="hidden sm:inline"> ' }}</h1>
+    <p class="mt-8 max-w-[58ch] text-lg leading-relaxed text-muted sm:text-xl">{{ h.lede }}</p>
+  </div>
+</section>
+
+<!-- Feature banner: the collaboration and its partner institutions -->
+<section class="pb-16 lg:pb-24">
+  <div class="{{ wrap }}">
+    <div class="grid items-center gap-8 overflow-hidden rounded-3xl bg-surface-2 p-5 sm:p-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-14 lg:p-12">
+      <figure class="m-0 rounded-2xl bg-white p-4 sm:p-6">
+        <img class="w-full rounded-lg" src="{{ '/assets/img/mantrana-collaboration.png' | relative_url }}" alt="Mantrana collaboration with partner institutions" width="470" height="344">
+      </figure>
+      <div>
+        <p class="label">A collaborative healthcare transformation company</p>
+        <ul class="mt-6 divide-y divide-line-strong border-y border-line-strong" aria-label="Partner institutions">
+          {%- for p in h.partners %}
+          <li><a class="group flex items-center justify-between py-4 font-serif text-2xl text-ink no-underline sm:text-[28px]" href="{{ p.url }}" target="_blank" rel="noopener noreferrer">{{ p.name }}<span class="text-xl text-faint transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-clay">{% include icon.html name="arrow-up-right" %}</span></a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vision, Collaboration, Opportunity -->
+<section class="pb-20 lg:pb-28">
+  <div class="{{ wrap }}">
+    <ol class="grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
+      {%- for p in h.pillars %}
+      <li class="border-t border-ink pt-5">
+        <span class="font-mono text-xs text-faint">0{{ forloop.index }}</span>
+        <h2 class="mt-4 text-[28px] leading-tight">{{ p.title }}</h2>
+        <p class="mt-3 max-w-[40ch] text-muted">{{ p.text }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="about">
+  <div class="{{ wrap }} grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
+    <p class="label text-clay md:pt-3">About Mantrana</p>
+    <p class="max-w-[36ch] font-serif text-[clamp(26px,3vw,38px)] leading-[1.3] tracking-tight text-ink">{{ h.about }}</p>
+  </div>
+</section>
+
+<!-- Founders: full-width entries separated by rules, like the anthropic.com announcement list -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="founders">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">Founders</p>
+    <h2 class="mt-4 text-[clamp(32px,4vw,48px)] leading-tight">The team behind Mantrana</h2>
+    <div class="mt-12">
+      {%- for f in h.founders %}
+      <article class="grid gap-8 border-t border-line py-10 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)] md:gap-14 lg:py-12">
+        <img class="aspect-square w-full max-w-72 rounded-2xl bg-surface-2 object-cover md:max-w-none" src="{{ f.photo | relative_url }}" alt="Portrait of {{ f.name }}" width="480" height="480" loading="lazy">
+        <div>
+          <p class="label text-clay">{{ f.role }}</p>
+          <h3 class="mt-3 text-[clamp(28px,3vw,36px)] leading-tight">{{ f.name }}</h3>
+          <p class="mt-4 max-w-[60ch] font-serif text-xl leading-normal text-ink">{{ f.summary }}</p>
+          {%- for para in f.bio %}
+          <p class="mt-4 max-w-[68ch] text-muted">{{ para }}</p>
+          {%- endfor %}
+          <ul class="mt-6 flex flex-wrap gap-2" aria-label="Areas of work">
+            {%- for a in f.areas %}<li class="rounded-md bg-surface-2 px-3 py-1.5 text-[13px] font-medium text-muted">{{ a }}</li>{%- endfor %}
+          </ul>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Internships: card grid, after the claude.com article cards -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="internships">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">Internships</p>
+    <h2 class="mt-4 text-[clamp(32px,4vw,48px)] leading-tight">Internship Areas</h2>
+    <p class="mt-5 max-w-[60ch] text-lg text-muted">{{ h.internships.intro }}</p>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {%- for a in h.internships.areas %}
+      <article class="flex min-h-56 flex-col rounded-2xl border border-line bg-surface p-7 transition hover:-translate-y-0.5 hover:border-line-strong motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+        <p class="label">Internship area · 0{{ forloop.index }}</p>
+        <h3 class="mt-auto pt-10 text-[26px] leading-tight">{{ a.title }}</h3>
+        <p class="mt-3 text-muted">{{ a.text }}</p>
+      </article>
+      {%- endfor %}
+    </div>
+    <p class="mt-10"><a class="btn btn-primary" href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer">Apply Now {% include icon.html name="arrow-right" %}</a></p>
+  </div>
+</section>
+
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="contact">
+  <div class="{{ wrap }} grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
+    <p class="label text-clay md:pt-3">Contact</p>
+    <div>
+      <p class="max-w-[36ch] font-serif text-[clamp(26px,3vw,38px)] leading-[1.3] tracking-tight text-ink">{{ h.contact }}</p>
+      <p class="mt-9"><a class="btn" href="mailto:{{ site.email }}">{% include icon.html name="mail" %} {{ site.email }}</a></p>
+    </div>
+  </div>
+</section>

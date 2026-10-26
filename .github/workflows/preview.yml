@@ -1,0 +1,20 @@
+name: PR build check
+
+on:
+  pull_request:
+    branches: [main, qa]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: bin/build-css
+      - run: bundle exec jekyll build
+      - run: bash deploy/leak-scan.sh _site

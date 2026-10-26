@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Local preview at http://localhost:4000 with Tailwind and Jekyll both rebuilding on change.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+bin/build-css
+bin/build-css --watch & tw=$!
+trap 'kill $tw 2>/dev/null' EXIT
+bundle exec jekyll serve --livereload "$@"

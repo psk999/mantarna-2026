@@ -1,0 +1,32 @@
+title: Mantrana Healthcare
+legal_name: Mantrana Healthcare Technology Pvt. Ltd.
+tagline: Human Wisdom, Machine Intelligence
+description: >-
+  A collaborative healthcare transformation initiative connecting institutions, research,
+  innovation, and digital technology for meaningful healthcare impact.
+email: contact@mantranahealthcare.com
+apply_url: https://forms.gle/EG3dn4emFdzqTNJM8
+baseurl: ""
+url: ""
+markdown: kramdown
+permalink: pretty
+
+# Preview: ask search engines not to index any page. Set to false at public launch
+# (and change robots.txt to allow crawling).
+noindex: true
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: default }
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .ruby-version
+  - wrangler.jsonc
+  - deploy
+  - bin
+  - vendor
+  - .gitignore
+  - README.md
+  - CLAUDE.md
