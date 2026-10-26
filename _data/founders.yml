@@ -1,0 +1,58 @@
+# Founder profiles: the /founders/ page and the preview on the home page.
+
+- name: Dr. Raghunatha Sarma R
+  slug: raghunatha-sarma
+  email: rraghunathasarma@sssihl.edu.in
+  role: Founder
+  photo: /assets/img/raghunatha-sarma.jpg
+  summary: >-
+    An experienced teacher and a researcher with expertise in Computer Vision, Machine Learning and
+    Data mining, and in Healthcare and Social welfare Analytics.
+  bio:
+    - >-
+      With over three decades of academic and research experience, he has contributed significantly to
+      interdisciplinary projects involving healthcare diagnostics, medical image analysis, and intelligent
+      systems. His work spans point-of-care diagnostic devices, medical image segmentation,
+      multi-resolution based image mosaicing, and interpretable machine learning frameworks for
+      predictive analytics in neurosurgery, applied to conditions such as Chiari 1 malformation,
+      cardiogenic brain abscess in Tetralogy of Fallot, recurrent lumbar disc herniation, and rheumatic
+      heart disease with mitral stenosis.
+    - >-
+      He currently leads research in social
+      security and welfare data mining of large healthcare schemes such as Ayushman Bharat, AI in sports,
+      whole slide imaging for classifying disease from pathology slides, and thermal image analysis.
+  areas: [Computer vision, Medical imaging, Interpretable ML, Digital pathology]
+  feature:
+    label: From satellites to slides
+    heading: Applying space technology to clinical pathology
+    paragraphs:
+      - >-
+        Dr. Raghunatha Sarma, the founder, translated his doctoral research, an algorithm for stitching
+        satellite images developed in collaboration with ISRO, into a healthcare innovation.
+      - >-
+        He and his team adapted the same principles to stitch high-resolution pathology slide images,
+        aligning fields of view and fields of interest with precision.
+      - >-
+        The technology now scales to large pathology image datasets and is optimised for processing with
+        large language models and GPU-based systems: research turned into a production-ready platform.
+- name: Dr. P. Sunil Kumar
+  slug: sunil-kumar
+  email: psunilkumar@sssihl.edu.in
+  role: Co-founder
+  photo: /assets/img/sunil-kumar.jpg
+  summary: >-
+    Brings over two decades of academic and research excellence in Computer Science, blending technical
+    proficiency with a values-based approach.
+  bio:
+    - >-
+      His core expertise spans programming, databases, embedded systems, and machine learning, with an
+      emerging focus on Social Security Data Mining (SSDM). A key contributor to the Institute's innovation
+      ecosystem, he drives strategic research in healthcare knowledge graphs, multilingual conversational
+      agents, hybrid rule mining, and systems modelling, aimed at empowering digital public
+      infrastructure and social impact initiatives.
+    - >-
+      His work includes knowledge graphs that link treatment, health schemes, insurance, and care
+      pathways; multilingual conversational AI that improves healthcare awareness and scheme navigation
+      in rural India; and data pipelines and decision-support tools that help doctors and surface
+      underserved population segments.
+  areas: [Knowledge graphs, Conversational AI, Data mining, Public health systems]

@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mantrana Healthcare website
 
-## Getting Started
+Static site for Mantrana Healthcare Technology Pvt. Ltd. — *Human Wisdom, Machine Intelligence*.
+Built with Jekyll 4.4 and Tailwind CSS v4, served from Cloudflare Workers static assets
+(the same setup as the SSSIHL–CADS portal).
 
-First, run the development server:
+## Edit the content
+
+| What | Where |
+| --- | --- |
+| Hero line, partners, Vision/Collaboration/Opportunity, About, Internships, Contact text | `_data/home.yml` |
+| Header and footer links | `_data/nav.yml` |
+| Company name, tagline, Apply form link | `_config.yml` |
+| Founder profiles, contact emails, the satellites-to-slides story | `_data/founders.yml` |
+| About page (story, approach, innovation cycle) | `_data/about.yml` |
+| Platform page and diagram | `_data/platform.yml` |
+| Research page (applications in development, hospital AI projects) | `_data/research.yml` |
+| Page structure | `index.html`, `_layouts/default.html` |
+| Colours, fonts, shared classes | `_tailwind/site.css` |
+| Images | `assets/img/` |
+
+## Run locally
+
+Needs Ruby 3.3 (`.ruby-version`). No Node: Tailwind runs as its standalone binary, which
+`bin/build-css` downloads into `bin/` on first use.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bundle install
+bin/serve            # Tailwind watch + jekyll serve at http://localhost:4000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+One-off build: `bin/build-css && bundle exec jekyll build && bash deploy/leak-scan.sh _site`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Styling
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Tailwind utilities go straight in the HTML. The palette (ivory paper, warm grays, clay accent,
+after anthropic.com and claude.com) is a set of CSS variables in `_tailwind/site.css`, exposed as
+Tailwind colours: `bg-paper`, `bg-surface`, `bg-surface-2`, `text-ink`, `text-body`, `text-muted`,
+`text-faint`, `border-line`, `border-line-strong`, `text-clay`, `bg-clay-soft`. They switch for dark
+mode on their own, so no `dark:` variants are needed. Fonts: `font-serif` (Source Serif 4) for
+headings, `font-sans` (Inter) for text, `font-mono` (JetBrains Mono) for labels. Shared classes:
+`label`, `btn`, `btn-primary`.
 
-## Learn More
+## Icons
 
-To learn more about Next.js, take a look at the following resources:
+[Lucide](https://lucide.dev/icons) icons are inline SVG includes (no JavaScript):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+bin/add-icon heart-pulse stethoscope
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```liquid
+{% include icon.html name="heart-pulse" %}
+{% include icon.html name="heart-pulse" class="text-clay text-2xl" %}
+```
 
-## Deploy on Vercel
+Icons take the text colour and size of their parent. Lucide is ISC licensed (`_includes/icons/LICENSE-lucide.txt`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub Actions (`.github/workflows/`):
+
+- **PR to `main` or `qa`:** builds and runs the leak scan.
+- **Push to `main`:** builds, scans, and deploys to production (`wrangler deploy`).
+- **Push to `qa`:** uploads a preview version with the alias `qa`.
+
+The upload steps run once the repository has the secrets `CLOUDFLARE_API_TOKEN` and
+`CLOUDFLARE_ACCOUNT_ID` and the variable `CF_DEPLOY=true`. Until then the workflow builds and scans only.
+Worker config: `wrangler.jsonc`.
+
+`deploy/leak-scan.sh` blocks a deploy if the built site contains documents (PDF, PPTX, DOCX) or
+wording from the internal company deck (confidential markings, commercial plans).
+
+## Before public launch
+
+The site is in preview and asks search engines not to index it. At launch set `noindex: false` in
+`_config.yml`, allow crawling in `robots.txt`, and set `url:` to the live domain.

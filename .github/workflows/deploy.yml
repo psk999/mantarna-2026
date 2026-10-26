@@ -1,0 +1,48 @@
+name: Deploy site (Cloudflare Workers static assets)
+
+# main -> production (wrangler deploy); qa -> preview version with alias 'qa' (wrangler versions upload).
+# Needs secrets CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID and variable CF_DEPLOY=true.
+# Until they exist, the job builds and scans but skips the upload. Config: wrangler.jsonc.
+on:
+  push:
+    branches: [main, qa]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: pages-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Build Tailwind CSS
+        run: bin/build-css
+      - name: Build Jekyll site
+        run: JEKYLL_ENV=production bundle exec jekyll build
+      - name: Leak scan (blocks upload on any internal material)
+        run: bash deploy/leak-scan.sh _site
+      - name: Deploy production (main)
+        if: ${{ vars.CF_DEPLOY == 'true' && github.ref_name == 'main' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          command: deploy
+      - name: Upload QA preview (qa)
+        if: ${{ vars.CF_DEPLOY == 'true' && github.ref_name == 'qa' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          command: versions upload --preview-alias qa

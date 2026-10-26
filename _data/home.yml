@@ -1,0 +1,39 @@
+# Words for the home page (index.html). Edit here; the layout stays untouched.
+
+lede: >-
+  A collaborative healthcare transformation initiative connecting institutions, research,
+  innovation, and digital technology for meaningful healthcare impact.
+
+partners:
+  - { name: SSSIHL, url: "https://sssihl.edu.in" }
+  - { name: SSSIHMS, url: "https://whitefield.sssihms.org/" }
+  - { name: SSSRIF, url: "https://sssrif.org/" }
+  - { name: IIC, url: "https://iic.sssihl.edu.in/" }
+
+pillars:
+  - title: Vision
+    text: Blending human wisdom with technology to support practical, collaborative healthcare transformation.
+  - title: Collaboration
+    text: Built through academic, clinical, research, and innovation partnerships that strengthen real-world impact.
+  - title: Opportunity
+    text: Students can engage through internships and contribute to meaningful healthcare technology initiatives.
+
+about: >-
+  Mantrana brings together human expertise and machine intelligence to support collaborative work in
+  healthcare technology, implementation Research (IR) and innovation.
+
+internships:
+  intro: >-
+    Students can apply through the Google Form to participate in technology, data, research, and
+    healthcare-oriented internship work.
+  areas:
+    - title: Web Development
+      text: Build and improve responsive website and interface components.
+    - title: AI / Data Science
+      text: Contribute to analytics, machine learning, and data-supported project activities.
+    - title: Healthcare Technology
+      text: Support healthcare-focused innovation and collaborative digital initiatives.
+
+contact: >-
+  For collaboration, internship coordination, and institutional engagement, please connect through the
+  official Mantrana channels.

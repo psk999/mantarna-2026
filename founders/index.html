@@ -1,0 +1,70 @@
+---
+title: Founders
+description: The founders of Mantrana Healthcare Technology Pvt. Ltd.
+permalink: /founders/
+---
+{% assign wrap = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-10" %}
+
+<section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">Founders</p>
+    <h1 class="mt-6 text-[clamp(40px,6vw,80px)] leading-[1.05]">The team behind Mantrana</h1>
+    <p class="mt-8 max-w-[58ch] text-lg leading-relaxed text-muted sm:text-xl">Decades of research in computer science, machine learning and healthcare analytics, brought together to support collaborative healthcare transformation.</p>
+    <nav class="mt-10 flex flex-wrap gap-3" aria-label="Founders on this page">
+      {%- for f in site.data.founders %}
+      <a class="btn" href="#{{ f.slug }}">{{ f.name }} {% include icon.html name="arrow-down" %}</a>
+      {%- endfor %}
+    </nav>
+  </div>
+</section>
+
+{%- for f in site.data.founders %}
+<!-- Full profile: portrait stays in view while the bio scrolls -->
+<section class="scroll-mt-20 border-t border-line py-16 lg:py-24" id="{{ f.slug }}">
+  <div class="{{ wrap }} grid gap-10 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)] md:gap-16">
+    <div class="md:sticky md:top-28 md:self-start">
+      <img class="aspect-square w-full max-w-80 rounded-2xl bg-surface-2 object-cover md:max-w-none" src="{{ f.photo | relative_url }}" alt="Portrait of {{ f.name }}" width="480" height="480"{% unless forloop.first %} loading="lazy"{% endunless %}>
+      <p class="label mt-6 text-clay">{{ f.role }}</p>
+      <h2 class="mt-3 text-[clamp(28px,3vw,36px)] leading-tight">{{ f.name }}</h2>
+      <a class="mt-3 inline-flex items-center gap-2 text-[15px] text-muted no-underline hover:text-clay" href="mailto:{{ f.email }}">{% include icon.html name="mail" %} {{ f.email }}</a>
+    </div>
+    <div>
+      <p class="max-w-[34ch] font-serif text-[clamp(24px,2.6vw,32px)] leading-[1.3] tracking-tight text-ink">{{ f.summary }}</p>
+      {%- for para in f.bio %}
+      <p class="mt-6 max-w-[68ch] text-[17px] leading-relaxed text-muted">{{ para }}</p>
+      {%- endfor %}
+      <div class="mt-12 border-t border-line pt-6">
+        <p class="label">Areas of work</p>
+        <ul class="mt-4 flex flex-wrap gap-2">
+          {%- for a in f.areas %}<li class="rounded-md bg-surface-2 px-3 py-1.5 text-[13px] font-medium text-muted">{{ a }}</li>{%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{%- if f.feature %}
+<!-- Feature story that follows this founder's profile -->
+<section class="scroll-mt-20 border-t border-line py-16 lg:py-24" id="{{ f.slug }}-story">
+  <div class="{{ wrap }} grid gap-10 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)] md:gap-16">
+    <p class="label text-clay md:pt-3">{{ f.feature.label }}</p>
+    <div>
+      <h2 class="max-w-[22ch] text-[clamp(30px,3.6vw,48px)] leading-tight">{{ f.feature.heading }}</h2>
+      {%- for p in f.feature.paragraphs %}
+      <p class="mt-6 max-w-[64ch] {% if forloop.first %}font-serif text-[clamp(20px,2vw,24px)] leading-normal text-ink{% else %}text-[17px] leading-relaxed text-muted{% endif %}">{{ p }}</p>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+{%- endfor %}
+
+<section class="border-t border-line py-20 lg:py-28">
+  <div class="{{ wrap }} grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
+    <p class="label text-clay md:pt-3">Work with us</p>
+    <div>
+      <p class="max-w-[36ch] font-serif text-[clamp(26px,3vw,38px)] leading-[1.3] tracking-tight text-ink">{{ site.data.home.contact }}</p>
+      {% include contact-list.html %}
+      <p class="mt-9"><a class="btn btn-primary" href="{{ '/#internships' | relative_url }}">Internships {% include icon.html name="arrow-right" %}</a></p>
+    </div>
+  </div>
+</section>

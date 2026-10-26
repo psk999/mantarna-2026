@@ -1,0 +1,2 @@
+{%- comment -%} The Mantrana knot on a transparent background; the lighter version shows in dark mode. Pass class= for size. {%- endcomment -%}
+<img class="logo-on-light {{ include.class }}" src="{{ '/assets/img/mantrana-mark.png' | relative_url }}" alt="{{ include.alt | default: 'Mantrana logo' }}" width="164" height="164"><img class="logo-on-dark {{ include.class }}" src="{{ '/assets/img/mantrana-mark-light.png' | relative_url }}" alt="" aria-hidden="true" width="164" height="164">

@@ -1,0 +1,93 @@
+/* Tailwind source. bin/build-css compiles this to assets/css/site.css (not committed).
+   Design language after anthropic.com and claude.com/resources/articles: ivory paper, warm grays,
+   clay accent, serif headlines, sans body, mono labels. */
+@import "tailwindcss" source(none);
+@source "../_layouts";
+@source "../_includes";
+@source "../index.html";
+@source "../404.html";
+@source "../founders";
+@source "../about";
+@source "../platform";
+@source "../research";
+
+/* Palette as CSS variables so light and dark switch in one place (data-theme, else the device). */
+:root {
+  --paper: #faf9f5; --surface: #ffffff; --surface-2: #f0eee6;
+  --body: #3d3d3a; --ink: #141413; --muted: #5e5d59; --faint: #87867f;
+  --line: #e8e6dc; --line-strong: #d1cfc5;
+  --clay: #c6613f; --clay-soft: #f5e3da;
+  --btn: #141413; --btn-ink: #faf9f5;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --paper: #1f1e1d; --surface: #262624; --surface-2: #30302e;
+  --body: #d1cfc5; --ink: #faf9f5; --muted: #b0aea5; --faint: #87867f;
+  --line: #30302e; --line-strong: #4d4c48;
+  --clay: #d97757; --clay-soft: #3a2a23;
+  --btn: #faf9f5; --btn-ink: #141413;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1f1e1d; --surface: #262624; --surface-2: #30302e;
+    --body: #d1cfc5; --ink: #faf9f5; --muted: #b0aea5; --faint: #87867f;
+    --line: #30302e; --line-strong: #4d4c48;
+    --clay: #d97757; --clay-soft: #3a2a23;
+    --btn: #faf9f5; --btn-ink: #141413;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-body: var(--body);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-clay: var(--clay);
+  --color-clay-soft: var(--clay-soft);
+  --color-btn: var(--btn);
+  --color-btn-ink: var(--btn-ink);
+  --color-night: #141413;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-paper text-body font-sans antialiased; }
+  h1, h2, h3 { @apply font-serif font-normal text-ink tracking-tight; }
+  ::selection { @apply bg-clay text-white; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-clay rounded; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+}
+
+@layer components {
+  /* small mono label above a heading, as on anthropic.com */
+  .label { @apply font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-faint; }
+  .btn { @apply inline-flex min-h-11 items-center gap-2 rounded-full border border-line-strong px-5 text-[15px] font-medium text-ink no-underline transition-colors hover:bg-surface-2; }
+  .btn-primary { @apply border-btn bg-btn text-btn-ink hover:border-clay hover:bg-clay hover:text-white; }
+  /* Lucide icon wrapper from _includes/icon.html */
+  .ic { @apply inline-flex size-[1em] shrink-0; }
+  .ic svg { @apply size-full; }
+}
+
+/* logo: dark-blue knot on light, lighter knot on dark (data-theme, else the device) */
+.logo-on-dark { display: none; }
+:root[data-theme="dark"] .logo-on-light { display: none; }
+:root[data-theme="dark"] .logo-on-dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logo-on-light { display: none; }
+  :root:not([data-theme="light"]) .logo-on-dark { display: block; }
+}
+
+/* mobile menu state, toggled by assets/js/site.js */
+.topbar.open .nav-panel { display: flex; }
+.topbar.open .ic-open { display: none; }
+.topbar:not(.open) .ic-close { display: none; }

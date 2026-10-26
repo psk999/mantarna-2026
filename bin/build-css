@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Compile Tailwind (_tailwind/site.css -> assets/css/site.css) with the standalone CLI: no Node needed.
+# Usage: bin/build-css            one minified build (CI and before a deploy)
+#        bin/build-css --watch    rebuild on change (bin/serve runs this)
+set -euo pipefail
+cd "$(dirname "$0")/.."
+TW_VERSION="v4.1.11"
+TW=bin/tailwindcss
+case "$(uname -s)-$(uname -m)" in
+  Linux-x86_64)  asset=tailwindcss-linux-x64 ;;
+  Linux-aarch64) asset=tailwindcss-linux-arm64 ;;
+  Darwin-arm64)  asset=tailwindcss-macos-arm64 ;;
+  Darwin-x86_64) asset=tailwindcss-macos-x64 ;;
+  *) echo "build-css: no Tailwind binary for $(uname -s)-$(uname -m)"; exit 2 ;;
+esac
+if [ ! -x "$TW" ] || ! "$TW" --help 2>/dev/null | grep -q "${TW_VERSION#v}"; then
+  echo "build-css: downloading Tailwind CLI $TW_VERSION ($asset)"
+  curl -fsSL -o "$TW" "https://github.com/tailwindlabs/tailwindcss/releases/download/$TW_VERSION/$asset"
+  chmod +x "$TW"
+fi
+if [ "${1:-}" = "--watch" ]; then
+  exec "$TW" -i _tailwind/site.css -o assets/css/site.css --watch
+fi
+"$TW" -i _tailwind/site.css -o assets/css/site.css --minify

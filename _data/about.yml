@@ -1,0 +1,51 @@
+# Words for the About page (/about/), drawn from the company presentation (slides 3 and 6-13).
+# Keep commercial plans, status reports and anything marked internal off the site; deploy/leak-scan.sh checks.
+
+intro: >-
+  Mantrana Healthcare Technology is a collaborative healthcare transformation company, bringing together
+  SSSIHL, SSSIHMS, SSSRIF and IIC so that computational science reaches everyday clinical care.
+
+story:
+  heading: A legacy of computing and care
+  milestones:
+    - year: "1991"
+      text: The first Sri Sathya Sai Institute of Higher Medical Sciences (SSSIHMS) hospital is inaugurated at Puttaparthi.
+    - year: "1995"
+      text: The Department of Mathematics and Computer Science (DMACS) is established at Sri Sathya Sai Institute of Higher Learning (SSSIHL).
+    - year: ML · AI
+      text: DMACS has focused on machine learning and artificial intelligence as key areas of applied research.
+    - year: "2025"
+      text: In the Centenary Year of Bhagawan's Birth, Mantrana Healthcare Technology takes that legacy forward.
+  closing: >-
+    The closeness of these two beginnings laid the foundation for a long-standing vision: to bridge
+    computational sciences with healthcare.
+
+approach:
+  heading: Digital transformation in healthcare is the need of the hour
+  items:
+    - title: Knowledge from action
+      text: Turning past experience into usable knowledge.
+    - title: Knowledge for action
+      text: Planning and organising for the future.
+    - title: Knowledge in action
+      text: Adapting in the present, turning knowledge into skill.
+
+flywheel:
+  heading: Hyper-collaboration, a cycle that turns research into reality
+  steps:
+    - title: Deep academic inquiry
+      where: SSSIHL
+      icon: graduation-cap
+      text: PhD-level research builds foundational knowledge and highly skilled talent.
+    - title: Applied technology and data science
+      where: Mantrana
+      icon: chart-line
+      text: That knowledge becomes practical tools, dashboards and predictive models.
+    - title: Clinical implementation and impact
+      where: SSSIHMS
+      icon: heart-pulse
+      text: The tools are deployed against real hospital challenges, improving patient outcomes and operational efficiency.
+    - title: New challenges and data streams
+      where: Back to research
+      icon: refresh-cw
+      text: The clinical setting surfaces new, complex problems and rich datasets that drive the next wave of inquiry.
