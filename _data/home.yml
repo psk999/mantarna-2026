@@ -12,10 +12,13 @@ partners:
 
 pillars:
   - title: Vision
+    icon: eye
     text: Blending human wisdom with technology to support practical, collaborative healthcare transformation.
   - title: Collaboration
+    icon: handshake
     text: Built through academic, clinical, research, and innovation partnerships that strengthen real-world impact.
   - title: Opportunity
+    icon: graduation-cap
     text: Students can engage through internships and contribute to meaningful healthcare technology initiatives.
 
 about: >-
@@ -28,10 +31,13 @@ internships:
     healthcare-oriented internship work.
   areas:
     - title: Web Development
+      icon: code
       text: Build and improve responsive website and interface components.
     - title: AI / Data Science
+      icon: brain-circuit
       text: Contribute to analytics, machine learning, and data-supported project activities.
     - title: Healthcare Technology
+      icon: heart-pulse
       text: Support healthcare-focused innovation and collaborative digital initiatives.
 
 contact: >-

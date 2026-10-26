@@ -52,8 +52,8 @@ permalink: /about/
     <ol class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-12" data-stagger="0.12">
       {%- for i in a.approach.items %}
       <li class="border-t border-ink pt-5">
-        <span class="font-mono text-xs text-faint">0{{ forloop.index }}</span>
-        <h3 class="mt-4 text-[26px] leading-tight">{{ i.title }}</h3>
+        <span class="icon-chip">{% include icon.html name=i.icon %}</span>
+        <h3 class="mt-5 text-[26px] leading-tight">{{ i.title }}</h3>
         <p class="mt-3 max-w-[36ch] text-muted">{{ i.text }}</p>
       </li>
       {%- endfor %}
@@ -65,7 +65,7 @@ permalink: /about/
         {%- for s in a.flywheel.steps %}
         <li class="relative flex flex-col rounded-2xl bg-surface p-6">
           <span class="grid size-11 place-items-center rounded-xl bg-clay-soft text-xl text-clay">{% include icon.html name=s.icon %}</span>
-          <p class="label mt-6">{{ forloop.index }} · {{ s.where }}</p>
+          <p class="label mt-6">{{ s.where }}</p>
           <h4 class="mt-2 font-serif text-[22px] leading-tight text-ink">{{ s.title }}</h4>
           <p class="mt-3 text-[15px] text-muted">{{ s.text }}</p>
           {%- unless forloop.last %}

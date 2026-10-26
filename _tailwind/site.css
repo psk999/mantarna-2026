@@ -73,6 +73,10 @@
   .label { @apply font-mono text-[11.5px] font-medium uppercase tracking-[0.14em] text-faint; }
   .btn { @apply inline-flex min-h-11 items-center gap-2 rounded-full border border-line-strong px-5 text-[15px] font-medium text-ink no-underline transition-colors hover:bg-surface-2; }
   .btn-primary { @apply border-btn bg-btn text-btn-ink hover:border-clay hover:bg-clay hover:text-white; }
+  /* translucent panel in the page colour, so text stays readable over the animated hero background */
+  .glass { @apply rounded-3xl border border-line/70 bg-paper/75 backdrop-blur-md; }
+  /* icon chip used in place of 01/02/03 counters */
+  .icon-chip { @apply grid size-11 shrink-0 place-items-center rounded-xl bg-clay-soft text-xl text-clay; }
   /* Lucide icon wrapper from _includes/icon.html */
   .ic { @apply inline-flex size-[1em] shrink-0; }
   .ic svg { @apply size-full; }

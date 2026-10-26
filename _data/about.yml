@@ -24,10 +24,13 @@ approach:
   heading: Digital transformation in healthcare is the need of the hour
   items:
     - title: Knowledge from action
+      icon: history
       text: Turning past experience into usable knowledge.
     - title: Knowledge for action
+      icon: target
       text: Planning and organising for the future.
     - title: Knowledge in action
+      icon: zap
       text: Adapting in the present, turning knowledge into skill.
 
 flywheel:

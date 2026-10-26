@@ -29,7 +29,7 @@ permalink: /research/
     <div class="mt-12 grid gap-4 lg:grid-cols-3" data-stagger="0.12">
       {%- for a in r.applications.items %}
       <article class="flex flex-col rounded-2xl border border-line bg-surface p-7">
-        <p class="label">Application · 0{{ forloop.index }}</p>
+        <span class="icon-chip">{% include icon.html name=a.icon %}</span>
         <h3 class="mt-8 text-[26px] leading-tight">{{ a.title }}</h3>
         <p class="mt-3 text-muted">{{ a.text }}</p>
         {%- if a.team %}<p class="mt-auto pt-6 text-[13px] text-faint">{{ a.team }}</p>{% endif %}
@@ -51,20 +51,19 @@ permalink: /research/
       {%- endfor %}
     </nav>
 
-    {%- assign n = 0 %}
     <div class="mt-14">
       {%- for g in r.projects.groups %}
       <div class="grid scroll-mt-24 gap-6 border-t border-line py-10 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16" id="{{ g.title | slugify }}">
         <div class="md:sticky md:top-28 md:self-start">
-          <span class="grid size-11 place-items-center rounded-xl bg-clay-soft text-xl text-clay">{% include icon.html name=g.icon %}</span>
+          <span class="icon-chip">{% include icon.html name=g.icon %}</span>
           <h3 class="mt-4 text-[26px] leading-tight">{{ g.title }}</h3>
           <p class="label mt-2">{{ g.items.size }} project{% if g.items.size > 1 %}s{% endif %}</p>
         </div>
         <ol class="divide-y divide-line" data-stagger="0.07">
-          {%- for item in g.items %}{% assign n = n | plus: 1 %}
-          <li class="grid grid-cols-[44px_minmax(0,1fr)] gap-4 py-5 first:pt-0 last:pb-0">
-            <span class="font-mono text-[13px] text-faint">{% if n < 10 %}0{% endif %}{{ n }}</span>
-            <p class="max-w-[64ch] text-[17px] leading-relaxed text-body">{{ item }}</p>
+          {%- for item in g.items %}
+          <li class="grid grid-cols-[36px_minmax(0,1fr)] items-start gap-4 py-5 first:pt-0 last:pb-0">
+            <span class="mt-0.5 grid size-8 place-items-center rounded-lg bg-surface-2 text-base text-clay">{% include icon.html name=item.icon %}</span>
+            <p class="max-w-[64ch] text-[17px] leading-relaxed text-body">{{ item.text }}</p>
           </li>
           {%- endfor %}
         </ol>

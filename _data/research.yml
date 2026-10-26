@@ -9,10 +9,13 @@ applications:
   heading: Applications in development
   items:
     - title: Cardiogenic brain abscess
+      icon: brain
       text: An analytical framework to identify predictive factors, and a protocol for early identification of brain abscess in patients with Tetralogy of Fallot (TOF).
     - title: PTMC outcomes in mitral stenosis
+      icon: heart-pulse
       text: A framework to predict outcomes and analyse risk factors for patients with mitral stenosis undergoing Percutaneous Transvenous Mitral Commissurotomy (PTMC).
     - title: Recurrent lumbar disc herniation
+      icon: bone
       text: An explainable machine learning framework for predicting recurrent lumbar disc herniation.
       team: Dr. R Raghunatha Sarma, Mr. M Subramanian, Dr. Sumit Thakar, Dr. Prayag Kini
 
@@ -25,34 +28,34 @@ projects:
     - title: Radiology
       icon: stethoscope
       items:
-        - Triage radiology reports by flagging studies with urgent or emergency findings, and message the clinician and radiologist.
-        - Identify image series of different body parts and file them in the correct folders in PACS.
-        - Identify and monitor radiology key performance indicators (KPIs).
-        - Voice-activated RIS for patient notes, placing orders, appointments, registration and statistics.
+        - { icon: siren, text: "Triage radiology reports by flagging studies with urgent or emergency findings, and message the clinician and radiologist." }
+        - { icon: folder-tree, text: "Identify image series of different body parts and file them in the correct folders in PACS." }
+        - { icon: gauge, text: "Identify and monitor radiology key performance indicators (KPIs)." }
+        - { icon: mic, text: "Voice-activated RIS for patient notes, placing orders, appointments, registration and statistics." }
     - title: Scheduling and rosters
       icon: layers
       items:
-        - Use language models to auto-schedule CT and MRI studies around the time each study needs and other constraints.
-        - Use language models to build staff rosters that respect every constraint and leave detail.
-        - Build duty rosters for radiology technicians from constraints described to the software.
+        - { icon: calendar-clock, text: "Use language models to auto-schedule CT and MRI studies around the time each study needs and other constraints." }
+        - { icon: users, text: "Use language models to build staff rosters that respect every constraint and leave detail." }
+        - { icon: clipboard-list, text: "Build duty rosters for radiology technicians from constraints described to the software." }
     - title: Clinical documentation
       icon: file-search
       items:
-        - Turn the doctor-patient conversation in the outpatient department into text and summarise it into OPD notes.
+        - { icon: notebook-pen, text: "Turn the doctor-patient conversation in the outpatient department into text and summarise it into OPD notes." }
     - title: Patient communication
       icon: mail
       items:
-        - Sort patient emails by department, with automatic replies for nephrology queries.
-        - Send SMS alerts to ordering clinicians when lab reports are flagged with critical findings.
-        - Let patients call in, enter their patient ID and hear whether their CT or MRI report is ready, through the hospital phone system.
+        - { icon: mail, text: "Sort patient emails by department, with automatic replies for nephrology queries." }
+        - { icon: message-square, text: "Send SMS alerts to ordering clinicians when lab reports are flagged with critical findings." }
+        - { icon: phone, text: "Let patients call in, enter their patient ID and hear whether their CT or MRI report is ready, through the hospital phone system." }
     - title: Patient flow and operations
       icon: network
       items:
-        - Reduce patient waiting times for tests and for CT and MRI appointments.
-        - Plan space and rooms for tests so that no area is crowded.
-        - Design queuing for the urology outpatient department around its space, consulting rooms and patient flow.
-        - Improve the efficiency of investigations together with the clinical departments.
+        - { icon: timer, text: "Reduce patient waiting times for tests and for CT and MRI appointments." }
+        - { icon: layout-grid, text: "Plan space and rooms for tests so that no area is crowded." }
+        - { icon: list-ordered, text: "Design queuing for the urology outpatient department around its space, consulting rooms and patient flow." }
+        - { icon: activity, text: "Improve the efficiency of investigations together with the clinical departments." }
     - title: Ask the data
       icon: sparkles
       items:
-        - Ask for statistics in plain language; the system understands the question and writes the database query to answer it.
+        - { icon: message-circle-question-mark, text: "Ask for statistics in plain language; the system understands the question and writes the database query to answer it." }
