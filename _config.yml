@@ -12,7 +12,7 @@ social:
 baseurl: ""
 # The live address: used for canonical links, share previews, the sitemap and structured data.
 # Change it when the site moves to its own domain (e.g. https://mantranahealthcare.com).
-url: "https://mantranahealthcare.sssihl-cads.workers.dev"
+url: "https://mantranahealthcare.sssihl-depts.workers.dev"
 lang: en-IN
 markdown: kramdown
 permalink: pretty
