@@ -71,7 +71,8 @@ faq:
       wearables, pharmacy and claims through open standards (HL7 FHIR, DICOM, IHE and SMART on FHIR)
       and organises it across enrolment, treatment and claims, for care apps, research platforms and
       diagnostics platforms. Mantrana enables these capabilities so research teams can use them as a
-      public good.
+      public good. The team is also architecting a healthcare databank that will give researchers access
+      to datasets of many types, collaborating with the Sri Sathya Sai Biobank and Research Hub.
   - q: What research is Mantrana working on?
     a: >-
       Three clinical applications are in development: early identification of cardiogenic brain abscess
@@ -79,6 +80,11 @@ faq:
       learning model for recurrent lumbar disc herniation. Sixteen hospital AI projects are in discussion
       with SSSIHMS, across radiology, scheduling, clinical documentation, patient communication and
       patient flow.
+  - q: Can research scholars and graduates join Mantrana's research?
+    a: >-
+      Yes. Mantrana is open to collaborations and invites research scholars, M.Tech graduates and MS
+      graduates to join the multi-year healthcare databank project, built with the Sri Sathya Sai
+      Biobank and Research Hub. Write to Dr. Raghunatha Sarma R or Dr. P. Sunil Kumar to express interest.
   - q: How can students get involved with Mantrana?
     a: >-
       Students can apply for internships in web development, AI and data science, and healthcare

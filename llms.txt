@@ -17,6 +17,10 @@ Mantrana is a collaborative healthcare transformation company, established in {{
 - [Research]({{ '/research/' | absolute_url }}): applications in development and hospital AI projects with SSSIHMS
 - [Founders]({{ '/founders/' | absolute_url }}): profiles of the founders
 
+## Health databank (in progress)
+
+{{ site.data.platform.databank.text | strip_newlines | strip }} Collaborating with the {{ site.data.platform.databank.partner }} ({{ site.data.platform.databank.partner_url }}). {{ site.data.platform.databank.join.text | strip_newlines | strip }}
+
 ## Founders
 {% for f in site.data.founders %}
 - {{ f.name }} ({{ f.role }}): {{ f.summary | strip_newlines | strip }} Contact: {{ f.email }}

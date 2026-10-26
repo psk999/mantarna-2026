@@ -12,6 +12,75 @@ powered:
   text: >-
     Mantrana enables these capabilities, so that research teams can use them as a public good.
 
+# Second platform capability, shown below the diagram
+databank:
+  label: Platform capability · In progress
+  heading: A healthcare databank for researchers
+  text: >-
+    The team is architecting a healthcare databank that will give researchers access to datasets of
+    many types, from one place.
+  partner_label: Collaborating with
+  partner: Sri Sathya Sai Biobank and Research Hub (SSSBRH)
+  partner_url: https://iic.sssihl.edu.in/sri-sathya-sai-biobank-and-research-hub/
+  partner_note: >-
+    for the Sri Sathya Sai Healthcare Databank, which links biospecimens with clinical, imaging,
+    multiomic and long-term outcome data.
+  # Data lake behind the databank, top layer first (as published by SSSBRH)
+  layers:
+    - { name: Service layer, sub: For research and innovation, text: "Secure workspaces, governed access, AI and diagnostics pipelines" }
+    - { name: Storage layer, sub: To approved standards, text: "OMOP and FHIR-aligned clinical, imaging and multiomic data" }
+    - { name: Ingestion layer, sub: Data ingestion, text: "Clinical records, LIMS, imaging and sequencing feeds" }
+  # The databank pipeline (illustrative, as published by SSSBRH): inputs -> 12 steps in 4 phases -> outputs
+  pipeline:
+    heading: From sample and record to research-ready data
+    note: Illustrative; inputs vary by programme and study.
+    inputs:
+      - { name: Participant consent, detail: "e-Consent, scope, tiers" }
+      - { name: Clinical records, detail: "EMR, diagnoses, medications, procedures" }
+      - { name: Biospecimen accession, detail: "LIMS, barcode, aliquots, freezer" }
+      - { name: Pathology and lab reports, detail: "DiagnosticReport, Observation" }
+      - { name: Imaging, detail: "DICOM: retinal, cardiac, radiology" }
+      - { name: Raw sequencing reads, detail: "FASTQ: WGS, WES, RNA-seq" }
+      - { name: Proteomics and metabolomics, detail: "mzML, mass-spec runs" }
+      - { name: AMR isolate data, detail: "Culture, AST, isolate genomes" }
+      - { name: Longitudinal follow-up, detail: "Outcomes, recurrence, survival" }
+      - { name: Participant identity, detail: "Pseudonymised ID, held separately" }
+    phases:
+      - name: Ingest and register
+        steps:
+          - { name: Consent check, text: Every record and sample gated by consent scope }
+          - { name: Pseudonymise, text: Identity split from data; study IDs issued }
+          - { name: Accession and QC, text: "Barcode, sample integrity and chain of custody" }
+      - name: Harmonise clinical data
+        steps:
+          - { name: Map to standards, text: "SNOMED CT, LOINC and ICD-10 into OMOP and FHIR" }
+          - { name: Link sample to phenotype, text: "Specimens joined to episodes, imaging and outcomes" }
+      - name: Genomic and omics processing
+        steps:
+          - { name: Read QC and alignment, text: FASTQ to BAM against the reference genome }
+          - { name: Variant calling, text: "SNVs, indels, CNVs and SVs into joint VCFs" }
+          - { name: Annotation, text: Clinical significance and Indian population frequencies }
+          - { name: Expression and proteomics, text: Transcript and protein abundance matrices }
+          - { name: Pathogen genomics, text: "AMR genes, lineages and phylogeny for isolates" }
+      - name: Curate and release
+        steps:
+          - { name: Feature store, text: "Versioned, analysis-ready datasets for AI and ML" }
+          - { name: Governed release, text: "Tiered access, output review, provenance logged" }
+    outputs:
+      - { name: Analysis-ready cohorts, text: OMOP tables linked to the live sample inventory }
+      - { name: Variant and genotype datasets, text: Annotated VCFs and genotype matrices for association studies }
+      - { name: Multiomic matrices, text: "Expression, proteomic and metabolomic profiles per sample" }
+      - { name: AMR and pathogen datasets, text: "Resistance genes, lineages and outbreak clusters" }
+      - { name: AI training sets, text: "De-identified, labelled multimodal data with provenance" }
+  join:
+    heading: Join the databank project
+    text: >-
+      Mantrana is open to collaborations, and invites research scholars, M.Tech graduates and MS
+      graduates to join the team and be part of this multi-year project.
+    roles: [Research scholars, M.Tech graduates, MS graduates]
+    term: Multi-year project
+    subject: Joining the Mantrana health databank project
+
 # "How it fits together", read along the diagram
 walkthrough:
   - title: Connect hospital data

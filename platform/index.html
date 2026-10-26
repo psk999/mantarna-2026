@@ -28,6 +28,119 @@ permalink: /platform/
       </div>
     </div>
     {% include platform-diagram.html %}
+
+    <!-- Second capability: the health databank, and the call to join the project -->
+    {%- assign b = d.databank %}
+    <div class="mt-4 grid scroll-mt-24 gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]" id="databank">
+      <div class="flex flex-col rounded-3xl bg-night p-7 text-[#d1cfc5] sm:p-10 lg:p-12">
+        <span class="grid size-12 place-items-center rounded-xl bg-[#3a2a23] text-2xl text-[#d97757]">{% include icon.html name="database" %}</span>
+        <p class="mt-8 font-mono text-[11.5px] font-medium tracking-[0.14em] text-[#d97757] uppercase">{{ b.label }}</p>
+        <h2 class="mt-3 max-w-[20ch] text-[clamp(28px,3.2vw,42px)] leading-tight text-[#faf9f5]">{{ b.heading }}</h2>
+        <p class="mt-5 max-w-[52ch] text-lg leading-relaxed">{{ b.text }}</p>
+        <div class="mt-auto pt-10">
+          <div class="flex items-center gap-4 border-t border-[#30302e] pt-6">
+            <span class="grid size-11 shrink-0 place-items-center rounded-full border border-[#4d4c48] text-lg text-[#faf9f5]">{% include icon.html name="heart-pulse" %}</span>
+            <div>
+              <span class="block font-mono text-[10.5px] tracking-[0.14em] text-[#87867f] uppercase">{{ b.partner_label }}</span>
+              <a class="group inline-flex items-baseline gap-1.5 font-serif text-[clamp(19px,1.8vw,22px)] text-[#faf9f5] underline decoration-[#4d4c48] underline-offset-4 hover:decoration-[#d97757]" href="{{ b.partner_url }}" target="_blank" rel="noopener">{{ b.partner }}<span class="text-base text-[#d97757]">{% include icon.html name="arrow-up-right" %}</span></a>
+              <p class="mt-1 max-w-[52ch] text-[14.5px] text-[#b0aea5]">{{ b.partner_note }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col rounded-3xl border border-line bg-surface p-7 sm:p-10">
+        <p class="label text-clay">Open to collaboration</p>
+        <h3 class="mt-3 text-[clamp(24px,2.4vw,30px)] leading-tight">{{ b.join.heading }}</h3>
+        <p class="mt-4 text-[17px] leading-relaxed text-muted">{{ b.join.text }}</p>
+        <ul class="mt-6 flex flex-wrap gap-2" aria-label="Who can join">
+          {%- for r in b.join.roles %}<li class="inline-flex items-center gap-2 rounded-full bg-clay-soft px-3.5 py-1.5 text-[14px] font-medium text-ink">{% include icon.html name="graduation-cap" class="text-clay" %} {{ r }}</li>{%- endfor %}
+        </ul>
+        <p class="mt-4 inline-flex items-center gap-2 font-mono text-[11.5px] tracking-[0.12em] text-faint uppercase">{% include icon.html name="refresh-cw" %} {{ b.join.term }}</p>
+        <div class="mt-auto pt-8">
+          <p class="label">Write to</p>
+          <ul class="mt-3 grid gap-2">
+            {%- for f in site.data.founders %}
+            <li><a class="group flex items-center justify-between gap-4 rounded-xl bg-surface-2 px-4 py-3 no-underline hover:bg-clay-soft" href="mailto:{{ f.email }}?subject={{ b.join.subject | url_encode | replace: '+', '%20' }}">
+              <span><span class="block text-[15px] font-medium text-ink">{{ f.name }}</span><span class="block break-all text-[13px] text-muted">{{ f.email }}</span></span>
+              <span class="text-muted group-hover:text-clay">{% include icon.html name="mail" %}</span>
+            </a></li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- The databank pipeline, redrawn from SSSBRH's published (illustrative) pipeline -->
+    {%- assign pl = b.pipeline %}
+    <div class="mt-4 rounded-3xl bg-surface-2 p-4 sm:p-8 lg:p-12" id="databank-pipeline">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="label text-clay">Databank pipeline · Illustrative</p>
+          <h3 class="mt-3 max-w-[26ch] text-[clamp(24px,2.8vw,36px)] leading-tight">{{ pl.heading }}</h3>
+        </div>
+        <a class="inline-flex items-center gap-1.5 text-[14px] text-muted no-underline hover:text-clay" href="{{ b.partner_url }}" target="_blank" rel="noopener">Source: SSSBRH {% include icon.html name="arrow-up-right" %}</a>
+      </div>
+
+      <div class="mt-8 grid gap-4 xl:grid-cols-[minmax(0,240px)_minmax(0,1fr)_minmax(0,250px)]">
+        <!-- inputs -->
+        <div class="rounded-2xl border border-line bg-surface p-5">
+          <p class="label flex items-center justify-between">Samples and data in <span class="text-faint">{{ pl.inputs.size }}</span></p>
+          <ul class="mt-4 grid gap-1.5 sm:grid-cols-2 xl:grid-cols-1">
+            {%- for i in pl.inputs %}
+            <li class="rounded-lg bg-surface-2 px-3 py-2"><span class="block text-[13.5px] font-medium text-ink">{{ i.name }}</span><span class="block font-mono text-[11px] text-faint">{{ i.detail }}</span></li>
+            {%- endfor %}
+          </ul>
+        </div>
+
+        <!-- 12 steps in 4 phases -->
+        <div class="rounded-2xl bg-night p-5 text-[#d1cfc5] sm:p-6">
+          {%- assign step_total = 0 %}{% for ph in pl.phases %}{% assign step_total = step_total | plus: ph.steps.size %}{% endfor %}
+          <p class="flex items-center justify-between font-mono text-[11.5px] font-medium tracking-[0.14em] text-[#d97757] uppercase">Pipeline <span class="text-[#87867f]">{{ step_total }} steps · {{ pl.phases.size }} phases</span></p>
+          {%- assign n = 0 %}
+          <ol class="mt-5 grid gap-3 md:grid-cols-2">
+            {%- for ph in pl.phases %}
+            <li class="rounded-xl border border-[#30302e] p-4">
+              <p class="font-mono text-[10.5px] tracking-[0.12em] text-[#87867f] uppercase">Phase {{ forloop.index }}</p>
+              <p class="mt-1 font-serif text-[19px] leading-tight text-[#faf9f5]">{{ ph.name }}</p>
+              <ol class="mt-3 grid gap-2">
+                {%- for st in ph.steps %}{% assign n = n | plus: 1 %}
+                <li class="grid grid-cols-[28px_minmax(0,1fr)] gap-2">
+                  <span class="font-mono text-[12px] text-[#d97757]">{% if n < 10 %}0{% endif %}{{ n }}</span>
+                  <span><span class="block text-[14px] font-medium text-[#faf9f5]">{{ st.name }}</span><span class="block text-[12.5px] leading-snug text-[#b0aea5]">{{ st.text }}</span></span>
+                </li>
+                {%- endfor %}
+              </ol>
+            </li>
+            {%- endfor %}
+          </ol>
+        </div>
+
+        <!-- outputs -->
+        <div class="rounded-2xl border border-line bg-surface p-5">
+          <p class="label flex items-center justify-between">Research-ready out <span class="text-faint">{{ pl.outputs.size }}</span></p>
+          <ul class="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
+            {%- for o in pl.outputs %}
+            <li class="rounded-lg border border-clay/25 bg-clay-soft px-3 py-2.5"><span class="block text-[13.5px] font-semibold text-ink">{{ o.name }}</span><span class="block text-[12.5px] leading-snug text-muted">{{ o.text }}</span></li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <!-- the data lake underneath -->
+      <div class="mt-4 rounded-2xl border border-line bg-surface p-5 sm:p-6">
+        <p class="label">Data lake behind the databank</p>
+        <ol class="mt-4 grid gap-2">
+          {%- for l in b.layers %}
+          <li class="grid gap-1 rounded-xl bg-surface-2 px-4 py-3 sm:grid-cols-[180px_minmax(0,1fr)] sm:items-center sm:gap-6">
+            <span><span class="block font-serif text-[18px] text-ink">{{ l.name }}</span><span class="block font-mono text-[10.5px] tracking-[0.1em] text-faint uppercase">{{ l.sub }}</span></span>
+            <span class="text-[14.5px] text-muted">{{ l.text }}</span>
+          </li>
+          {%- endfor %}
+        </ol>
+      </div>
+      <p class="mt-4 text-[13px] text-faint">{{ pl.note }} Pipeline and data lake as published by the <a class="underline underline-offset-2 hover:text-clay" href="{{ b.partner_url }}" target="_blank" rel="noopener">Sri Sathya Sai Biobank and Research Hub</a>.</p>
+    </div>
   </div>
 </section>
 
