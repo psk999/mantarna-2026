@@ -1,9 +1,7 @@
-{%- comment -%} Founder email contacts, as rows separated by rules. Emails live in _data/founders.yml. {%- endcomment -%}
+{%- comment -%} The contact email, as a row between rules. The address lives in _config.yml (email). {%- endcomment -%}
 <ul class="mt-9 max-w-2xl divide-y divide-line border-y border-line" aria-label="Contacts" data-stagger="0.1">
-  {%- for f in site.data.founders %}
-  <li><a class="group grid gap-x-6 gap-y-2 py-4 no-underline sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center" href="mailto:{{ f.email }}">
-    <span><span class="block font-serif text-xl text-ink">{{ f.name }}</span><span class="label mt-1 block">{{ f.role }}</span></span>
-    <span class="inline-flex items-center gap-2 break-all text-[15px] font-medium text-muted group-hover:text-clay">{% include icon.html name="mail" %} {{ f.email }}</span>
+  <li><a class="group grid gap-x-6 gap-y-2 py-4 no-underline sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center" href="mailto:{{ site.email }}">
+    <span><span class="block font-serif text-xl text-ink">{{ site.title }}</span><span class="label mt-1 block">Collaboration and internships</span></span>
+    <span class="inline-flex items-center gap-2 break-all text-[15px] font-medium text-muted group-hover:text-clay">{% include icon.html name="mail" %} {{ site.email }}</span>
   </a></li>
-  {%- endfor %}
 </ul>

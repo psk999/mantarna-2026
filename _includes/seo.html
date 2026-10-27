@@ -61,7 +61,8 @@
       "knowsAbout": {{ seo.topics | jsonify }},
       "sameAs": {{ site.social | map: 'url' | jsonify }},
       "founder": [{% for f in site.data.founders %}{ "@id": {{ home_url | append: 'founders/#' | append: f.slug | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
-      "contactPoint": [{% for f in site.data.founders %}{ "@type": "ContactPoint", "contactType": "collaboration and internships", "name": {{ f.name | jsonify }}, "email": {{ f.email | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}]
+      "email": {{ site.email | jsonify }},
+      "contactPoint": [{ "@type": "ContactPoint", "contactType": "collaboration and internships", "email": {{ site.email | jsonify }} }]
     },
     {
       "@type": "WebSite",
@@ -99,7 +100,6 @@
       "jobTitle": {{ f.role | jsonify }},
       "description": {{ f.summary | strip_newlines | strip | jsonify }},
       "image": {{ f.photo | absolute_url | jsonify }},
-      "email": {{ f.email | prepend: 'mailto:' | jsonify }},
       "url": {{ home_url | append: 'founders/#' | append: f.slug | jsonify }},
       "knowsAbout": {{ f.areas | jsonify }},
       "worksFor": { "@id": {{ home_url | append: '#organization' | jsonify }} }

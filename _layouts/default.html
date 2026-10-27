@@ -95,9 +95,7 @@
       {%- for s in site.social %}
       <a class="inline-flex items-center gap-2 no-underline hover:text-[#faf9f5]" href="{{ s.url }}" target="_blank" rel="noopener noreferrer me">{% include icon.html name=s.icon %} {{ s.name }}</a>
       {%- endfor %}
-      {%- for f in site.data.founders %}
-      <a class="inline-flex items-center gap-2 no-underline hover:text-[#faf9f5]" href="mailto:{{ f.email }}">{% include icon.html name="mail" %} {{ f.email }}</a>
-      {%- endfor %}
+      <a class="inline-flex items-center gap-2 no-underline hover:text-[#faf9f5]" href="mailto:{{ site.email }}">{% include icon.html name="mail" %} {{ site.email }}</a>
     </p>
     <p class="border-t border-[#30302e] pt-6 md:col-span-2">© {{ site.time | date: "%Y" }} {{ site.legal_name }}</p>
   </div>

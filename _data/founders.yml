@@ -2,7 +2,6 @@
 
 - name: Dr. Raghunatha Sarma R
   slug: raghunatha-sarma
-  email: rraghunathasarma@sssihl.edu.in
   role: Founder
   photo: /assets/img/raghunatha-sarma.jpg
   summary: >-
@@ -37,7 +36,6 @@
         large language models and GPU-based systems: research turned into a production-ready platform.
 - name: Dr. P. Sunil Kumar
   slug: sunil-kumar
-  email: psunilkumar@sssihl.edu.in
   role: Co-founder
   photo: /assets/img/sunil-kumar.jpg
   summary: >-
