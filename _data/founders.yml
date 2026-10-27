@@ -1,6 +1,6 @@
 # Founder profiles: the /founders/ page and the preview on the home page.
 
-- name: Dr. Raghunatha Sarma R
+- name: Prof R Raghunath Sarma
   slug: raghunatha-sarma
   role: Founder
   photo: /assets/img/raghunatha-sarma.jpg
@@ -26,7 +26,7 @@
     heading: Applying space technology to clinical pathology
     paragraphs:
       - >-
-        Dr. Raghunatha Sarma, the founder, translated his doctoral research, an algorithm for stitching
+        Prof R Raghunath Sarma, the founder, translated his doctoral research, an algorithm for stitching
         satellite images developed in collaboration with ISRO, into a healthcare innovation.
       - >-
         He and his team adapted the same principles to stitch high-resolution pathology slide images,
