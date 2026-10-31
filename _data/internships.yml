@@ -6,6 +6,18 @@ intro: >-
   Mantrana internships are research projects with a mentor, a weekly rhythm and real deliverables.
   Pick a track, check the skills each project needs, and tell us in the form what you would bring.
 
+# Painting beside the title: public domain, via Wikimedia Commons (_includes/artwork.html).
+art:
+  src: /assets/img/art/taeuber-arp-bewegtes-kreisbild-1400.webp
+  small: /assets/img/art/taeuber-arp-bewegtes-kreisbild-800.webp
+  width: 1400
+  height: 1069
+  artist: Sophie Taeuber-Arp
+  title: Bewegtes Kreisbild
+  year: 1935
+  alt: "Sophie Taeuber-Arp's Bewegtes Kreisbild: blue, pale green, pink, red and cream circles and half-circles arranged on a black ground"
+  source: https://commons.wikimedia.org/wiki/File:Bewegtes_Kreisbild_1935,_Sophie_Taeuber-Arp.jpg
+
 tracks:
   - title: Social Welfare Analytics
     icon: workflow
