@@ -10,6 +10,7 @@
 @source "../about";
 @source "../platform";
 @source "../research";
+@source "../internships";
 
 /* Palette as CSS variables so light and dark switch in one place. The layout sets data-theme="light"
    by default; the device setting only applies to a page without data-theme. */

@@ -16,6 +16,7 @@ Mantrana is a collaborative healthcare transformation company, established in {{
 - [Platform]({{ '/platform/' | absolute_url }}): {{ site.data.platform.sub | strip_newlines | strip }}
 - [Research]({{ '/research/' | absolute_url }}): applications in development and hospital AI projects with SSSIHMS
 - [Social Welfare Analytics]({{ '/research/social-welfare-analytics/' | absolute_url }}): systems modelling and AI for public health and welfare programmes
+- [Internships]({{ '/internships/' | absolute_url }}): skills each project needs, how the 16 weeks run, and how to apply
 - [Founders]({{ '/founders/' | absolute_url }}): profiles of the founders
 
 ## Health databank (in progress)

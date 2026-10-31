@@ -1,0 +1,157 @@
+# Words for the Internships page (/internships/).
+# Sources: the systems modelling framework and 16-week flows (social welfare analytics), the Research page
+# data (AI in Health Care), and the questions on the application form (site.apply_url).
+
+intro: >-
+  Mantrana internships are research projects with a mentor, a weekly rhythm and real deliverables.
+  Pick a track, check the skills each project needs, and tell us in the form what you would bring.
+
+tracks:
+  - title: Social Welfare Analytics
+    icon: workflow
+    anchor: social-welfare
+    text: >-
+      A 16-week project on one public health or welfare programme: read the scheme documents with AI,
+      build a systems model, design and run a survey, and test what would help over five years.
+  - title: AI in Health Care
+    icon: heart-pulse
+    anchor: health-care
+    text: >-
+      Clinical prediction models and hospital AI projects with SSSIHMS: explainable machine learning,
+      language models, speech and scheduling for day-to-day hospital work.
+
+core:
+  heading: Skills every intern needs
+  intro: You do not need all of these on day one, but you should be comfortable starting with them.
+  items:
+    - { icon: code, title: Python, text: "Jupyter, pandas and scikit-learn for data work; reading and fixing other people's code." }
+    - { icon: git-branch, title: Git, text: "Code, prompts and data versions kept in a repository so the work can be reproduced." }
+    - { icon: file-search, title: Careful reading, text: "Reading long programme documents and clinical protocols closely, and noting the page for every claim." }
+    - { icon: notebook-pen, title: Clear writing, text: "Weekly progress notes, a project charter, and a final brief written for people who are not specialists." }
+    - { icon: sparkles, title: Using AI tools responsibly, text: "Language models speed up the work, but every AI output is checked by a person and logged." }
+    - { icon: shield-check, title: Ethics and privacy, text: "Consent, anonymising data at source, and keeping sensitive records on approved systems (DPDP Act 2023)." }
+
+# Skill groups for the social welfare track. projects: numbers from _data/social_welfare.yml (1-6).
+skills:
+  heading: Skill groups and the projects that use them
+  intro: >-
+    Every social welfare project uses the first three groups. The others depend on the project, so
+    look for the groups you are strongest in.
+  groups:
+    - title: Systems modelling
+      icon: workflow
+      projects: [1, 2, 3, 4, 5, 6]
+      text: Causal loop diagrams, stock-and-flow models, calibration to past data, and scenario testing.
+      tools: Vensim or Python (PySD, SciPy), NetworkX, SALib, Optuna
+    - title: Document AI and text extraction
+      icon: file-search
+      projects: [1, 2, 3, 4, 5, 6]
+      text: Parsing scheme PDFs, extracting causes, targets and timelines with language models, and scoring the results against hand-coded pages.
+      tools: Docling, PyMuPDF, OCR (Tesseract, PaddleOCR), LLMs with JSON output, precision, recall, F1
+    - title: Survey research and fieldwork
+      icon: clipboard-list
+      projects: [1, 2, 3, 4, 5, 6]
+      text: Turning model links into survey items, translation and back-translation, piloting, reliability checks and interviews with frontline workers and families.
+      tools: KoboToolbox or ODK, CFIR and RE-AIM measures, Cronbach's alpha, factor analysis
+    - title: Machine learning and statistics
+      icon: chart-line
+      projects: [1, 2, 3, 6]
+      text: Risk and dropout prediction with explanations, time-to-event models, trend forecasting and anomaly detection.
+      tools: XGBoost or LightGBM with SHAP, Cox models, Prophet or Chronos, Isolation Forest
+    - title: Computer vision
+      icon: scan-eye
+      projects: [2, 3, 4, 6]
+      text: Image models as research aids, such as retinal screening, child measurement, plate waste and skin lesions in cattle.
+      tools: Fine-tuned ViT, ConvNeXt, DINOv2 or YOLO; image segmentation
+    - title: Speech and Indian languages
+      icon: languages
+      projects: [1, 5, 6]
+      text: Transcribing voice interviews and analysing themes and sentiment in Indian languages. Speaking the local language of the study area helps.
+      tools: Whisper, AI4Bharat Indic ASR, IndicTrans2, MuRIL or IndicBERT
+    - title: Optimisation
+      icon: sliders-horizontal
+      projects: [4]
+      text: Linear programming for menus that meet nutrition norms, and searching for the best bundle of interventions.
+      tools: Linear programming, Optuna or BoTorch
+    - title: Epidemic and spatial modelling
+      icon: map
+      projects: [6]
+      text: Outbreak and vaccination dynamics, Bayesian calibration and maps of where disease spreads.
+      tools: SEIR models, PyMC, geopandas, Moran's I
+
+# One line per project on who it suits, plus any extra care the fieldwork needs.
+fit:
+  - { project: 1, suits: "Students interested in chronic disease, health systems and prediction models.", care: "" }
+  - { project: 2, suits: "Students who like modelling disease progression; image work if the scheme includes eye screening.", care: "" }
+  - { project: 3, suits: "Students interested in child nutrition, community services and data quality.", care: "Fieldwork involves children: ethics approval, parental consent and child assent." }
+  - { project: 4, suits: "Students who enjoy optimisation, school systems and analysing audit reports.", care: "Surveys with children need ethics approval, parental consent and child assent." }
+  - { project: 5, suits: "Students drawn to qualitative research, caregiving and language AI.", care: "Interviews with caregivers use trauma-sensitive protocols." }
+  - { project: 6, suits: "Students interested in epidemiology, animal health, maps and rural fieldwork.", care: "" }
+
+health_care:
+  heading: AI in Health Care
+  intro: >-
+    Work with clinicians at SSSIHMS on the applications in development and the hospital AI projects on
+    the Research page.
+  groups:
+    - title: Clinical prediction
+      icon: brain
+      text: Explainable machine learning on clinical data, such as the brain abscess, mitral stenosis and lumbar disc projects.
+      tools: Python, scikit-learn, XGBoost, SHAP, careful handling of patient data
+    - title: Language models in the hospital
+      icon: message-circle-question-mark
+      text: Triaging radiology reports, sorting patient email, and answering statistics questions in plain language by writing the database query.
+      tools: LLM prompting and testing, SQL, retrieval
+    - title: Speech and documentation
+      icon: mic
+      text: Turning outpatient conversations into notes, and voice-driven tools for the radiology information system.
+      tools: Whisper or other speech-to-text, summarisation
+    - title: Scheduling and operations
+      icon: calendar-clock
+      text: CT and MRI scheduling, staff rosters, queues and room planning.
+      tools: Optimisation, constraint solving, simulation
+
+weeks:
+  heading: How the 16 weeks run
+  intro: The social welfare projects follow the same ten stages, from scope to recommendations.
+  phases:
+    - { weeks: "1", title: Scope and ethics, text: "Ten ICMR videos with a viewing log for each, a one-page project charter, a document inventory and the ethics checklist." }
+    - { weeks: "2–3", title: Read the documents, text: "Parse the scheme PDFs, hand-code a gold set of pages, and extract causes, targets and timelines with AI." }
+    - { weeks: "4–5", title: Draft the model, text: "A causal loop diagram, checked with officers and frontline workers." }
+    - { weeks: "6–8", title: Build the survey, text: "Items from the model, expert review, translation, cognitive interviews and a pilot." }
+    - { weeks: "9–12", title: Fieldwork and analysis, text: "Surveys and interviews, cleaning, theme analysis, and a link-by-link gap analysis." }
+    - { weeks: "13–16", title: Model, test and recommend, text: "Calibrate and validate the model, test interventions, and write the policy brief." }
+  rhythm:
+    - { day: Monday, text: "Plan the week: three goals and the deliverable due on Friday." }
+    - { day: Wednesday, text: "30-minute check-in with your mentor." }
+    - { day: Friday, text: "Submit the deliverable and a short note: done, blocked, next." }
+  gates: Checkpoints at weeks 5, 8, 11 and 14 confirm the model, ethics, data and validation before moving on.
+
+deliverables:
+  heading: What you will hand in
+  items:
+    - Viewing logs and a one-page project charter
+    - A hand-coded gold set and an extraction pipeline with its accuracy scores
+    - A variable dictionary, causal loop diagram and stock-flow model
+    - Survey instruments, codebook and sampling plan
+    - A gap analysis of the programme on paper versus on the ground
+    - A calibrated model with validation, sensitivity and scenario results
+    - A policy brief with recommendations and indicators to monitor
+    - A Git repository that lets someone else reproduce the work
+
+form:
+  heading: Filling in the application form
+  intro: What each question on the form is looking for.
+  fields:
+    - { name: "Full name, email and mobile", text: "The details we use to contact you. Use an email you check daily." }
+    - { name: "Institute, campus and department", text: "Where you study now. Department is optional." }
+    - { name: "Current year of study", text: "I to IV UG, PG or other, so we can match the work to where you are." }
+    - { name: "Area of interest", text: "Choose Social Welfare Analytics or AI in Health Care. If you have a particular project in mind, choose Other and name it." }
+    - { name: "Why do you want to intern at Mantrana?", text: "The most important answer. Name one or two projects, the skill groups you are strongest in, and something you have built or studied that shows it. A few specific lines beat a long general one." }
+    - { name: "Resume link", text: "A Google Drive link to a PDF. Set sharing to \"Anyone with the link can view\", or we cannot open it." }
+    - { name: "LinkedIn, GitHub or portfolio", text: "GitHub is best if you have code to show: a notebook, a model, a scraper or a survey analysis. Otherwise LinkedIn or a portfolio." }
+  checklist:
+    - Read the project you want on the Social Welfare Analytics or Research page
+    - Know which skill groups you bring and which you want to learn
+    - Resume uploaded to Google Drive and shared with "Anyone with the link"
+    - GitHub or portfolio link that opens without signing in

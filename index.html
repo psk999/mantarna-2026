@@ -79,7 +79,10 @@ layout: default
       </article>
       {%- endfor %}
     </div>
-    <p class="mt-10"><a class="btn btn-primary" href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer">Apply Now {% include icon.html name="arrow-right" %}</a></p>
+    <p class="mt-10 flex flex-wrap gap-3">
+      <a class="btn btn-primary" href="{{ '/internships/' | relative_url }}">Skills and how to apply {% include icon.html name="arrow-right" %}</a>
+      <a class="btn" href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer">Apply Now {% include icon.html name="arrow-up-right" %}</a>
+    </p>
   </div>
 </section>
 

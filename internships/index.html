@@ -1,0 +1,195 @@
+---
+title: Internships
+description: "Mantrana internships in Social Welfare Analytics and AI in Health Care: the skills each project needs, how the 16 weeks run, and how to fill in the application form."
+permalink: /internships/
+---
+{% assign i = site.data.internships %}
+{% assign sw = site.data.social_welfare.projects.items %}
+{% assign wrap = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-10" %}
+
+<section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
+  <div class="{{ wrap }}" data-intro>
+    <p class="label text-clay">Internships</p>
+    <h1 class="mt-6 text-[clamp(44px,7.4vw,96px)] leading-[1.02]">Internships</h1>
+    <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ i.intro }}</p>
+    <div class="mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
+      {%- for t in i.tracks %}
+      <a class="flex flex-col rounded-2xl border border-line bg-surface p-6 text-ink no-underline transition hover:border-line-strong" href="#{{ t.anchor }}">
+        <span class="icon-chip">{% include icon.html name=t.icon %}</span>
+        <span class="mt-6 font-serif text-[24px] leading-tight">{{ t.title }}</span>
+        <span class="mt-2 text-[15px] leading-relaxed text-muted">{{ t.text }}</span>
+      </a>
+      {%- endfor %}
+    </div>
+    <p class="mt-10 flex flex-wrap gap-3">
+      <a class="btn btn-primary" href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer">Apply now {% include icon.html name="arrow-up-right" %}</a>
+      <a class="btn" href="#form">How to fill in the form {% include icon.html name="arrow-down" %}</a>
+    </p>
+  </div>
+</section>
+
+<!-- Core skills for every intern -->
+<section class="border-t border-line py-20 lg:py-28">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">For everyone</p>
+    <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">{{ i.core.heading }}</h2>
+    <p class="mt-5 max-w-[60ch] text-lg text-muted">{{ i.core.intro }}</p>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-stagger="0.08">
+      {%- for c in i.core.items %}
+      <article class="rounded-2xl border border-line bg-surface p-6">
+        <span class="icon-chip">{% include icon.html name=c.icon %}</span>
+        <h3 class="mt-6 text-[22px] leading-tight">{{ c.title }}</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-muted">{{ c.text }}</p>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Social welfare track: skill groups against projects, then who each project suits -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="social-welfare">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">Track 1 · Social Welfare Analytics</p>
+    <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">{{ i.skills.heading }}</h2>
+    <p class="mt-5 max-w-[60ch] text-lg text-muted">{{ i.skills.intro }}</p>
+
+    <ol class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[14px] text-muted" aria-label="Projects">
+      {%- for p in sw %}
+      <li><span class="font-mono text-clay">{{ forloop.index }}</span> {{ p.title | split: ':' | first }}</li>
+      {%- endfor %}
+    </ol>
+
+    <div class="mt-10 divide-y divide-line border-y border-line">
+      {%- for g in i.skills.groups %}
+      <div class="grid gap-4 py-7 md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)_auto] md:items-start md:gap-10">
+        <div class="flex items-start gap-4">
+          <span class="icon-chip">{% include icon.html name=g.icon %}</span>
+          <div>
+            <h3 class="text-[22px] leading-tight">{{ g.title }}</h3>
+            <p class="label mt-1.5">{% if g.projects.size == 6 %}All projects{% else %}{{ g.projects.size }} project{% if g.projects.size > 1 %}s{% endif %}{% endif %}</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-[16px] leading-relaxed text-body">{{ g.text }}</p>
+          <p class="mt-2 text-[14px] leading-relaxed text-faint">{{ g.tools }}</p>
+        </div>
+        <ul class="flex gap-1.5" aria-label="Projects using {{ g.title }}">
+          {%- for n in (1..6) %}
+          {%- if g.projects contains n %}
+          <li class="grid size-8 place-items-center rounded-lg bg-clay-soft font-mono text-[13px] text-clay" title="{{ sw[forloop.index0].title | split: ':' | first }}">{{ n }}</li>
+          {%- else %}
+          <li class="grid size-8 place-items-center rounded-lg border border-line font-mono text-[13px] text-faint" aria-hidden="true">{{ n }}</li>
+          {%- endif %}
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+    </div>
+
+    <h3 class="mt-20 text-[clamp(24px,2.6vw,32px)] leading-tight">Which project suits you</h3>
+    <div class="mt-8 grid gap-4 md:grid-cols-2" data-stagger="0.06">
+      {%- for f in i.fit %}
+      {%- assign p = sw[forloop.index0] %}
+      <article class="flex flex-col rounded-2xl border border-line bg-surface p-6">
+        <div class="flex items-center gap-3">
+          <span class="grid size-9 place-items-center rounded-lg bg-surface-2 text-clay">{% include icon.html name=p.icon %}</span>
+          <p class="label">{{ f.project }} · {{ p.theme }}</p>
+        </div>
+        <h4 class="mt-4 font-serif text-[20px] leading-snug text-ink">{{ p.title | split: ':' | first }}</h4>
+        <p class="mt-2 text-[15px] leading-relaxed text-muted">{{ f.suits }}</p>
+        <p class="mt-3 text-[14px] text-body">
+          {%- for g in i.skills.groups %}{% if g.projects contains f.project %}<span class="mr-1.5 mb-1.5 inline-block rounded-full border border-line-strong px-2.5 py-0.5 text-[12.5px]">{{ g.title }}</span>{% endif %}{% endfor %}
+        </p>
+        {%- if f.care != "" %}<p class="mt-3 flex items-start gap-2 text-[13.5px] text-faint">{% include icon.html name="shield-check" class="mt-0.5 shrink-0" %} {{ f.care }}</p>{% endif %}
+        <a class="mt-auto pt-5 text-[14px] font-medium text-clay no-underline hover:underline" href="{{ '/research/social-welfare-analytics/' | relative_url }}#project-{{ f.project }}">Project details {% include icon.html name="arrow-right" %}</a>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- How the 16 weeks run -->
+<section class="border-t border-line py-20 lg:py-28">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">16 weeks</p>
+    <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">{{ i.weeks.heading }}</h2>
+    <p class="mt-5 max-w-[60ch] text-lg text-muted">{{ i.weeks.intro }}</p>
+    <ol class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-stagger="0.08">
+      {%- for ph in i.weeks.phases %}
+      <li class="rounded-2xl border border-line bg-surface p-6">
+        <p class="font-mono text-[13px] text-clay">Week{% if ph.weeks contains '–' %}s{% endif %} {{ ph.weeks }}</p>
+        <h3 class="mt-3 text-[22px] leading-tight">{{ ph.title }}</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-muted">{{ ph.text }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+    <div class="mt-12 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:gap-16">
+      <div>
+        <h3 class="text-[22px] leading-tight">Every week</h3>
+        <dl class="mt-4 divide-y divide-line border-y border-line">
+          {%- for r in i.weeks.rhythm %}
+          <div class="grid grid-cols-[7.5rem_minmax(0,1fr)] gap-4 py-3"><dt class="label pt-0.5">{{ r.day }}</dt><dd class="text-[15px] text-body">{{ r.text }}</dd></div>
+          {%- endfor %}
+        </dl>
+        <p class="mt-4 text-[15px] text-muted">{{ i.weeks.gates }}</p>
+      </div>
+      <div>
+        <h3 class="text-[22px] leading-tight">{{ i.deliverables.heading }}</h3>
+        <ul class="mt-4 space-y-2.5">
+          {%- for d in i.deliverables.items %}
+          <li class="flex items-start gap-3 text-[15px] leading-snug text-body">{% include icon.html name="circle-check" class="mt-0.5 shrink-0 text-clay" %} {{ d }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI in Health Care track -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="health-care">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">Track 2 · AI in Health Care</p>
+    <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">{{ i.health_care.heading }}</h2>
+    <p class="mt-5 max-w-[60ch] text-lg text-muted">{{ i.health_care.intro }}</p>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2" data-stagger="0.08">
+      {%- for g in i.health_care.groups %}
+      <article class="rounded-2xl border border-line bg-surface p-6">
+        <span class="icon-chip">{% include icon.html name=g.icon %}</span>
+        <h3 class="mt-6 text-[22px] leading-tight">{{ g.title }}</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-muted">{{ g.text }}</p>
+        <p class="mt-3 text-[14px] text-faint">{{ g.tools }}</p>
+      </article>
+      {%- endfor %}
+    </div>
+    <p class="mt-8"><a class="btn" href="{{ '/research/' | relative_url }}#applications">See the clinical projects {% include icon.html name="arrow-right" %}</a></p>
+  </div>
+</section>
+
+<!-- The application form, question by question -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="form">
+  <div class="{{ wrap }} grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-16">
+    <div class="md:sticky md:top-28 md:self-start">
+      <p class="label text-clay">Apply</p>
+      <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">{{ i.form.heading }}</h2>
+      <p class="mt-5 text-lg text-muted">{{ i.form.intro }}</p>
+      <h3 class="mt-10 text-[20px] leading-tight">Before you apply</h3>
+      <ul class="mt-4 space-y-2.5">
+        {%- for c in i.form.checklist %}
+        <li class="flex items-start gap-3 text-[15px] leading-snug text-body">{% include icon.html name="circle-check" class="mt-0.5 shrink-0 text-clay" %} {{ c }}</li>
+        {%- endfor %}
+      </ul>
+      <p class="mt-8"><a class="btn btn-primary" href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer">Open the form {% include icon.html name="arrow-up-right" %}</a></p>
+    </div>
+    <ol class="divide-y divide-line border-y border-line">
+      {%- for f in i.form.fields %}
+      <li class="grid grid-cols-[2rem_minmax(0,1fr)] gap-4 py-6">
+        <span class="font-mono text-[13px] text-faint">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <div>
+          <h3 class="text-[19px] leading-snug">{{ f.name }}</h3>
+          <p class="mt-1.5 text-[15.5px] leading-relaxed text-muted">{{ f.text }}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>

@@ -16,6 +16,7 @@ Built with Jekyll 4.4 and Tailwind CSS v4, served at https://mantranatech.ai fro
 | Platform page and diagram | `_data/platform.yml` |
 | Research page (applications in development, hospital AI projects) | `_data/research.yml` |
 | Social Welfare Analytics page (under Research) | `_data/social_welfare.yml` |
+| Internships page (tracks, skill groups, 16 weeks, form guide) | `_data/internships.yml` |
 | Page structure | `index.html`, `_layouts/default.html` |
 | Colours, fonts, shared classes | `_tailwind/site.css` |
 | Images | `assets/img/` |
