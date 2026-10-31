@@ -5,6 +5,12 @@
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
   "name": "mantranahealthcare",
   "compatibility_date": "2026-10-01",
+  // Custom domains: the mantranatech.ai zone must be active in the same Cloudflare account.
+  // Wrangler creates the DNS records and certificates for these on deploy.
+  "routes": [
+    { "pattern": "mantranatech.ai", "custom_domain": true },
+    { "pattern": "www.mantranatech.ai", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./_site",
     "html_handling": "auto-trailing-slash",
