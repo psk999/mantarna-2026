@@ -54,7 +54,11 @@
     <div class="nav-panel absolute inset-x-0 top-full hidden flex-col gap-3 border-b border-line bg-paper px-4 pt-3 pb-5 xl:static xl:ml-auto xl:flex xl:flex-row xl:items-center xl:gap-5 xl:border-0 xl:bg-transparent xl:p-0" id="navPanel">
       <nav class="flex flex-col gap-1 xl:flex-row" aria-label="Main">
         {%- for item in site.data.nav %}
-        <a class="rounded-lg px-3 py-3 text-[14.5px] text-muted no-underline hover:bg-surface-2 hover:text-ink aria-[current=page]:text-ink aria-[current=page]:font-medium xl:py-2" href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        {%- comment %} Underline the current section: its own page or any page under it (Research covers /research/social-welfare-analytics/). {% endcomment %}
+        {%- assign section = page.url | slice: 0, item.url.size %}
+        {%- assign current = nil %}
+        {%- if item.url == page.url %}{% assign current = "page" %}{% elsif item.url != "/" and item.url contains "/" and section == item.url %}{% unless item.url contains "#" %}{% assign current = "true" %}{% endunless %}{% endif %}
+        <a class="relative rounded-lg px-3 py-3 text-[14.5px] text-muted no-underline hover:bg-surface-2 hover:text-ink after:pointer-events-none after:absolute after:inset-x-3 after:bottom-1.5 after:h-0.5 after:rounded-full after:bg-clay after:opacity-0 after:transition-opacity aria-[current]:font-medium aria-[current]:text-ink aria-[current]:after:opacity-100 xl:py-2 xl:after:bottom-0.5" href="{{ item.url | relative_url }}"{% if current %} aria-current="{{ current }}"{% endif %}>{{ item.title }}</a>
         {%- endfor %}
       </nav>
       <div class="flex items-center gap-2 self-start xl:self-auto">
