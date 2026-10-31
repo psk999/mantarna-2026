@@ -21,24 +21,6 @@ permalink: /research/
   </div>
 </section>
 
-<!-- Applications in development: article-style cards -->
-<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="applications">
-  <div class="{{ wrap }}">
-    <p class="label text-clay">In development</p>
-    <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">{{ r.applications.heading }}</h2>
-    <div class="mt-12 grid gap-4 lg:grid-cols-3" data-stagger="0.12">
-      {%- for a in r.applications.items %}
-      <article class="flex flex-col rounded-2xl border border-line bg-surface p-7">
-        <span class="icon-chip">{% include icon.html name=a.icon %}</span>
-        <h3 class="mt-8 text-[26px] leading-tight">{{ a.title }}</h3>
-        <p class="mt-3 text-muted">{{ a.text }}</p>
-        {%- if a.team %}<p class="mt-auto pt-6 text-[13px] text-faint">{{ a.team }}</p>{% endif %}
-      </article>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-
 <!-- Social welfare analytics: its own page -->
 {% assign sw = site.data.social_welfare %}
 <section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="social-welfare-analytics">
@@ -55,6 +37,24 @@ permalink: /research/
       {%- endfor %}
     </ul>
     <p class="mt-10"><a class="btn btn-primary" href="{{ '/research/social-welfare-analytics/' | relative_url }}">See the {{ sw.projects.items.size }} projects {% include icon.html name="arrow-right" %}</a></p>
+  </div>
+</section>
+
+<!-- Applications in development: article-style cards -->
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="applications">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">In development</p>
+    <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">{{ r.applications.heading }}</h2>
+    <div class="mt-12 grid gap-4 lg:grid-cols-3" data-stagger="0.12">
+      {%- for a in r.applications.items %}
+      <article class="flex flex-col rounded-2xl border border-line bg-surface p-7">
+        <span class="icon-chip">{% include icon.html name=a.icon %}</span>
+        <h3 class="mt-8 text-[26px] leading-tight">{{ a.title }}</h3>
+        <p class="mt-3 text-muted">{{ a.text }}</p>
+        {%- if a.team %}<p class="mt-auto pt-6 text-[13px] text-faint">{{ a.team }}</p>{% endif %}
+      </article>
+      {%- endfor %}
+    </div>
   </div>
 </section>
 
