@@ -31,4 +31,7 @@
     });
   });
   sync();
+
+  /* copyright year: the visitor's current year (the build year stays in the HTML as a fallback) */
+  document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
