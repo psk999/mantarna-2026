@@ -1,6 +1,7 @@
 # Words and links for the site footer (_layouts/default.html).
 # The Explore column is the header menu (_data/nav.yml); Partners comes from _data/home.yml.
 
+brand: MantranaTech.ai
 label: Work with us
 heading: Human wisdom, machine intelligence, for healthcare that works on the ground.
 text: >-
