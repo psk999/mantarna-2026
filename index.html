@@ -60,12 +60,14 @@ layout: default
 </section>
 
 <section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="about">
-  <div class="{{ wrap }} grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
-    <p class="label text-clay md:pt-3">About Mantrana</p>
+  <!-- the statement beside a public-domain painting (_data/art.yml) -->
+  <div class="{{ wrap }} grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16">
     <div>
-      <p class="max-w-[36ch] font-serif text-[clamp(26px,3vw,38px)] leading-[1.3] tracking-tight text-ink" data-reveal>{{ h.about }}</p>
+      <p class="label text-clay">About Mantrana</p>
+      <p class="mt-6 max-w-[36ch] font-serif text-[clamp(26px,3vw,38px)] leading-[1.3] tracking-tight text-ink" data-reveal>{{ h.about }}</p>
       <p class="mt-9"><a class="btn" href="{{ '/about/' | relative_url }}">More about Mantrana {% include icon.html name="arrow-right" %}</a></p>
     </div>
+    {% include artwork.html art=site.data.art.home %}
   </div>
 </section>
 

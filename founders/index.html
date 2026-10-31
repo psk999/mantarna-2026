@@ -8,14 +8,20 @@ permalink: /founders/
 
 <section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
   <div class="{{ wrap }}" data-intro>
-    <p class="label text-clay">Founders</p>
-    <h1 class="mt-6 text-[clamp(40px,6vw,80px)] leading-[1.05]">The team behind Mantrana</h1>
-    <p class="mt-8 max-w-[58ch] text-lg leading-relaxed text-muted sm:text-xl">Decades of research in computer science, machine learning and healthcare analytics, brought together to support collaborative healthcare transformation.</p>
-    <nav class="mt-10 flex flex-wrap gap-3" aria-label="Founders on this page">
-      {%- for f in site.data.founders %}
-      <a class="btn" href="#{{ f.slug }}">{{ f.name }} {% include icon.html name="arrow-down" %}</a>
-      {%- endfor %}
-    </nav>
+    <!-- title block with a public-domain painting beside it (_data/art.yml) -->
+    <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16">
+      <div>
+        <p class="label text-clay">Founders</p>
+        <h1 class="mt-6 text-[clamp(40px,6vw,80px)] leading-[1.05]">The team behind Mantrana</h1>
+        <p class="mt-8 max-w-[58ch] text-lg leading-relaxed text-muted sm:text-xl">Decades of research in computer science, machine learning and healthcare analytics, brought together to support collaborative healthcare transformation.</p>
+        <nav class="mt-10 flex flex-wrap gap-3" aria-label="Founders on this page">
+          {%- for f in site.data.founders %}
+          <a class="btn" href="#{{ f.slug }}">{{ f.name }} {% include icon.html name="arrow-down" %}</a>
+          {%- endfor %}
+        </nav>
+      </div>
+      {% include artwork.html art=site.data.art.founders loading="eager" %}
+    </div>
   </div>
 </section>
 

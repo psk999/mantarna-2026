@@ -8,12 +8,18 @@ permalink: /platform/
 
 <section class="pt-16 pb-12 sm:pt-24 lg:pt-32 lg:pb-16">
   <div class="{{ wrap }}" data-intro>
-    <p class="label text-clay">Platform</p>
-    <h1 class="mt-6 max-w-[20ch] text-[clamp(40px,6vw,80px)] leading-[1.05]">{{ d.heading }}</h1>
-    <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ d.sub }}</p>
-    <ul class="mt-10 flex flex-wrap gap-2" aria-label="Standards">
-      {%- for s in d.interop.standards %}<li class="rounded-md border border-line-strong px-3 py-1.5 font-mono text-[12.5px] text-ink">{{ s }}</li>{%- endfor %}
-    </ul>
+    <!-- title block with a public-domain painting beside it (_data/art.yml) -->
+    <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16">
+      <div>
+        <p class="label text-clay">Platform</p>
+        <h1 class="mt-6 max-w-[20ch] text-[clamp(40px,6vw,80px)] leading-[1.05]">{{ d.heading }}</h1>
+        <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ d.sub }}</p>
+        <ul class="mt-10 flex flex-wrap gap-2" aria-label="Standards">
+          {%- for s in d.interop.standards %}<li class="rounded-md border border-line-strong px-3 py-1.5 font-mono text-[12.5px] text-ink">{{ s }}</li>{%- endfor %}
+        </ul>
+      </div>
+      {% include artwork.html art=site.data.art.platform loading="eager" %}
+    </div>
   </div>
 </section>
 

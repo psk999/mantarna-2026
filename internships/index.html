@@ -9,14 +9,14 @@ permalink: /internships/
 
 <section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
   <div class="{{ wrap }}" data-intro>
-    <!-- title and intro, with a public-domain painting beside them (art: in _data/internships.yml) -->
+    <!-- title and intro, with a public-domain painting beside them (_data/art.yml) -->
     <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
       <div>
         <p class="label text-clay">Internships</p>
         <h1 class="mt-6 text-[clamp(44px,7.4vw,96px)] leading-[1.02]">Internships</h1>
         <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ i.intro }}</p>
       </div>
-      {% include artwork.html art=i.art loading="eager" %}
+      {% include artwork.html art=site.data.art.internships loading="eager" %}
     </div>
     <div class="mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
       {%- for t in i.tracks %}

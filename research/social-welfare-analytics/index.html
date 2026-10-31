@@ -11,13 +11,19 @@ permalink: /research/social-welfare-analytics/
 
 <section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
   <div class="{{ wrap }}" data-intro>
-    <p class="label"><a class="text-clay no-underline hover:underline" href="{{ '/research/' | relative_url }}">Research</a></p>
-    <h1 class="mt-6 text-[clamp(44px,7.4vw,96px)] leading-[1.02]">Social Welfare Analytics</h1>
-    <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ s.intro }}</p>
-    <dl class="mt-12 grid max-w-md grid-cols-2 border-t border-line">
-      <div class="border-r border-line py-5 pr-4"><dt class="label">Projects</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ s.projects.items.size }}</dd></div>
-      <div class="py-5 pl-4"><dt class="label">Themes</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ themes.size }}</dd></div>
-    </dl>
+    <!-- title block with a public-domain painting beside it (_data/art.yml) -->
+    <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16">
+      <div>
+        <p class="label"><a class="text-clay no-underline hover:underline" href="{{ '/research/' | relative_url }}">Research</a></p>
+        <h1 class="mt-6 text-[clamp(44px,7.4vw,96px)] leading-[1.02]">Social Welfare Analytics</h1>
+        <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ s.intro }}</p>
+        <dl class="mt-12 grid max-w-md grid-cols-2 border-t border-line">
+          <div class="border-r border-line py-5 pr-4"><dt class="label">Projects</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ s.projects.items.size }}</dd></div>
+          <div class="py-5 pl-4"><dt class="label">Themes</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ themes.size }}</dd></div>
+        </dl>
+      </div>
+      {% include artwork.html art=site.data.art.social_welfare loading="eager" %}
+    </div>
   </div>
 </section>
 

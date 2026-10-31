@@ -1,0 +1,81 @@
+# One public-domain painting per page, framed by _includes/artwork.html.
+# "Human Wisdom, Machine Intelligence": early modernist abstraction, hand-painted but built from
+# circles, lines and grids. All artists died before 1955; images from Wikimedia Commons (source:).
+# Files: assets/img/art/<slug>-lg.webp (about 1100px) and <slug>-sm.webp (about 700px).
+
+home:
+  slug: kandinsky-in-the-bright-oval
+  width: 862
+  height: 1100
+  small_width: 549
+  artist: Wassily Kandinsky
+  title: In the Bright Oval
+  year: 1925
+  alt: "Wassily Kandinsky's In the Bright Oval: black angular lines and shapes over a glowing yellow and brown oval on a dark blue ground"
+  source: https://commons.wikimedia.org/wiki/File:In_the_Bright_Oval_by_Wassily_Kandinsky,_1925_AD,_oil_on_cardboard_-_Museo_Nacional_Centro_de_Arte_Reina_Sof%C3%ADa_-_DSC08769.JPG
+
+about:
+  slug: delaunay-disks
+  width: 1087
+  height: 1100
+  small_width: 692
+  artist: Robert Delaunay
+  title: Disks
+  year: 1930–33
+  alt: "Robert Delaunay's Disks: overlapping rings of orange, green, blue and yellow around dark centres"
+  source: https://commons.wikimedia.org/wiki/File:Robert_Delaunay_-_Disks_-_1930-33_-_Museum_of_Modern_Art.jpg
+
+platform:
+  slug: kandinsky-dumpfes-rot
+  width: 1100
+  height: 936
+  small_width: 700
+  artist: Wassily Kandinsky
+  title: Dull Red (Dumpfes Rot)
+  year: 1927
+  alt: "Wassily Kandinsky's Dull Red: a small grid, fine lines, circles and bars arranged on a deep red ground"
+  source: https://commons.wikimedia.org/wiki/File:%27Dumpfes_Rot,_No.400%27_by_Wassily_Kandinsky,_1927.jpg
+
+research:
+  slug: kandinsky-ohne-titel-1923
+  width: 1100
+  height: 748
+  small_width: 700
+  artist: Wassily Kandinsky
+  title: Untitled (Ohne Titel)
+  year: 1923
+  alt: "Wassily Kandinsky's Untitled, 1923: a dense composition of lines, arcs, circles and small coloured shapes on cream paper"
+  source: https://commons.wikimedia.org/wiki/File:%27Ohne_Titel%27_by_Wassily_Kandinsky,_1923.jpg
+
+social_welfare:
+  slug: macke-farbige-formen-iii
+  width: 899
+  height: 1100
+  small_width: 572
+  artist: August Macke
+  title: Coloured Forms III (Farbige Formen III)
+  year: 1913
+  alt: "August Macke's Coloured Forms III: interlocking bands and blocks of yellow, red, pink, blue and green"
+  source: https://commons.wikimedia.org/wiki/File:August_macke_farbige_formen_iii081508).jpg
+
+founders:
+  slug: af-klint-buddhas-standpoint-3a
+  width: 842
+  height: 1100
+  small_width: 536
+  artist: Hilma af Klint
+  title: "Buddha's Standpoint in the Earthly Life, No. 3a"
+  year: 1920
+  alt: "Hilma af Klint's Buddha's Standpoint in the Earthly Life, No. 3a: a circle divided into a white half and a black half on pale paper"
+  source: https://commons.wikimedia.org/wiki/File:Hilma_af_Klint_-_1920_-_Buddha%27s_Standpoint_in_the_Earthly_Life_-_No_3a.jpg
+
+internships:
+  slug: taeuber-arp-bewegtes-kreisbild
+  width: 1100
+  height: 840
+  small_width: 700
+  artist: Sophie Taeuber-Arp
+  title: Bewegtes Kreisbild
+  year: 1935
+  alt: "Sophie Taeuber-Arp's Bewegtes Kreisbild: blue, pale green, pink, red and cream circles and half-circles arranged on a black ground"
+  source: https://commons.wikimedia.org/wiki/File:Bewegtes_Kreisbild_1935,_Sophie_Taeuber-Arp.jpg

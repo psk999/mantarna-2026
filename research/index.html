@@ -10,16 +10,22 @@ permalink: /research/
 
 <section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
   <div class="{{ wrap }}" data-intro>
-    <p class="label text-clay">Research</p>
-    <h1 class="mt-6 text-[clamp(44px,7.4vw,96px)] leading-[1.02]">Research</h1>
-    <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ r.intro }}</p>
-    <!-- One figure per section below, in page order -->
-    {%- assign sw_count = site.data.social_welfare.projects.items.size %}
-    <dl class="mt-12 grid max-w-2xl grid-cols-3 border-t border-line">
-      <div class="border-r border-line py-5 pr-4"><dt class="label"><a class="no-underline hover:text-clay" href="#social-welfare-analytics">Social welfare</a></dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ sw_count }}</dd></div>
-      <div class="border-r border-line px-4 py-5"><dt class="label"><a class="no-underline hover:text-clay" href="#applications">In development</a></dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ r.applications.items.size }}</dd></div>
-      <div class="py-5 pl-4"><dt class="label"><a class="no-underline hover:text-clay" href="#projects">With SSSIHMS</a></dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ project_count }}</dd></div>
-    </dl>
+    <!-- title block with a public-domain painting beside it (_data/art.yml) -->
+    <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16">
+      <div>
+        <p class="label text-clay">Research</p>
+        <h1 class="mt-6 text-[clamp(44px,7.4vw,96px)] leading-[1.02]">Research</h1>
+        <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ r.intro }}</p>
+        <!-- One figure per section below, in page order -->
+        {%- assign sw_count = site.data.social_welfare.projects.items.size %}
+        <dl class="mt-12 grid max-w-2xl grid-cols-3 border-t border-line">
+          <div class="border-r border-line py-5 pr-4"><dt class="label"><a class="no-underline hover:text-clay" href="#social-welfare-analytics">Social welfare</a></dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ sw_count }}</dd></div>
+          <div class="border-r border-line px-4 py-5"><dt class="label"><a class="no-underline hover:text-clay" href="#applications">In development</a></dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ r.applications.items.size }}</dd></div>
+          <div class="py-5 pl-4"><dt class="label"><a class="no-underline hover:text-clay" href="#projects">With SSSIHMS</a></dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ project_count }}</dd></div>
+        </dl>
+      </div>
+      {% include artwork.html art=site.data.art.research loading="eager" %}
+    </div>
   </div>
 </section>
 

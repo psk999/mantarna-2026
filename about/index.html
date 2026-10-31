@@ -10,16 +10,22 @@ permalink: /about/
 
 <section class="pt-16 pb-14 sm:pt-24 lg:pt-32 lg:pb-20">
   <div class="{{ wrap }}" data-intro>
-    <p class="label text-clay">About Mantrana</p>
-    <h1 class="mt-6 max-w-[18ch] text-[clamp(40px,6vw,80px)] leading-[1.05]">{{ site.tagline }}</h1>
-    <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ a.intro }}</p>
-    <nav class="mt-10 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11.5px] uppercase tracking-[0.14em]" aria-label="On this page">
-      <a class="text-faint no-underline hover:text-clay" href="#story">Our story</a>
-      <a class="text-faint no-underline hover:text-clay" href="#approach">Approach</a>
-      <a class="text-faint no-underline hover:text-clay" href="#faq">FAQ</a>
-      <a class="text-faint no-underline hover:text-clay" href="{{ '/research/' | relative_url }}">Research</a>
-      <a class="text-faint no-underline hover:text-clay" href="{{ '/platform/' | relative_url }}">Platform</a>
-    </nav>
+    <!-- title block with a public-domain painting beside it (_data/art.yml) -->
+    <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16">
+      <div>
+        <p class="label text-clay">About Mantrana</p>
+        <h1 class="mt-6 max-w-[18ch] text-[clamp(40px,6vw,80px)] leading-[1.05]">{{ site.tagline }}</h1>
+        <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ a.intro }}</p>
+        <nav class="mt-10 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11.5px] uppercase tracking-[0.14em]" aria-label="On this page">
+          <a class="text-faint no-underline hover:text-clay" href="#story">Our story</a>
+          <a class="text-faint no-underline hover:text-clay" href="#approach">Approach</a>
+          <a class="text-faint no-underline hover:text-clay" href="#faq">FAQ</a>
+          <a class="text-faint no-underline hover:text-clay" href="{{ '/research/' | relative_url }}">Research</a>
+          <a class="text-faint no-underline hover:text-clay" href="{{ '/platform/' | relative_url }}">Platform</a>
+        </nav>
+      </div>
+      {% include artwork.html art=site.data.art.about loading="eager" %}
+    </div>
   </div>
 </section>
 
