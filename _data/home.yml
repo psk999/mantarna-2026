@@ -13,6 +13,7 @@ partners:
   - { name: SSSRIF, full: "Sri Sathya Sai Research and Innovation Foundation", url: "https://sssrif.org/", logo: /assets/img/partner-sssrif.webp }
   - { name: IIC, full: "SSSIHL Institution's Innovation Council", url: "https://iic.sssihl.edu.in/", logo: /assets/img/partner-iic.webp }
   - { name: SSSBRH, full: "Sri Sathya Sai Biobank and Research Hub", url: "https://iic.sssihl.edu.in/sri-sathya-sai-biobank-and-research-hub/", icon: test-tubes }
+  - { name: CADS, full: "SSSIHL Center of Excellence in Actuarial Data Science", url: "https://cads.sssihl.edu.in/", icon: chart-line }
 
 partners_strip: In collaboration with
 
