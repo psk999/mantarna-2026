@@ -1,6 +1,6 @@
 ---
 title: Research
-description: "Healthcare AI research at Mantrana: clinical prediction models in development and 16 hospital AI projects in discussion with SSSIHMS."
+description: "Healthcare AI research at Mantrana: clinical prediction models in development, 16 hospital AI projects in discussion with SSSIHMS, and social welfare analytics."
 schema_type: CollectionPage
 permalink: /research/
 ---
@@ -70,6 +70,25 @@ permalink: /research/
       </div>
       {%- endfor %}
     </div>
+  </div>
+</section>
+
+<!-- Social welfare analytics: its own page -->
+{% assign sw = site.data.social_welfare %}
+<section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="social-welfare-analytics">
+  <div class="{{ wrap }}">
+    <p class="label text-clay">Social welfare analytics</p>
+    <h2 class="mt-4 text-[clamp(30px,3.6vw,44px)] leading-tight">Social Welfare Analytics</h2>
+    <p class="mt-5 max-w-[60ch] text-lg text-muted">{{ sw.intro }}</p>
+    <ul class="mt-10 grid gap-x-10 gap-y-4 sm:grid-cols-2" data-stagger="0.07">
+      {%- for p in sw.projects.items %}
+      <li class="flex items-start gap-4">
+        <span class="mt-0.5 grid size-8 shrink-0 place-items-center rounded-lg bg-surface-2 text-base text-clay">{% include icon.html name=p.icon %}</span>
+        <a class="text-[17px] leading-snug text-body no-underline hover:text-clay" href="{{ '/research/social-welfare-analytics/' | relative_url }}#project-{{ forloop.index }}">{{ p.title | split: ':' | first }}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="mt-10"><a class="btn btn-primary" href="{{ '/research/social-welfare-analytics/' | relative_url }}">See the {{ sw.projects.items.size }} projects {% include icon.html name="arrow-right" %}</a></p>
   </div>
 </section>
 

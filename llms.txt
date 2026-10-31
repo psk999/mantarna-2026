@@ -15,6 +15,7 @@ Mantrana is a collaborative healthcare transformation company, established in {{
 - [About]({{ '/about/' | absolute_url }}): story, approach, innovation cycle and FAQ
 - [Platform]({{ '/platform/' | absolute_url }}): {{ site.data.platform.sub | strip_newlines | strip }}
 - [Research]({{ '/research/' | absolute_url }}): applications in development and hospital AI projects with SSSIHMS
+- [Social Welfare Analytics]({{ '/research/social-welfare-analytics/' | absolute_url }}): systems modelling and AI for public health and welfare programmes
 - [Founders]({{ '/founders/' | absolute_url }}): profiles of the founders
 
 ## Health databank (in progress)
@@ -29,6 +30,13 @@ Mantrana is a collaborative healthcare transformation company, established in {{
 ## Research in development
 {% for a in site.data.research.applications.items %}
 - {{ a.title }}: {{ a.text }}
+{%- endfor %}
+
+## Social welfare analytics
+
+{{ site.data.social_welfare.intro | strip_newlines | strip }}
+{% for p in site.data.social_welfare.projects.items %}
+- {{ p.title }}: {{ p.text }}
 {%- endfor %}
 
 ## Frequently asked questions

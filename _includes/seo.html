@@ -1,6 +1,6 @@
 {%- comment -%}
   Search (SEO), answer-engine (AEO) and generative-engine (GEO) metadata for every page.
-  Settings: _config.yml (url, seo:, noindex). Per page: title, description, schema_type, and faq: true
+  Settings: _config.yml (url, seo:, noindex). Per page: title, description, schema_type, parent (title, url) for a sub-page's breadcrumb, and faq: true
   for pages that show the FAQ (its questions come from _data/about.yml).
 {%- endcomment -%}
 {%- assign seo = site.seo -%}
@@ -89,7 +89,12 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ home_url | jsonify }} },
+          {%- if page.parent %}
+          { "@type": "ListItem", "position": 2, "name": {{ page.parent.title | jsonify }}, "item": {{ page.parent.url | absolute_url | jsonify }} },
+          { "@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": {{ page_url | jsonify }} }
+          {%- else %}
           { "@type": "ListItem", "position": 2, "name": {{ page.title | jsonify }}, "item": {{ page_url | jsonify }} }
+          {%- endif %}
         ]
       }{% endif %}
     }{% for f in site.data.founders %},

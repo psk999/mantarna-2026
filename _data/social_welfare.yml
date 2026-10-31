@@ -1,0 +1,136 @@
+# Words for the Social Welfare Analytics page (/research/social-welfare-analytics/).
+# Project details from the systems modelling framework (Part 5, The Six Projects).
+
+intro: >-
+  Social welfare analytics applies systems modelling and AI to public health and welfare programmes.
+  Each project brings together programme documents, survey evidence and feedback from the people who
+  run and use a programme, to show where it reaches people, where it falls short, and which
+  interventions would help.
+
+approach:
+  heading: How the projects work
+  steps:
+    - title: Gather the evidence
+      icon: file-search
+      text: Scheme documents, survey data, and feedback from field workers, caregivers, families and farmers.
+    - title: Model the system
+      icon: workflow
+      text: A systems dynamics model of how programme design meets ground reality, with the feedback loops between funds, services and people.
+    - title: Test scenarios
+      icon: chart-line
+      text: Simulate interventions over several years to find the gaps that matter and guide implementation in the field.
+
+projects:
+  heading: Projects
+  note: >-
+    Each project follows the same staged framework. The details are working hypotheses, to be confirmed
+    against the programme documents.
+  items:
+    - title: "Mapping the Hypertension Care Cascade: A Systems Dynamics Approach to Implementation Research"
+      theme: Chronic disease
+      icon: heart-pulse
+      text: Using AI and survey evidence to find gaps in screening, treatment and control, and to test five-year interventions.
+      details:
+        - { label: Documents, text: "IHCI protocol and reports, NP-NCD operational guidelines, HEARTS technical package, standard treatment protocol, Ayushman Arogya Mandir / health and wellness centre guidance." }
+        - { label: What the model tracks, text: "Undiagnosed; diagnosed but untreated; on treatment, uncontrolled; on treatment, controlled; lost to follow-up; drug stock; trained staff." }
+        - { label: Flows, text: "Screening, diagnosis, treatment initiation, achieving control, dropout, re-engagement, drug procurement and consumption." }
+        - { label: Influencing factors, text: "Drug availability, staff workload, digital app use, adherence, health literacy, salt intake, travel distance, follow-up reminders." }
+        - { label: Data sources, text: "NFHS-5, LASI, WHO STEPS, NCD portal, IHCI dashboards, facility registers." }
+        - { label: AI and machine learning, text: "XGBoost or LightGBM for risk and dropout with SHAP; Cox or DeepSurv for time to dropout; Chronos or Prophet for facility BP-control trends; Whisper for voice surveys; SetFit for coding open comments." }
+        - { label: Surveys, text: "Patients: access, adherence, costs, counselling, trust. Frontline: workload, training, supplies, digital tools. Scales: Implementation Climate, AIM, IAM, FIM." }
+        - { label: Implementation strategies (ERIC), text: "Audit and feedback; develop supply and distribution systems; train and educate stakeholders; task-shifting; reminder systems; monitoring." }
+        - { label: Outcomes (RE-AIM), text: "Reach: screened and registered. Effectiveness: controlled BP. Adoption: facilities delivering. Implementation: protocol fidelity. Maintenance: year-5 control rate." }
+      loops:
+        - { type: Reinforcing, text: "Stock-outs raise dropout, fewer patients are controlled, and visible success weakens." }
+        - { type: Reinforcing, text: "Control success builds community trust, which increases screening." }
+        - { type: Reinforcing, text: "Workload shortens counselling, which lowers adherence." }
+        - { type: Balancing, text: "A rising uncontrolled backlog triggers supervisor attention." }
+      interventions: { individual: "Reminders, home BP monitoring.", family: "Family-based adherence support, salt reduction at home.", society: "Community screening, ASHA follow-up, supply-chain fixes." }
+
+    - title: "Diabetes Care in Practice: Modelling Gaps from Screening to Complications"
+      theme: Chronic disease
+      icon: droplet
+      text: A systems model of how programme design meets ground reality, with scenarios for individuals, families and communities.
+      details:
+        - { label: Documents, text: "NP-NCD guidelines, HWC and standard treatment protocols, state diabetes programme documents." }
+        - { label: What the model tracks, text: "Normoglycaemia; prediabetes; undiagnosed diabetes; diagnosed; controlled; complications (retinopathy, nephropathy, foot); mortality; medicine and test-strip stocks." }
+        - { label: Flows, text: "Incidence, screening, diagnosis, treatment initiation, glycaemic control, complication onset (with delay), dropout." }
+        - { label: Influencing factors, text: "Lifestyle support, diet and activity, test availability, cost burden, foot-care knowledge, diabetes distress, provider workload." }
+        - { label: Data sources, text: "ICMR-INDIAB, NFHS, NCD portal, facility records." }
+        - { label: AI and machine learning, text: "Gradient boosting with calibration; sequence models on repeated HbA1c or glucose if data exist; optional retinal image models (fine-tuned ViT or ConvNeXt) if the scheme includes eye screening." }
+        - { label: Surveys, text: "Adherence, diet and activity, foot care, cost, distress; frontline readiness and supplies." }
+        - { label: Link to hypertension, text: "Shared staff, platforms and supplies: common modules let both projects test shared-resource loops." }
+      loops:
+        - { type: Reinforcing, text: "Poor control leads to complications, which cause fear and disengagement, which worsen control." }
+        - { type: Balancing, text: "Lifestyle support leads to weight loss, which improves control and slows progression." }
+      interventions: { individual: "Self-management education.", family: "Shared meals, family support.", society: "Food environment, workplace and school programmes." }
+
+    - title: "From Policy to Plate: A Systems Model of Malnutrition Programmes and Anganwadi Services"
+      theme: Nutrition
+      icon: apple
+      text: Linking scheme documents, caregiver and worker feedback, and simulated pathways to better nutrition.
+      details:
+        - { label: Documents, text: "Poshan Abhiyaan and Poshan 2.0 guidelines, Anganwadi service norms, state nutrition mission documents." }
+        - { label: What the model tracks, text: "Children by age cohort and status: normal; moderate acute malnutrition; severe acute malnutrition; stunted; anaemic (women, adolescent girls); take-home ration stock; trained workers." }
+        - { label: Flows, text: "Onset, screening, referral, recovery, relapse, ageing between cohorts, ration delivery." }
+        - { label: Influencing factors, text: "Worker workload, ration supply, feeding practices, household food security, WASH, maternal education, app usability." }
+        - { label: Data sources, text: "POSHAN Tracker, NFHS, CNNS." }
+        - { label: AI and machine learning, text: "WHO growth standards for z-scores; tabular models for wasting risk; anomaly detection (Isolation Forest) on tracker records; optional image or video support for length and MUAC (research grade, validated carefully)." }
+        - { label: Surveys, text: "Caregivers: infant and young child feeding indicators, dietary diversity, food insecurity, ration receipt. Anganwadi workers: workload, app usability, training." }
+      loops:
+        - { type: Reinforcing, text: "Infection and malnutrition reinforce each other." }
+        - { type: Reinforcing, text: "Worker overload leads to missed growth monitoring and late detection, which increases workload." }
+      interventions: { individual: "Counselling.", family: "Kitchen gardens, ration and cash support.", society: "WASH, women's groups, convergence with health services." }
+
+    - title: "Midday Meal Delivery Under the Lens: Feedback Loops in School Nutrition Implementation"
+      theme: Nutrition
+      icon: utensils
+      text: Understanding how funds, food, attendance and community monitoring interact over five years.
+      details:
+        - { label: Documents, text: "PM POSHAN guidelines, Programme Approval Board minutes, state notifications, social audit reports." }
+        - { label: What the model tracks, text: "Enrolled children; regular attenders; children receiving meals; food grain stock; kitchen and cooking capacity; funds; nutritional status." }
+        - { label: Flows, text: "Enrolment, dropout, grain supply, fund release, meals served, incidents." }
+        - { label: Influencing factors, text: "Cook honorarium, fund delay, menu quality, food safety, community monitoring, social audit coverage." }
+        - { label: Data sources, text: "PM POSHAN MIS, UDISE+, Programme Approval Board documents." }
+        - { label: AI and machine learning, text: "Diet optimisation by linear programming for menu adequacy; plate-waste estimation with food-image segmentation (SAM plus a fine-tuned classifier); LLM analysis of social-audit reports; grain demand forecasting." }
+        - { label: Surveys, text: "Children (age-appropriate, with assent), parents, teachers and cooks (supply, hygiene, delays)." }
+        - { label: Ethics, text: "Surveys with children need ethics approval, parental consent and child assent." }
+      loops:
+        - { type: Reinforcing, text: "Better meals raise attendance, which strengthens community support for quality." }
+        - { type: Reinforcing, text: "Fund delay lowers quality, which reduces participation and weakens the case for funds." }
+      interventions: { individual: "Child-preference menu rotation.", family: "Parental participation in monitoring.", society: "Community monitoring, local procurement, timely fund flow." }
+
+    - title: "Strengthening Palliative Care Delivery: A Systems Modelling Study of Access, Caregiving and Support"
+      theme: Palliative care
+      icon: hand-heart
+      text: Identifying where the programme reaches people, where it does not, and what would help.
+      details:
+        - { label: What the model tracks, text: "Estimated population in need; identified; referred; enrolled; receiving home care; trained nurses and volunteers; opioid stock; caregiver burden." }
+        - { label: Flows, text: "Identification, referral, enrolment, deaths with or without care, volunteer recruitment and attrition." }
+        - { label: Influencing factors, text: "Opioid availability and licensing, funds, awareness, stigma, volunteer motivation, travel time." }
+        - { label: Data sources, text: "Programme records, state palliative data, mortality statistics for estimating need." }
+        - { label: AI and machine learning, text: "Need estimation from mortality and morbidity data; NLP on case notes with strict privacy handling; Whisper or Indic ASR for caregiver interviews; MuRIL or IndicBERT for theme and sentiment analysis." }
+        - { label: Surveys, text: "Patients and caregivers: IPOS, ESAS, Zarit Burden Interview. Providers: training, opioid access, workload, moral distress." }
+        - { label: Ethics, text: "Trauma-sensitive protocols; interviews can pause or stop; support referrals arranged." }
+      loops:
+        - { type: Reinforcing, text: "Volunteers raise community visibility, which raises referrals." }
+        - { type: Reinforcing, text: "Caregiver burnout leads to withdrawal, which lowers quality of care." }
+      interventions: { individual: "Symptom control.", family: "Caregiver training and respite.", society: "Volunteer networks, awareness, opioid regulatory support." }
+
+    - title: "Containing Foot-and-Mouth Disease and Lumpy Skin Disease in Cattle: Vaccination, Reporting and Farmer Behaviour in a Systems Model"
+      theme: Animal health
+      icon: syringe
+      text: Simulating outbreak and vaccination dynamics to guide field-level implementation.
+      details:
+        - { label: Documents, text: "National Animal Disease Control Programme (FMD), LSD control and vaccination guidance, NADRS reporting protocols, Bharat Pashudhan and tagging documents." }
+        - { label: What the model tracks, text: "Susceptible; vaccinated (immune, waning); exposed; infectious; recovered; dead; vaccine doses; cold-chain capacity; vaccinators. For LSD, a vector population (flies, mosquitoes, ticks)." }
+        - { label: Flows, text: "Vaccination, waning, infection, recovery, culling or death, animal movement, vector growth." }
+        - { label: Influencing factors, text: "Cold-chain capacity, vaccinator availability, reporting delay, market and movement, compensation, farmer awareness, rainfall and temperature." }
+        - { label: Data sources, text: "NADRS, vaccination dashboards, ear-tag data, climate data." }
+        - { label: AI and machine learning, text: "Outbreak prediction with random forest or XGBoost using climate and movement covariates; spatial analysis (geopandas, Moran's I); skin-lesion image classifier for LSD (fine-tuned DINOv2, ViT or YOLO) as a frontline aid; SEIR parameter estimation with Bayesian calibration; optional agent-based village model." }
+        - { label: Surveys, text: "Farmers: knowledge, attitudes and practices, vaccination barriers, reporting behaviour. Veterinarians and para-vets: cold chain, logistics, workload. Voice interviews in local languages." }
+        - { label: Implementation strategies (ERIC), text: "Develop supply and distribution systems; train and educate stakeholders; build a coalition; financial strategies (compensation); monitoring and feedback." }
+      loops:
+        - { type: Balancing, text: "An outbreak raises awareness, which raises vaccine uptake and reduces spread." }
+        - { type: Reinforcing, text: "Fear of restrictions causes under-reporting, which causes larger outbreaks." }
+      interventions: { individual: "Farmer education.", family: "Household livestock management.", society: "Cooperative-based vaccination, movement control, fair compensation." }
