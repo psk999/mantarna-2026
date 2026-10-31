@@ -38,6 +38,10 @@ defaults:
   - scope: { path: "" }
     values: { layout: default }
 
+# _headers: security headers for Cloudflare (Jekyll skips files starting with _ unless listed)
+include:
+  - _headers
+
 exclude:
   - Gemfile
   - Gemfile.lock
