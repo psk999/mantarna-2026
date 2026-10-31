@@ -28,9 +28,9 @@ seo:
   topics: [Healthcare technology, Artificial intelligence in healthcare, Machine learning, Healthcare interoperability, HL7 FHIR, Digital pathology, Medical image analysis, Clinical decision support, Implementation research]
   partners: [Sri Sathya Sai Institute of Higher Learning (SSSIHL), Sri Sathya Sai Institute of Higher Medical Sciences (SSSIHMS), SSSRIF, IIC]
 
-# Preview: when true, every page asks search engines not to index it and robots.txt blocks crawlers.
-# Set to false at public launch; robots.txt then allows search and AI crawlers and lists the sitemap.
-noindex: true
+# When true (preview), every page asks search engines not to index it and robots.txt blocks crawlers.
+# False (live): robots.txt allows search and AI crawlers and lists the sitemap.
+noindex: false
 
 defaults:
   - scope: { path: "" }

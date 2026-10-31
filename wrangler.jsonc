@@ -11,6 +11,10 @@
     { "pattern": "mantranatech.ai", "custom_domain": true },
     { "pattern": "www.mantranatech.ai", "custom_domain": true }
   ],
+  // Serve only on mantranatech.ai: no copy at mantranahealthcare.sssihl-depts.workers.dev.
+  // QA previews (wrangler versions upload --preview-alias qa) still get their preview URL.
+  "workers_dev": false,
+  "preview_urls": true,
   "assets": {
     "directory": "./_site",
     "html_handling": "auto-trailing-slash",

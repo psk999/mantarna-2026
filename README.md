@@ -1,7 +1,7 @@
 # Mantrana Healthcare website
 
 Static site for Mantrana Healthcare Technology Pvt. Ltd. — *Human Wisdom, Machine Intelligence*.
-Built with Jekyll 4.4 and Tailwind CSS v4, served from Cloudflare Workers static assets
+Built with Jekyll 4.4 and Tailwind CSS v4, served at https://mantranatech.ai from Cloudflare Workers static assets
 (the same setup as the SSSIHL–CADS portal).
 
 ## Edit the content
@@ -90,7 +90,10 @@ wording from the internal company deck (confidential markings, commercial plans)
   crawlers once indexing is on.
 - Settings live under `seo:` and `url:` in `_config.yml`.
 
-## Before public launch
+## Domain
 
-The site is in preview and asks search engines not to index it. At launch, set `url:` to the live domain
-and `noindex: false` in `_config.yml`; `robots.txt` then allows search and AI crawlers and lists the sitemap.
+The site is live at https://mantranatech.ai (DNS on Cloudflare, registered at GoDaddy). `wrangler.jsonc`
+attaches `mantranatech.ai` and `www.mantranatech.ai` to the Worker as custom domains and turns off the
+`workers.dev` address. All canonical links, share previews, the sitemap, structured data and `llms.txt`
+take the domain from `url:` in `_config.yml`. `noindex: true` there puts the site back in preview: every
+page asks search engines not to index it and `robots.txt` blocks crawlers.
