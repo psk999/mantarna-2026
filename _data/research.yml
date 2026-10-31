@@ -1,9 +1,10 @@
 # Words for the Research page (/research/), from the company presentation (slides 9 and 11-13).
 
 intro: >-
-  Research at Mantrana starts with real clinical questions. Some projects are already in development;
-  others are being shaped with clinicians at SSSIHMS, where AI can make a difference in day-to-day
-  hospital work.
+  Research at Mantrana starts with real questions from the field and the clinic. Social welfare
+  analytics models how public health and welfare programmes work on the ground. In the hospital, some
+  projects are already in development; others are being shaped with clinicians at SSSIHMS, where AI
+  can make a difference in day-to-day hospital work.
 
 applications:
   heading: Applications in development

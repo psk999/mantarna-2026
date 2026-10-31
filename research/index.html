@@ -1,6 +1,6 @@
 ---
 title: Research
-description: "Healthcare AI research at Mantrana: clinical prediction models in development, 16 hospital AI projects in discussion with SSSIHMS, and social welfare analytics."
+description: "Research at Mantrana: six social welfare analytics projects on public health and welfare programmes, clinical prediction models in development, and 16 hospital AI projects in discussion with SSSIHMS."
 schema_type: CollectionPage
 permalink: /research/
 ---
@@ -13,10 +13,12 @@ permalink: /research/
     <p class="label text-clay">Research</p>
     <h1 class="mt-6 text-[clamp(44px,7.4vw,96px)] leading-[1.02]">Research</h1>
     <p class="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted sm:text-xl">{{ r.intro }}</p>
+    <!-- One figure per section below, in page order -->
+    {%- assign sw_count = site.data.social_welfare.projects.items.size %}
     <dl class="mt-12 grid max-w-2xl grid-cols-3 border-t border-line">
-      <div class="border-r border-line py-5 pr-4"><dt class="label">In development</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ r.applications.items.size }}</dd></div>
-      <div class="border-r border-line px-4 py-5"><dt class="label">In discussion</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ project_count }}</dd></div>
-      <div class="py-5 pl-4"><dt class="label">Themes</dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ r.projects.groups.size }}</dd></div>
+      <div class="border-r border-line py-5 pr-4"><dt class="label"><a class="no-underline hover:text-clay" href="#social-welfare-analytics">Social welfare</a></dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ sw_count }}</dd></div>
+      <div class="border-r border-line px-4 py-5"><dt class="label"><a class="no-underline hover:text-clay" href="#applications">In development</a></dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ r.applications.items.size }}</dd></div>
+      <div class="py-5 pl-4"><dt class="label"><a class="no-underline hover:text-clay" href="#projects">With SSSIHMS</a></dt><dd class="mt-2 font-serif text-[40px] leading-none text-ink" data-count>{{ project_count }}</dd></div>
     </dl>
   </div>
 </section>
