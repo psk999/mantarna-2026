@@ -41,6 +41,8 @@ layout: default
           <a class="flex items-center gap-3.5 text-ink no-underline hover:text-clay" href="{{ p.url }}" target="_blank" rel="noopener noreferrer"{% if copy > 1 %} tabindex="-1"{% endif %} title="{{ p.full | default: p.name }}">
             {%- if p.logo %}
             <img class="size-12 shrink-0 rounded-full bg-white object-contain" src="{{ p.logo | relative_url }}" alt="" width="48" height="48" loading="lazy" decoding="async">
+            {%- elsif p.icon %}
+            <span class="grid size-12 shrink-0 place-items-center rounded-full border border-line-strong bg-surface text-[22px] text-clay">{% include icon.html name=p.icon %}</span>
             {%- else %}
             <span class="grid size-12 shrink-0 place-items-center rounded-full border border-line-strong bg-surface font-mono text-[11px] font-medium tracking-wide text-clay">{{ p.name }}</span>
             {%- endif %}
