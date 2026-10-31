@@ -131,3 +131,17 @@
   .marquee-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; row-gap: 1.5rem; }
   .marquee-copy { display: none; }
 }
+
+/* Footer (always dark): column headings and links, the aurora canvas fading in once it draws, and the
+   large wordmark that fades out towards the bottom edge. */
+@layer components {
+  .footer-head { @apply font-mono text-[11.5px] tracking-[0.16em] text-[#87867f] uppercase; }
+  .footer-link { @apply text-[#c9c7bf] no-underline transition-colors hover:text-[#faf9f5]; }
+}
+.footer-aurora { opacity: 0; transition: opacity 1.2s ease; }
+.footer-aurora.is-on { opacity: 1; }
+.footer-wordmark {
+  font-size: clamp(88px, 22vw, 320px);
+  background: linear-gradient(180deg, rgba(250, 249, 245, 0.14) 0%, rgba(250, 249, 245, 0.02) 75%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}

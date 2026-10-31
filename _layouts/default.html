@@ -83,28 +83,78 @@
 {{ content }}
 </main>
 
-<footer class="bg-night pt-14 pb-10 text-sm text-[#b0aea5]">
-  <div class="mx-auto grid max-w-7xl gap-x-10 gap-y-7 px-4 sm:px-6 md:grid-cols-[1fr_auto] lg:px-10">
-    <div class="flex items-center gap-3.5">
-      <img class="size-10 object-contain" src="{{ '/assets/img/mantrana-mark-light.png' | relative_url }}" alt="" width="40" height="40">
-      <p class="font-serif text-[22px] leading-snug text-[#faf9f5]">{{ site.tagline }}</p>
+{%- assign f = site.data.footer %}
+<!-- Footer: React Bits Aurora behind a call to action, link columns, and a large wordmark.
+     The aurora canvas is drawn by assets/js/footer-aurora.js; the radial glow below it is the fallback. -->
+<footer class="relative isolate overflow-hidden bg-night text-[15px] text-[#b0aea5]">
+  <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-[radial-gradient(60%_70%_at_50%_0%,rgba(155,140,255,0.22),transparent_70%),radial-gradient(40%_50%_at_15%_0%,rgba(198,97,63,0.22),transparent_70%)]" aria-hidden="true"></div>
+  <canvas class="footer-aurora pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] w-full" data-footer-aurora aria-hidden="true"></canvas>
+  <div class="pointer-events-none absolute inset-x-0 top-[360px] -z-10 h-[160px] bg-gradient-to-b from-transparent to-night" aria-hidden="true"></div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+    <!-- call to action -->
+    <div class="pt-24 pb-16 lg:pt-32 lg:pb-20">
+      <p class="font-mono text-[12px] tracking-[0.18em] text-[#e8b9a6] uppercase">{{ f.label }}</p>
+      <h2 class="mt-5 max-w-[22ch] font-serif text-[clamp(34px,5.4vw,68px)] leading-[1.05] tracking-tight text-[#faf9f5]">{{ f.heading }}</h2>
+      <p class="mt-6 max-w-[56ch] text-[17px] leading-relaxed text-[#c9c7bf]">{{ f.text }}</p>
+      <p class="mt-9 flex flex-wrap gap-3">
+        <a class="inline-flex items-center gap-2 rounded-full bg-[#faf9f5] px-5 py-3 text-[15px] font-medium text-[#141413] no-underline transition hover:bg-[#c6613f] hover:text-white" href="mailto:{{ site.email }}">{% include icon.html name="mail" %} {{ f.cta_email }}</a>
+        <a class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-[15px] font-medium text-[#faf9f5] no-underline backdrop-blur transition hover:border-white/40 hover:bg-white/10" href="{{ '/internships/' | relative_url }}">{{ f.cta_intern }} {% include icon.html name="arrow-right" %}</a>
+      </p>
     </div>
-    <nav class="flex flex-wrap gap-x-6 gap-y-2 md:justify-end" aria-label="Footer">
-      {%- for item in site.data.nav %}
-      <a class="no-underline hover:text-[#faf9f5]" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-      {%- endfor %}
-    </nav>
-    <p class="flex flex-wrap gap-x-6 gap-y-2 md:col-span-2">
-      {%- for s in site.social %}
-      <a class="inline-flex items-center gap-2 no-underline hover:text-[#faf9f5]" href="{{ s.url }}" target="_blank" rel="noopener noreferrer me">{% include icon.html name=s.icon %} {{ s.name }}</a>
-      {%- endfor %}
-      <a class="inline-flex items-center gap-2 no-underline hover:text-[#faf9f5]" href="mailto:{{ site.email }}">{% include icon.html name="mail" %} {{ site.email }}</a>
-    </p>
-    <p class="border-t border-[#30302e] pt-6 md:col-span-2">© {{ site.time | date: "%Y" }} {{ site.legal_name }}</p>
+
+    <!-- link columns -->
+    <div class="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-white/10 py-14 sm:gap-x-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.2fr]">
+      <div class="col-span-2 lg:col-span-1">
+        <a class="inline-flex items-center gap-3 no-underline" href="{{ '/' | relative_url }}">
+          <img class="size-10 object-contain" src="{{ '/assets/img/mantrana-mark-light.png' | relative_url }}" alt="" width="40" height="40" loading="lazy">
+          <span class="flex flex-col leading-tight"><b class="text-[15px] font-semibold text-[#faf9f5]">{{ site.short_name }}</b><small class="text-[13px] text-[#b0aea5]">{{ site.tagline }}</small></span>
+        </a>
+        <p class="mt-5 max-w-[34ch] text-[14px] leading-relaxed">{{ site.description | strip_newlines | strip }}</p>
+      </div>
+      <nav aria-label="Footer: explore">
+        <p class="footer-head">{{ f.columns.explore.title }}</p>
+        <ul class="mt-4 space-y-2.5">
+          {%- for item in site.data.nav %}<li><a class="footer-link" href="{{ item.url | relative_url }}">{{ item.title }}</a></li>{% endfor %}
+        </ul>
+      </nav>
+      <nav aria-label="Footer: research">
+        <p class="footer-head">{{ f.columns.research.title }}</p>
+        <ul class="mt-4 space-y-2.5">
+          {%- for item in f.columns.research.links %}<li><a class="footer-link" href="{{ item.url | relative_url }}">{{ item.title }}</a></li>{% endfor %}
+        </ul>
+      </nav>
+      <nav aria-label="Footer: partners">
+        <p class="footer-head">{{ f.columns.partners.title }}</p>
+        <ul class="mt-4 space-y-2.5">
+          {%- for p in site.data.home.partners %}<li><a class="footer-link" href="{{ p.url }}" target="_blank" rel="noopener noreferrer" title="{{ p.full | default: p.name }}">{{ p.name }}</a></li>{% endfor %}
+        </ul>
+      </nav>
+      <div class="col-span-2 sm:col-span-1">
+        <p class="footer-head">{{ f.columns.connect.title }}</p>
+        <ul class="mt-4 space-y-2.5">
+          <li><a class="footer-link inline-flex items-center gap-2 break-all" href="mailto:{{ site.email }}">{% include icon.html name="mail" class="shrink-0" %} {{ site.email }}</a></li>
+          {%- for s in site.social %}
+          <li><a class="footer-link inline-flex items-center gap-2" href="{{ s.url }}" target="_blank" rel="noopener noreferrer me">{% include icon.html name=s.icon %} {{ s.name }}</a></li>
+          {%- endfor %}
+          <li><a class="footer-link inline-flex items-center gap-2" href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer">{% include icon.html name="arrow-up-right" %} {{ f.columns.connect.apply }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- bottom bar -->
+    <div class="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 py-7 text-[13.5px]">
+      <p>© {{ site.time | date: "%Y" }} {{ site.legal_name }}</p>
+      <a class="footer-link inline-flex items-center gap-2" href="#main">{{ f.back_to_top }} {% include icon.html name="arrow-up" %}</a>
+    </div>
   </div>
+
+  <!-- wordmark: decorative, fades into the bottom edge -->
+  <p class="footer-wordmark pointer-events-none -mb-[0.22em] text-center font-serif leading-none tracking-tight select-none" aria-hidden="true">{{ site.short_name }}</p>
 </footer>
 
 <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+<script type="module" src="{{ '/assets/js/footer-aurora.js' | relative_url }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>

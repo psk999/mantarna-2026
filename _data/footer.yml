@@ -1,0 +1,28 @@
+# Words and links for the site footer (_layouts/default.html).
+# The Explore column is the header menu (_data/nav.yml); Partners comes from _data/home.yml.
+
+label: Work with us
+heading: Human wisdom, machine intelligence, for healthcare that works on the ground.
+text: >-
+  Hospitals, researchers and students: bring a question from the clinic or the field, and we will
+  work on it together.
+cta_email: Email us
+cta_intern: Internships
+
+columns:
+  research:
+    title: Research
+    links:
+      - { title: Social Welfare Analytics, url: "/research/social-welfare-analytics/" }
+      - { title: Applications in development, url: "/research/#applications" }
+      - { title: Projects with SSSIHMS, url: "/research/#projects" }
+      - { title: The platform, url: "/platform/" }
+  explore:
+    title: Explore
+  partners:
+    title: Partners
+  connect:
+    title: Connect
+    apply: Apply for an internship
+
+back_to_top: Back to top

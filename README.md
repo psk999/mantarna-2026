@@ -9,7 +9,8 @@ Built with Jekyll 4.4 and Tailwind CSS v4, served at https://mantranatech.ai fro
 | What | Where |
 | --- | --- |
 | Hero line, partners, Vision/Collaboration/Opportunity, About, Internships, Contact text | `_data/home.yml` |
-| Header and footer links | `_data/nav.yml` |
+| Header links (also the footer's Explore column) | `_data/nav.yml` |
+| Footer call to action and link columns | `_data/footer.yml` |
 | Company name, tagline, Apply form link | `_config.yml` |
 | Founder profiles, contact emails, the satellites-to-slides story | `_data/founders.yml` |
 | About page (story, approach, innovation cycle) | `_data/about.yml` |
@@ -49,6 +50,9 @@ headings, `font-sans` (Inter) for text, `font-mono` (JetBrains Mono) for labels.
 - **Hero background** (home page): two WebGL styles ported from React Bits, picked with the buttons left of
   the theme toggle and remembered per visitor: **Lines** (`assets/js/magnet-lines.js`, default) and
   **Waves** (`assets/js/pattern-waves.js`, loads `ogl` only when chosen). Settings: `assets/js/hero-background.js`.
+- **Footer background:** the React Bits Aurora effect in the logo's lavender and the site's clay (`assets/js/footer-aurora.js`,
+  raw WebGL2, no extra download). It starts when the footer scrolls into view, renders at half resolution and stops
+  off screen; reduced-motion visitors get a still frame, and browsers without WebGL2 see a CSS glow.
 - **Animations:** GSAP 3.13 with ScrollTrigger and SplitText (`assets/js/motion.js`). Mark elements with
   `data-intro`, `data-reveal`, `data-stagger="0.08"` or `data-count`. Reduced-motion visitors see no animation.
 
