@@ -14,7 +14,7 @@
     window.matchMedia('(min-width: 1280px)').addEventListener('change', function (m) { if (m.matches) setMenu(false); });
   }
 
-  /* theme toggle: follows the device until the viewer chooses */
+  /* theme toggle: light until the viewer chooses */
   var root = document.documentElement, btns = document.querySelectorAll('.theme button');
   function current() { return root.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
   function sync() {

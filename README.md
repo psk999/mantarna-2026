@@ -38,7 +38,8 @@ Tailwind utilities go straight in the HTML. The palette (ivory paper, warm grays
 after anthropic.com and claude.com) is a set of CSS variables in `_tailwind/site.css`, exposed as
 Tailwind colours: `bg-paper`, `bg-surface`, `bg-surface-2`, `text-ink`, `text-body`, `text-muted`,
 `text-faint`, `border-line`, `border-line-strong`, `text-clay`, `bg-clay-soft`. They switch for dark
-mode on their own, so no `dark:` variants are needed. Fonts: `font-serif` (Source Serif 4) for
+mode on their own, so no `dark:` variants are needed. The site opens in light mode for every visitor; the
+toggle in the header switches to dark and is remembered per visitor. Fonts: `font-serif` (Source Serif 4) for
 headings, `font-sans` (Inter) for text, `font-mono` (JetBrains Mono) for labels. Shared classes:
 `label`, `btn`, `btn-primary`.
 
