@@ -4,11 +4,15 @@ lede: >-
   A collaborative healthcare transformation initiative connecting institutions, research,
   innovation, and digital technology for meaningful healthcare impact.
 
+# Partner institutions: the moving strip below the hero and the collaboration banner.
+# logo: a round seal in assets/img/ (partners without one show their initials until a logo is added).
 partners:
-  - { name: SSSIHL, url: "https://sssihl.edu.in" }
-  - { name: SSSIHMS, url: "https://whitefield.sssihms.org/" }
+  - { name: SSSIHL, full: "Sri Sathya Sai Institute of Higher Learning", url: "https://sssihl.edu.in", logo: /assets/img/partner-sssihl.webp }
+  - { name: SSSIHMS, full: "Sri Sathya Sai Institute of Higher Medical Sciences", url: "https://whitefield.sssihms.org/", logo: /assets/img/partner-sssihms.webp }
   - { name: SSSRIF, url: "https://sssrif.org/" }
   - { name: IIC, url: "https://iic.sssihl.edu.in/" }
+
+partners_strip: In collaboration with
 
 pillars:
   - title: Vision

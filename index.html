@@ -28,6 +28,35 @@ layout: default
   </div>
 </section>
 
+<!-- Partner strip: the partner list scrolls in a loop (four copies, the track moves by half);
+     with reduced motion it is one centred, still row -->
+<section class="border-t border-line py-12 lg:py-16" aria-labelledby="partners-strip">
+  <p class="label text-center" id="partners-strip">{{ h.partners_strip }}</p>
+  <div class="marquee mx-auto mt-8 max-w-7xl overflow-hidden">
+    <div class="marquee-track flex w-max items-center">
+      {%- for copy in (1..4) %}
+      <ul class="flex items-center{% if copy > 1 %} marquee-copy{% endif %}"{% if copy > 1 %} aria-hidden="true"{% else %} aria-label="Partner institutions"{% endif %}>
+        {%- for p in h.partners %}
+        <li class="px-6 sm:px-10">
+          <a class="flex items-center gap-3.5 text-ink no-underline hover:text-clay" href="{{ p.url }}" target="_blank" rel="noopener noreferrer"{% if copy > 1 %} tabindex="-1"{% endif %} title="{{ p.full | default: p.name }}">
+            {%- if p.logo %}
+            <img class="size-12 shrink-0 rounded-full bg-white object-contain" src="{{ p.logo | relative_url }}" alt="" width="48" height="48" loading="lazy" decoding="async">
+            {%- else %}
+            <span class="grid size-12 shrink-0 place-items-center rounded-full border border-line-strong bg-surface font-mono text-[11px] font-medium tracking-wide text-clay">{{ p.name }}</span>
+            {%- endif %}
+            <span class="flex flex-col leading-tight">
+              <span class="font-serif text-[22px] whitespace-nowrap">{{ p.name }}</span>
+              {%- if p.full %}<span class="mt-0.5 hidden text-[12.5px] whitespace-nowrap text-muted sm:block">{{ p.full }}</span>{% endif %}
+            </span>
+          </a>
+        </li>
+        {%- endfor %}
+      </ul>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
 <section class="scroll-mt-20 border-t border-line py-20 lg:py-28" id="about">
   <div class="{{ wrap }} grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
     <p class="label text-clay md:pt-3">About Mantrana</p>
